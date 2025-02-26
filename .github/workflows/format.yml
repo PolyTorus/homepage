@@ -22,7 +22,7 @@ jobs:
       - name: Format
         run: |
           npm ci
-          npm run prettier
+          npm run format
 
       - name: Commit
         run: |
