@@ -1,6 +1,5 @@
-'use client'
-import { Text, Box } from '@yamada-ui/react'
-import { PageLayout } from '@/components'
+import { Text, Box } from "@yamada-ui/react";
+import { PageLayout } from "@/components";
 
 export default function Home() {
   return (
@@ -11,5 +10,5 @@ export default function Home() {
         </Text>
       </Box>
     </PageLayout>
-  )
+  );
 }
