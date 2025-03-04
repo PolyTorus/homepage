@@ -2,14 +2,14 @@
 import { Text, Box } from '@yamada-ui/react'
 import { PageLayout } from '@/components'
 
-export default function Blog() {
+export default function Home() {
   return (
-    <PageLayout title="Blog">
+    <PageLayout title="Home">
       <Box>
         <Text fontSize="lg" lineHeight="tall">
-          Coming soon...
+          Welcome to Polytorus
         </Text>
       </Box>
     </PageLayout>
   )
-} 
+}

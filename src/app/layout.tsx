@@ -1,22 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_JP } from "next/font/google";
-import "@/app/styles/globals.css";
-import Sidebar from "@/app/components/Sidebar";
-import { UIProvider } from '@yamada-ui/react'
-import { theme } from '@/app/theme'
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-});
-
-const notoSansJP = Noto_Sans_JP({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  display: 'swap',
-  variable: '--font-noto-sans',
-});
+import { Box } from '@yamada-ui/react'
+import { Sidebar, Provider } from '@/components'
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "Polytorus Homepage",
@@ -26,18 +11,26 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html lang="ja" className={`${inter.variable} ${notoSansJP.variable}`}>
+    <html lang="en">
       <body>
-        <UIProvider theme={theme} colorMode="dark">
-          <div style={{ paddingLeft: '200px' }}>
-            <Sidebar />
+        <Provider>
+          <Sidebar />
+          <Box
+            as="main"
+            sx={{
+              marginLeft: '260px',
+              padding: '30px',
+              minHeight: '100vh',
+              backgroundColor: '#1A1D1F',
+            }}
+          >
             {children}
-          </div>
-        </UIProvider>
+          </Box>
+        </Provider>
       </body>
     </html>
-  );
+  )
 }
