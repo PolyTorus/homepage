@@ -1,13 +1,13 @@
 interface Dark {
   type: "dark";
-  bg: "#32373c";
-  color: "#DAD7D3";
+  bg: "#32373c"; 
+  color: "#E8E6E3"; 
 }
 
 interface Light {
   type: "light";
-  bg: "#DAD7D3";
-  color: "#32373c";
+  bg: "#F2F1EE"; 
+  color: "#32373c"; 
 }
 
 export type ModeState = Dark | Light;

@@ -2,7 +2,7 @@
 
 import { useDarkLight } from "@/libs/dark-light";
 import { Box } from "@yamada-ui/react";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 interface Props {
   children: ReactNode;
@@ -10,19 +10,28 @@ interface Props {
 
 export function MainLayout({ children }: Props) {
   const { state } = useDarkLight();
+  const [mounted, setMounted] = useState(false);
 
-  return (
-    <Box
-      as="main"
-      sx={{
+  // Fix hydration mismatch by only applying styles after client-side hydration
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Use a default style if not yet mounted to prevent hydration mismatch
+  const mainStyle = mounted
+    ? {
         marginLeft: "260px",
         padding: "30px",
         minHeight: "100vh",
         bg: state.bg,
         color: state.color,
-      }}
-    >
-      {children}
-    </Box>
-  );
+      }
+    : {
+        marginLeft: "260px",
+        padding: "30px",
+        minHeight: "100vh",
+        // No dynamic styles before hydration
+      };
+
+  return <Box as="main" sx={mainStyle}>{children}</Box>;
 }
