@@ -9,7 +9,7 @@ export const darkLightContext = createReducerContext<ModeState, ModeAction>({
   reducer: darkLightReducer,
   initialState: {
     type: "light",
-    bg: "#DAD7D3",
+    bg: "#F2F1EE",
     color: "#32373c",
   },
 });

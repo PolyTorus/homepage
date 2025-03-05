@@ -1,10 +1,16 @@
 "use client";
 import { useDarkLight } from "@/libs/dark-light";
 import { SunIcon } from "@yamada-ui/lucide";
-import { Button } from "@yamada-ui/react";
+import { useEffect, useState } from "react";
 
 export function ModeChange() {
   const { state, changeMode } = useDarkLight();
+  const [mounted, setMounted] = useState(false);
+
+  // Fix hydration mismatch by only applying styles after client-side hydration
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleClick = () => {
     if (state.type === "dark") {
@@ -14,22 +20,20 @@ export function ModeChange() {
     }
   };
 
+  // Don't render the button until after client-side hydration
+  if (!mounted) {
+    return null;
+  }
+
   return (
-    <Button
+    <SunIcon
       onClick={handleClick}
       sx={{
         color: state.color,
-        backgroundColor: state.bg,
-        width: 10,
-        height: 10,
-        borderRadius: "50%",
+        fontSize: 24,
         marginTop: 3,
+        cursor: "pointer",
       }}
-      _hover={{
-        backgroundColor: state.bg,
-      }}
-    >
-      <SunIcon sx={{ fontSize: 40 }} />
-    </Button>
+    />
   );
 }
