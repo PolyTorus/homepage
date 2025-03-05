@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, List, ListItem, Heading, Icon } from "@yamada-ui/react";
 import { usePathname } from "next/navigation";
-import { FaHome, FaInfoCircle, FaBlog } from "react-icons/fa";
+import { FaHome, FaInfoCircle, FaBlog, FaUsers } from "react-icons/fa";
 import { useDarkLight } from "@/libs/dark-light";
 import Link from "next/link";
 
@@ -10,6 +10,7 @@ const MENU_ITEMS = [
   { label: "Home", href: "/", icon: FaHome },
   { label: "About", href: "/about", icon: FaInfoCircle },
   { label: "Blog", href: "/blog", icon: FaBlog },
+  { label: "Developers", href: "/developers", icon: FaUsers },
 ] as const;
 
 const styles = {
