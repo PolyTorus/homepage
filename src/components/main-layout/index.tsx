@@ -1,6 +1,7 @@
 "use client";
 
 import { useDarkLight } from "@/libs/dark-light";
+import { LIGHT_BG } from "@/theme";
 import { Box } from "@yamada-ui/react";
 import { ReactNode, useEffect, useState } from "react";
 
@@ -30,8 +31,13 @@ export function MainLayout({ children }: Props) {
         marginLeft: "260px",
         padding: "30px",
         minHeight: "100vh",
+        bg: LIGHT_BG,
         // No dynamic styles before hydration
       };
 
-  return <Box as="main" sx={mainStyle}>{children}</Box>;
+  return (
+    <Box as="main" sx={mainStyle}>
+      {children}
+    </Box>
+  );
 }

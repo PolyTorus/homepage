@@ -1,3 +1,4 @@
+import { DARK_BG, DARK_COLOR, LIGHT_BG, LIGHT_COLOR } from "@/theme";
 import { ModeAction, ModeState } from "./dark-light.type";
 
 export function darkLightReducer(
@@ -8,20 +9,20 @@ export function darkLightReducer(
     case "dark":
       return {
         type: "dark",
-        bg: "#32373c", 
-        color: "#E8E6E3",
+        bg: DARK_BG,
+        color: DARK_COLOR,
       };
     case "light":
       return {
         type: "light",
-        bg: "#F2F1EE", 
-        color: "#32373c", 
+        bg: LIGHT_BG,
+        color: LIGHT_COLOR,
       };
     default:
       return {
         type: "dark",
-        bg: "#32373c",
-        color: "#E8E6E3",
+        bg: DARK_BG,
+        color: DARK_COLOR,
       };
   }
 }
