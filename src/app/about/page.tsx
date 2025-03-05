@@ -1,6 +1,5 @@
-'use client'
-import { Text } from '@yamada-ui/react'
-import { PageLayout } from '@/components'
+import { Text } from "@yamada-ui/react";
+import { PageLayout } from "@/components";
 
 export default function About() {
   return (
@@ -9,5 +8,5 @@ export default function About() {
         Welcome to the About page...
       </Text>
     </PageLayout>
-  )
+  );
 }
