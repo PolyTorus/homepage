@@ -128,7 +128,7 @@ export default function Sidebar() {
       }
     : {
         ...styles.sidebar,
-        visibility: "hidden" as "hidden", // Hide until client-side hydration is complete
+        visibility: "hidden" as const, // Hide until client-side hydration is complete
       };
 
   return (
