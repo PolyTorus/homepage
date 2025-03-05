@@ -4,13 +4,14 @@ import { createReducerContext } from "@/utils/context";
 import { ModeAction, ModeState } from "./dark-light.type";
 import { darkLightReducer } from "./dark-light.reducer";
 import { ReactNode } from "react";
+import { LIGHT_BG, LIGHT_COLOR } from "@/theme";
 
 export const darkLightContext = createReducerContext<ModeState, ModeAction>({
   reducer: darkLightReducer,
   initialState: {
     type: "light",
-    bg: "#F2F1EE",
-    color: "#32373c",
+    bg: LIGHT_BG,
+    color: LIGHT_COLOR,
   },
 });
 

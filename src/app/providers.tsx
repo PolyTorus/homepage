@@ -1,10 +1,10 @@
 "use client";
 import { UIProvider } from "@yamada-ui/react";
-import { theme } from "@/theme";
+import { yamadaTheme } from "@/theme";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <UIProvider theme={theme} colorMode="dark">
+    <UIProvider theme={yamadaTheme} colorMode="dark">
       {children}
     </UIProvider>
   );
