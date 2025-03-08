@@ -5,13 +5,14 @@ import { styles } from "./style";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useDarkLight } from "@/libs/dark-light";
-import { FaBlog, FaHome, FaInfoCircle, FaUsers } from "react-icons/fa";
+import { FaBlog, FaHome, FaInfoCircle, FaUsers, FaEnvelope } from "react-icons/fa";
 
 export const MENU_ITEMS = [
   { label: "Home", href: "/", icon: FaHome },
   { label: "About", href: "/about", icon: FaInfoCircle },
   { label: "Blog", href: "/blog", icon: FaBlog },
   { label: "Developers", href: "/developers", icon: FaUsers },
+  { label: "Contact", href: "/contact", icon: FaEnvelope },
 ] as const;
 
 export function NavLink() {
