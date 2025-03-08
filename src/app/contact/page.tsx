@@ -94,11 +94,10 @@ export default function Contact() {
         <VStack gap="6" align="stretch">
           <Text textAlign="center" color="gray.600">
             お問い合わせはこちらのフォームからお願いします。
-            <Text as="span" color="red.500">*</Text>は必須項目です。
           </Text>
 
           <VStack gap="4">
-            <FormControl isRequired>
+            <FormControl>
               <Input
                 name="name"
                 placeholder="山田 太郎"
@@ -107,7 +106,7 @@ export default function Contact() {
               />
             </FormControl>
 
-            <FormControl isRequired>
+            <FormControl>
               <Input
                 name="email"
                 type="email"
