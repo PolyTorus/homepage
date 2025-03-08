@@ -69,3 +69,5 @@ export const DARK_BG = "#32373c" as const;
 export const LIGHT_BG = "#F2F1EE" as const;
 export const DARK_COLOR = "#E8E6E3" as const;
 export const LIGHT_COLOR = "#32373c" as const;
+
+export const MEDIA_QUERY = "(max-width: 765px)";
