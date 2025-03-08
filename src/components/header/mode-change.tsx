@@ -50,7 +50,7 @@ export function ModeChange() {
       >
         <DrawerBody>
           <List marginLeft={5} marginTop={20}>
-            <NavLink />
+            <NavLink onClick={onClose} />
           </List>
         </DrawerBody>
       </Drawer>
