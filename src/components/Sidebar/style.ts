@@ -1,11 +1,16 @@
 export const styles = {
   sidebar: {
-    position: "fixed" as const,
-    top: 0,
-    left: 0,
+    position: "sticky" as const,
     width: "260px",
     height: "100vh",
     padding: "30px",
+  },
+  menu: {
+    position: "absolute" as const,
+    top: 25,
+    left: 5,
+    zIndex: 2,
+    fontSize: 40,
   },
   header: {
     marginBottom: "40px",
