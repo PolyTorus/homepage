@@ -4,6 +4,7 @@ export const styles = {
     width: "260px",
     height: "100vh",
     padding: "30px",
+    top: 0,
   },
   menu: {
     position: "absolute" as const,

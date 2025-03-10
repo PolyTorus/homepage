@@ -13,7 +13,14 @@ export function MainLayout({ children }: Props) {
   const { state } = useDarkLight();
 
   return (
-    <Box as="main" w="full" minHeight="100vh" bg={state.bg} color={state.color}>
+    <Box
+      as="main"
+      w="full"
+      h="full"
+      minHeight="100vh"
+      bg={state.bg}
+      color={state.color}
+    >
       <Header />
       {children}
     </Box>

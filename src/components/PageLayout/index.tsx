@@ -7,7 +7,7 @@ interface PageLayoutProps {
 
 export default function PageLayout({ title, children }: PageLayoutProps) {
   return (
-    <Box p={8}>
+    <Box p={8} flex={1} overflowY="auto">
       <Box maxW="container.xl" mx="auto">
         <Flex justifyContent="space-between">
           <Heading as="h1" size="2xl" mb={8}>
