@@ -22,14 +22,8 @@ export function Container({ children }: Props) {
   };
 
   return (
-    <>
-      <VStack
-        as="aside"
-        display={{ base: "flex", lg: "none" }}
-        sx={sidebarStyle}
-      >
-        {children}
-      </VStack>
-    </>
+    <VStack as="aside" display={{ base: "flex", lg: "none" }} sx={sidebarStyle}>
+      {children}
+    </VStack>
   );
 }

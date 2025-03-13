@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Sidebar, Provider, MainLayout } from "@/components";
 import "@/app/globals.css";
 import { ColorModeProvider } from "@/libs/dark-light";
-import { Flex } from "@yamada-ui/react";
+import { Box, Flex } from "@yamada-ui/react";
 
 export const metadata: Metadata = {
   title: "Polytorus Homepage",
@@ -19,10 +19,12 @@ export default function RootLayout({
       <body>
         <Provider>
           <ColorModeProvider>
-            <Flex>
-              <Sidebar />
-              <MainLayout>{children}</MainLayout>
-            </Flex>
+            <MainLayout>
+              <Flex>
+                <Sidebar />
+                <Box>{children}</Box>
+              </Flex>
+            </MainLayout>
           </ColorModeProvider>
         </Provider>
       </body>

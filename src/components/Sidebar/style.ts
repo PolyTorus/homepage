@@ -2,7 +2,7 @@ export const styles = {
   sidebar: {
     position: "sticky" as const,
     width: "260px",
-    height: "100vh",
+    h: "100vh",
     padding: "30px",
     top: 0,
   },
@@ -24,6 +24,7 @@ export const styles = {
   },
   list: {
     width: "100%",
+    marginTop: 10,
   },
   listItem: {
     width: "100%",
