@@ -12,7 +12,6 @@ import { PageLayout } from "@/components";
 import { useState, useEffect } from "react";
 
 export default function Contact() {
-  // 環境変数とマウント状態の管理
   const [webhookUrl, setWebhookUrl] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
