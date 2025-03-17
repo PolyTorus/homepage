@@ -7,7 +7,7 @@ import {
   JSX,
   ReactNode,
   useContext,
-  useReducer,
+  useReducer
 } from "react";
 
 interface ReducerContext<S, A> {
@@ -17,10 +17,10 @@ interface ReducerContext<S, A> {
 
 export function createReducerContext<S, A>({
   initialState,
-  reducer,
+  reducer
 }: ReducerContext<S, A>): [
   ({ children }: { children: ReactNode }) => JSX.Element,
-  () => [S, ActionDispatch<[action: A]>],
+  () => [S, ActionDispatch<[action: A]>]
 ] {
   const Context = createContext<
     Result<[S, ActionDispatch<[action: A]>], Error>

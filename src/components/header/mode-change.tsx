@@ -7,7 +7,7 @@ import {
   DrawerBody,
   HStack,
   List,
-  useDisclosure,
+  useDisclosure
 } from "@yamada-ui/react";
 import { MenuIcon } from "@yamada-ui/lucide";
 import { NavLink } from "../Sidebar/nav-link";
@@ -25,7 +25,7 @@ export function ModeChange() {
   };
 
   return (
-    <HStack w={20} marginRight={5} justifyContent="space-between">
+    <HStack marginRight={3} justifyContent="space-between">
       <SunIcon
         color={state.color}
         fontSize={24}

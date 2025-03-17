@@ -18,7 +18,7 @@ export function Container({ children }: Props) {
     ...styles.sidebar,
     backgroundColor: state.bg,
     color: state.color,
-    borderRight: `1px solid ${isDarkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(50, 55, 60, 0.2)"}`,
+    borderRight: `1px solid ${isDarkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(50, 55, 60, 0.2)"}`
   };
 
   return (

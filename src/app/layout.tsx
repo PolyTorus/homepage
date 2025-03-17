@@ -6,11 +6,11 @@ import { Box, Flex } from "@yamada-ui/react";
 
 export const metadata: Metadata = {
   title: "Polytorus Homepage",
-  description: "Polytorus Homepage",
+  description: "Polytorus Homepage"
 };
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {

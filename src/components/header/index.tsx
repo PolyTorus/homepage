@@ -1,6 +1,6 @@
 "use client";
 
-import { Heading, HStack } from "@yamada-ui/react";
+import { Box, Heading, HStack } from "@yamada-ui/react";
 import { ModeChange } from "./mode-change";
 import { useDarkLight } from "@/libs/dark-light";
 
@@ -18,16 +18,19 @@ export function Header() {
       <Heading
         as="h1"
         paddingLeft={7}
-        fontSize="2.5rem"
+        fontSize={30}
         fontWeight="bold"
         color={state.color}
       >
         Polytorus
       </Heading>
 
-      <HStack justifyContent="space-between">
+      <Box
+        display={{ base: "flex", lg: "block" }}
+        justifyContent="space-between"
+      >
         <ModeChange />
-      </HStack>
+      </Box>
     </HStack>
   );
 }
