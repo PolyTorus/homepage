@@ -4,31 +4,31 @@ export const styles = {
     width: "260px",
     h: "100vh",
     padding: "30px",
-    top: 0,
+    top: 0
   },
   menu: {
     position: "absolute" as const,
     top: 25,
     left: 5,
     zIndex: 2,
-    fontSize: 40,
+    fontSize: 40
   },
   header: {
     marginBottom: "40px",
     fontSize: "3.5rem",
     fontWeight: "bold",
-    textAlign: "center" as const,
+    textAlign: "center" as const
   },
   nav: {
-    width: "100%",
+    width: "100%"
   },
   list: {
     width: "100%",
-    marginTop: 10,
+    marginTop: 10
   },
   listItem: {
     width: "100%",
-    padding: "8px",
+    padding: "8px"
   },
   link: {
     base: {
@@ -39,7 +39,7 @@ export const styles = {
       alignItems: "center",
       gap: "16px",
       fontSize: "1.25rem",
-      transition: "all 0.2s ease",
-    },
-  },
+      transition: "all 0.2s ease"
+    }
+  }
 } as const;

@@ -17,13 +17,13 @@ export const createResult = {
   ok: <T>(value: T): Result<T, never> => {
     return {
       kind: RESULT_OK,
-      value,
+      value
     };
   },
   ng: <E>(value: E): Result<never, E> => {
     return {
       kind: RESULT_NG,
-      value,
+      value
     };
-  },
+  }
 };

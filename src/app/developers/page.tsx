@@ -9,7 +9,7 @@ const developers = [
     role: "リードエンジニア",
     description:
       "フロントエンド開発のリーダー。ReactとTypeScriptのスペシャリスト。",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=taro",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=taro"
   },
   {
     id: 2,
@@ -17,36 +17,36 @@ const developers = [
     role: "UIデザイナー",
     description:
       "ユーザーインターフェースとユーザーエクスペリエンスのデザインを担当。",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=hanako",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=hanako"
   },
   {
     id: 3,
     name: "鈴木 一郎",
     role: "バックエンドエンジニア",
     description: "サーバーサイドの開発とデータベース設計を担当。",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=ichiro",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=ichiro"
   },
   {
     id: 4,
     name: "高橋 雄太",
     role: "プロジェクトマネージャー",
     description: "プロジェクト全体の進行管理と調整を担当。",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=yuta",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=yuta"
   },
   {
     id: 5,
     name: "伊藤 美咲",
     role: "QAエンジニア",
     description: "品質保証とテスト自動化を担当。",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=misaki",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=misaki"
   },
   {
     id: 6,
     name: "渡辺 健太",
     role: "DevOpsエンジニア",
     description: "CI/CDパイプラインとインフラストラクチャの管理を担当。",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=kenta",
-  },
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=kenta"
+  }
 ];
 
 interface Developer {
@@ -68,7 +68,7 @@ const DeveloperCard = ({ developer }: { developer: Developer }) => {
       transition="all 0.3s"
       _hover={{
         transform: "translateY(-5px)",
-        boxShadow: "lg",
+        boxShadow: "lg"
       }}
     >
       <Flex direction="column" align="center">
@@ -106,7 +106,7 @@ export default function Developers() {
         templateColumns={{
           base: "repeat(1, 1fr)",
           md: "repeat(2, 1fr)",
-          lg: "repeat(3, 1fr)",
+          lg: "repeat(3, 1fr)"
         }}
         gap={6}
       >

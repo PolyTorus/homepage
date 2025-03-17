@@ -11,8 +11,8 @@ export const darkLightContext = createReducerContext<ModeState, ModeAction>({
   initialState: {
     type: "light",
     bg: LIGHT_BG,
-    color: LIGHT_COLOR,
-  },
+    color: LIGHT_COLOR
+  }
 });
 
 interface Props {

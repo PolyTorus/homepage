@@ -5,14 +5,20 @@ import { styles } from "./style";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useDarkLight } from "@/libs/dark-light";
-import { FaBlog, FaHome, FaInfoCircle, FaUsers, FaEnvelope } from "react-icons/fa";
+import {
+  FaBlog,
+  FaHome,
+  FaInfoCircle,
+  FaUsers,
+  FaEnvelope
+} from "react-icons/fa";
 
 export const MENU_ITEMS = [
   { label: "Home", href: "/", icon: FaHome },
   { label: "About", href: "/about", icon: FaInfoCircle },
   { label: "Blog", href: "/blog", icon: FaBlog },
   { label: "Developers", href: "/developers", icon: FaUsers },
-  { label: "Contact", href: "/contact", icon: FaEnvelope },
+  { label: "Contact", href: "/contact", icon: FaEnvelope }
 ] as const;
 
 interface Props {
@@ -34,19 +40,22 @@ export function NavLink({ onClick = () => {} }: Props) {
 
   // テーマカラーに基づいたスタイル
   const baseHoverStyle = isDarkMode
-    ? { backgroundColor: "rgba(255, 255, 255, 0.1)", textDecoration: "none" }
+    ? {
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        textDecoration: "none"
+      }
     : { backgroundColor: "rgba(50, 55, 60, 0.1)", textDecoration: "none" };
 
   const activeStyle = isDarkMode
     ? {
         backgroundColor: "rgba(255, 255, 255, 0.15)",
         fontWeight: "bold",
-        textDecoration: "none",
+        textDecoration: "none"
       }
     : {
         backgroundColor: "rgba(50, 55, 60, 0.2)",
         fontWeight: "bold",
-        textDecoration: "none",
+        textDecoration: "none"
       };
 
   return (
@@ -65,7 +74,7 @@ export function NavLink({ onClick = () => {} }: Props) {
               ...(isActiveLink(href) ? activeStyle : {}),
               "&:hover": isActiveLink(href)
                 ? { textDecoration: "none" }
-                : baseHoverStyle,
+                : baseHoverStyle
             }}
           >
             <Icon as={icon} size="lg" />
