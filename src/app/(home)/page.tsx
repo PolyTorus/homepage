@@ -16,13 +16,14 @@ import { PageLayout } from "@/components";
 import { FaRocket, FaBolt, FaShieldAlt, FaUserShield } from "react-icons/fa";
 import Link from "next/link";
 import { useDarkLight } from "@/libs/dark-light";
+import { useMemo } from "react";
 
 export default function Home() {
   const { state } = useDarkLight();
   const isDark = state.type === "dark";
 
   // 特徴カードのスタイル
-  const cardStyle = {
+  const cardStyle = useMemo(() => ({
     height: "100%",
     transition: "transform 0.3s ease, box-shadow 0.3s ease",
     border: "1px solid",
@@ -33,12 +34,12 @@ export default function Home() {
       boxShadow: "lg",
       borderColor: isDark ? "rgba(255, 255, 255, 0.2)" : "rgba(50, 55, 60, 0.2)"
     }
-  };
+  }), [isDark]);
 
   // ボタンのスタイル
   const buttonStyle = {
     bg: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(50, 55, 60, 0.8)",
-    color: isDark ? "white" : "white",
+    color: "white",
     _hover: {
       bg: isDark ? "rgba(255, 255, 255, 0.2)" : "rgba(50, 55, 60, 0.9)"
     }
@@ -173,7 +174,7 @@ export default function Home() {
         >
           <VStack>
             <Heading 
-              as="h2" 
+              as="h3" 
               size="2xl" 
               bgGradient={isDark ? "linear(to-r, #a18cd1, #fbc2eb)" : "linear(to-r, #6a11cb, #2575fc)"}
               bgClip="text"
@@ -185,7 +186,7 @@ export default function Home() {
           
           <VStack>
             <Heading 
-              as="h2" 
+              as="h3" 
               size="2xl" 
               bgGradient={isDark ? "linear(to-r, #a18cd1, #fbc2eb)" : "linear(to-r, #6a11cb, #2575fc)"}
               bgClip="text"
@@ -197,7 +198,7 @@ export default function Home() {
           
           <VStack>
             <Heading 
-              as="h2" 
+              as="h3" 
               size="2xl" 
               bgGradient={isDark ? "linear(to-r, #a18cd1, #fbc2eb)" : "linear(to-r, #6a11cb, #2575fc)"}
               bgClip="text"
@@ -209,7 +210,7 @@ export default function Home() {
           
           <VStack>
             <Heading 
-              as="h2" 
+              as="h3" 
               size="2xl" 
               bgGradient={isDark ? "linear(to-r, #a18cd1, #fbc2eb)" : "linear(to-r, #6a11cb, #2575fc)"}
               bgClip="text"
