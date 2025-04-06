@@ -54,3 +54,31 @@ export function getSortedBlogPosts(): BlogPost[] {
         }
     });
 }
+
+export async function getBlogPostData(slug: string): Promise<BlogPost | null> {
+    try {
+        const fullPath = path.join(postsDirectory, `${slug}.md`);
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+
+        const matterResult = matter(fileContents);
+
+        const processedContent = await remark()
+            .use(html)
+            .process(matterResult.content);
+        const contentHtml = processedContent.toString();
+
+        return {
+            slug,
+            title: matterResult.data.title || 'Untitled',
+            date: matterResult.data.date || new Date().toISOString(),
+            excerpt: matterResult.data.excerpt || '',
+            author: matterResult.data.author || 'Anonymous',
+            tags: matterResult.data.tags || [],
+            content: contentHtml,
+            coverImage: matterResult.data.coverImage
+        };
+    } catch (error) {
+        console.error(`Error reading blog post ${slug}:`, error);
+        return null;
+    }
+}
