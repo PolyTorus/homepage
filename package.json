@@ -13,10 +13,13 @@
     "@yamada-ui/lucide": "^1.10.4",
     "@yamada-ui/next": "^1.0.14",
     "@yamada-ui/react": "^1.7.5",
+    "gray-matter": "^4.0.3",
     "next": "^15.2.2",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3",
