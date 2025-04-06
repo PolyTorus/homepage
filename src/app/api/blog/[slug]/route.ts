@@ -7,10 +7,12 @@ import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'blog-contents');
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function GET(
   request: NextRequest,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   context: any
-) {
+): Promise<NextResponse> {
   try {
     const slug = context.params.slug;
     const fullPath = path.join(postsDirectory, `${slug}.md`);
@@ -25,7 +27,6 @@ export async function GET(
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
 
-    // マークダウンをHTMLに変換
     const processedContent = await remark()
       .use(html)
       .process(matterResult.content);
