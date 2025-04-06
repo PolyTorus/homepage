@@ -13,6 +13,7 @@
     "@yamada-ui/lucide": "^1.10.4",
     "@yamada-ui/next": "^1.0.14",
     "@yamada-ui/react": "^1.7.5",
+    "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "next": "^15.2.2",
     "react": "19.0.0",

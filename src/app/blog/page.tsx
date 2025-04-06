@@ -1,14 +1,82 @@
-import { Text, Box, Grid, Heading } from "@yamada-ui/react";
+"use client";
+
+import { Text, Box, Grid, Heading, Center } from "@yamada-ui/react";
 import { PageLayout } from "@/components";
 import BlogCard from "@/components/BlogCard";
-import { getSortedBlogPosts } from "@/utils/blog-helpers";
+import { useEffect, useState } from "react";
 
-export const dynamic = "force-dynamic";
+interface BlogPost {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  author: string;
+  tags: string[];
+  coverImage?: string;
+}
 
 export default function Blog() {
-  const blogPosts = getSortedBlogPosts();
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
+  useEffect(() => {
+    async function fetchPosts() {
+      try {
+        const response = await fetch('/api/blog');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch blog posts');
+        }
+        
+        const data = await response.json();
+        setBlogPosts(data);
+      } catch (err) {
+        console.error('Error fetching blog posts:', err);
+        setError('ブログ記事の読み込み中にエラーが発生しました。');
+      } finally {
+        setLoading(false);
+      }
+    }
 
+    fetchPosts();
+  }, []);
+
+  if (loading) {
+    return (
+      <PageLayout title="Blog">
+        <Box mb={8}>
+          <Text fontSize="lg" lineHeight="tall">
+            技術的な洞察、チュートリアル、プロジェクトの最新情報をお届けします。
+          </Text>
+        </Box>
+        <Center py={10}>
+          <Text fontSize="lg" lineHeight="tall" color="gray.500">
+            読み込み中...
+          </Text>
+        </Center>
+      </PageLayout>
+    );
+  }
+
+  if (error) {
+    return (
+      <PageLayout title="Blog">
+        <Box mb={8}>
+          <Text fontSize="lg" lineHeight="tall">
+            技術的な洞察、チュートリアル、プロジェクトの最新情報をお届けします。
+          </Text>
+        </Box>
+        <Box textAlign="center" py={10} color="red.500">
+          <Heading as="h2" size="lg" mb={4}>
+            エラーが発生しました
+          </Heading>
+          <Text>{error}</Text>
+        </Box>
+      </PageLayout>
+    );
+  }
+  
   return (
     <PageLayout title="Blog">
       <Box mb={8}>
