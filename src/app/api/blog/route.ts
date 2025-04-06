@@ -5,7 +5,6 @@ import matter from 'gray-matter';
 
 const postsDirectory = path.join(process.cwd(), 'blog-contents');
 
-// 全てのブログ記事のリストを取得するAPI
 export async function GET() {
   try {
     if (!fs.existsSync(postsDirectory)) {

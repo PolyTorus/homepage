@@ -15,13 +15,13 @@ interface BlogPost {
   author: string;
   tags: string[];
   content: string;
-  coverImage?: string;
+  coverImage?: string | null;
 }
 
 export default function BlogPost() {
-  // useParamsを使ってスラッグを取得
-  const params = useParams();
-  const slug = params?.slug as string;
+  // 型安全なparamsの取得
+  const params = useParams<{ slug: string }>();
+  const slug = params.slug;
   
   const [postData, setPostData] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
@@ -45,7 +45,7 @@ export default function BlogPost() {
           throw new Error('記事の取得に失敗しました');
         }
         
-        const data = await response.json();
+        const data = await response.json() as BlogPost;
         setPostData(data);
         
         // 日付フォーマット

@@ -11,7 +11,7 @@ interface BlogCardProps {
   author: string;
   slug: string;
   tags: string[];
-  coverImage?: string;
+  coverImage?: string | null;
 }
 
 export default function BlogCard({ 
@@ -72,7 +72,14 @@ export default function BlogCard({
           </Text>
         </Flex>
         
-        <Text lineClamp={3}>
+        <Text
+          sx={{
+            display: "-webkit-box",
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden"
+          }}
+        >
           {excerpt}
         </Text>
         

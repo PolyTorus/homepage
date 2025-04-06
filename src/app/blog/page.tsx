@@ -12,7 +12,7 @@ interface BlogPost {
   excerpt: string;
   author: string;
   tags: string[];
-  coverImage?: string;
+  coverImage?: string | null;
 }
 
 export default function Blog() {
@@ -29,7 +29,7 @@ export default function Blog() {
           throw new Error('Failed to fetch blog posts');
         }
         
-        const data = await response.json();
+        const data = await response.json() as BlogPost[];
         setBlogPosts(data);
       } catch (err) {
         console.error('Error fetching blog posts:', err);
@@ -112,7 +112,7 @@ export default function Blog() {
               author={post.author}
               slug={post.slug}
               tags={post.tags}
-              coverImage={post.coverImage}
+              coverImage={post.coverImage || undefined}
             />
           ))}
         </Grid>

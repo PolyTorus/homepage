@@ -9,11 +9,10 @@ const postsDirectory = path.join(process.cwd(), 'blog-contents');
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  context: any
 ) {
   try {
-    // paramsをawaitして安全に使用
-    const { slug } = await params;
+    const slug = context.params.slug;
     const fullPath = path.join(postsDirectory, `${slug}.md`);
     
     if (!fs.existsSync(fullPath)) {
