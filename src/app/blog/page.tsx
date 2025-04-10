@@ -1,13 +1,22 @@
-import { Text, Box } from "@yamada-ui/react";
+import { Text, Box, DiscList, For, ListItem, Button } from "@yamada-ui/react";
 import { PageLayout } from "@/components";
+import { getAllDocumentPath } from "@/features/blog";
+import Link from "next/link";
 
 export default function Blog() {
+  const blogAllInfo = getAllDocumentPath();
   return (
     <PageLayout title="Blog">
       <Box>
-        <Text fontSize="lg" lineHeight="tall">
-          Coming soon...
-        </Text>
+        <DiscList>
+          {blogAllInfo.map(({ id, title }) => (
+            <ListItem key={id}>
+              <Link href={`/blog/${id}`}>
+                <Button bg="transparent">{title}</Button>
+              </Link>
+            </ListItem>
+          ))}
+        </DiscList>
       </Box>
     </PageLayout>
   );
