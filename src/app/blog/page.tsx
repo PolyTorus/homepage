@@ -1,4 +1,4 @@
-import { Text, Box, DiscList, For, ListItem, Button } from "@yamada-ui/react";
+import { Box, DiscList, ListItem, Button } from "@yamada-ui/react";
 import { PageLayout } from "@/components";
 import { getAllDocumentPath } from "@/features/blog";
 import Link from "next/link";
