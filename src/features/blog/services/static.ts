@@ -1,6 +1,7 @@
 export interface OverviewContents {
   id: string;
   title: string;
+  icon: string;
   description: string;
 }
 
