@@ -10,13 +10,18 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@types/mdx": "^2.0.13",
     "@yamada-ui/lucide": "^1.10.4",
     "@yamada-ui/next": "^1.0.14",
     "@yamada-ui/react": "^1.7.5",
+    "highlight.js": "^11.11.1",
     "next": "^15.2.2",
+    "next-mdx-remote": "^5.0.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "rehype-highlight": "^7.0.2",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3",
