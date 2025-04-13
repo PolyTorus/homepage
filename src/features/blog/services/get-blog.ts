@@ -2,8 +2,11 @@ import fs from "fs";
 import path from "path";
 import remarkGfm from "remark-gfm";
 import "highlight.js/styles/vs2015.min.css";
+import "katex/dist/katex.min.css";
 import { Contents, OverviewContents } from "./static";
 import rehypeHighlight from "rehype-highlight";
+import math from "remark-math";
+import katex from "rehype-katex";
 
 export function getBlog(slug: string) {
   const blogContentsPath = process.env.NEXT_PUBLIC_BLOG_CONTENTS;
@@ -50,8 +53,8 @@ export function getBlog(slug: string) {
 
   const option = {
     mdxOptions: {
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [rehypeHighlight]
+      remarkPlugins: [remarkGfm, math],
+      rehypePlugins: [rehypeHighlight, katex]
     }
   };
 
