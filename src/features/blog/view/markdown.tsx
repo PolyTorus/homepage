@@ -6,10 +6,12 @@ import Table from "../components/table/table";
 import H2 from "../components/h2/h2";
 import Li from "../components/li/li";
 import Ol from "../components/ol/ol";
+import H3 from "../components/h3/h3";
 
 export const markdownComponent: MDXComponents = {
   h1: (props) => <H1 {...props} />,
   h2: (props) => <H2 {...props} />,
+  h3: (props) => <H3 {...props} />,
   ul: (props) => <Ul {...props} />,
   p: (props) => <P {...props} />,
   li: (props) => <Li {...props} />,
