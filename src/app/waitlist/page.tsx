@@ -10,7 +10,6 @@ import {
   FormControl,
   Heading,
   Checkbox,
-  Flex,
 } from "@yamada-ui/react";
 import { PageLayout } from "@/components";
 import { useState } from "react";
@@ -81,7 +80,7 @@ export default function Waitlist() {
 
     // 選択された興味のリストを作成
     const selectedInterests = Object.entries(form.interests)
-      .filter(([_, isSelected]) => isSelected)
+      .filter(([, isSelected]) => isSelected)
       .map(([interest]) => interest)
       .join(", ");
 
