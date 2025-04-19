@@ -1,12 +1,13 @@
+// src/features/blog/services/get-blog.ts
 import fs from "fs";
 import path from "path";
 import remarkGfm from "remark-gfm";
-import "highlight.js/styles/vs2015.min.css";
-import "katex/dist/katex.min.css";
-import { Contents, OverviewContents } from "./static";
 import rehypeHighlight from "rehype-highlight";
 import math from "remark-math";
 import katex from "rehype-katex";
+import "highlight.js/styles/vs2015.min.css";
+import "katex/dist/katex.min.css";
+import matter from "gray-matter";
 
 export function getBlog(slug: string) {
   const blogContentsPath = process.env.NEXT_PUBLIC_BLOG_CONTENTS;
@@ -15,54 +16,42 @@ export function getBlog(slug: string) {
     throw new Error("ブログのパスがないよぉ〜〜");
   }
 
-  const pullFolders = fs.readdirSync(blogContentsPath);
-
-  const subResponse: Contents[] = pullFolders.map((item) => {
+  try {
     const sourceFile = path.join(
       process.cwd(),
       "src",
       "contents",
-      item,
-      `${item}.mdx`
-    );
-    const overviewFile = path.join(
-      process.cwd(),
-      "src",
-      "contents",
-      item,
-      `${item}-overview.json`
+      slug,
+      `${slug}.mdx`
     );
 
     const source = fs.readFileSync(sourceFile, "utf8").toString();
-    const overviewStr = fs.readFileSync(overviewFile, "utf8").toString();
-    const overviewParse = JSON.parse(overviewStr) as OverviewContents;
+    
+    // Parse frontmatter from MDX file
+    const { data, content } = matter(source);
+    
+    // Extract metadata from frontmatter
+    const metadata = {
+      id: data.id || slug,
+      title: data.title || "No Title",
+      icon: data.icon || "📄",
+      description: data.description || ""
+    };
+
+    const option = {
+      mdxOptions: {
+        remarkPlugins: [remarkGfm, math],
+        rehypePlugins: [rehypeHighlight, katex]
+      }
+    };
 
     return {
-      source: source,
-      overview: overviewParse
+      source: content,
+      overview: metadata,
+      options: option
     };
-  });
-
-  const filterResponse: Contents | undefined = subResponse.find(
-    (item) => item.overview.id === slug
-  );
-
-  if (!filterResponse) {
-    throw Error("何も引っ掛からなかったよ");
+  } catch (error) {
+    console.error("Error getting blog:", error);
+    throw Error("ブログの取得に失敗しました");
   }
-
-  const option = {
-    mdxOptions: {
-      remarkPlugins: [remarkGfm, math],
-      rehypePlugins: [rehypeHighlight, katex]
-    }
-  };
-
-  const response = {
-    source: filterResponse.source,
-    overview: filterResponse.overview,
-    options: option
-  };
-
-  return response;
 }
