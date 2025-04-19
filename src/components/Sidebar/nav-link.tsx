@@ -10,7 +10,8 @@ import {
   FaHome,
   FaInfoCircle,
   FaUsers,
-  FaEnvelope
+  FaEnvelope,
+  FaListAlt
 } from "react-icons/fa";
 
 export const MENU_ITEMS = [
@@ -18,7 +19,8 @@ export const MENU_ITEMS = [
   { label: "About", href: "/about", icon: FaInfoCircle },
   { label: "Blog", href: "/blog", icon: FaBlog },
   { label: "Developers", href: "/developers", icon: FaUsers },
-  { label: "Contact", href: "/contact", icon: FaEnvelope }
+  { label: "Contact", href: "/contact", icon: FaEnvelope },
+  { label: "Waitlist", href: "/waitlist", icon: FaListAlt }
 ] as const;
 
 interface Props {
