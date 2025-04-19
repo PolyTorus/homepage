@@ -1,7 +1,9 @@
 import fs from "fs";
-import { OverviewContents } from "./static";
+import path from "path";
+import matter from "gray-matter";
+import { BlogMetadata } from "./types";
 
-export function getAllDocumentPath() {
+export function getAllDocumentPath(): BlogMetadata[] {
   const blogContentsPath = process.env.NEXT_PUBLIC_BLOG_CONTENTS;
 
   if (!blogContentsPath) {
@@ -10,18 +12,34 @@ export function getAllDocumentPath() {
 
   try {
     const pullFolders = fs.readdirSync(blogContentsPath);
-    const response: OverviewContents[] = pullFolders.map((item) => {
-      const path = `${blogContentsPath}/${item}`;
-      const overviewFile = `${item}-overview.json`;
-
-      const overviewStr = fs.readFileSync(`${path}/${overviewFile}`).toString();
-      const overviewParse = JSON.parse(overviewStr) as OverviewContents;
-
-      return overviewParse;
+    
+    const blogPosts = pullFolders.map((folder) => {
+      const mdxPath = path.join(
+        process.cwd(),
+        "src",
+        "contents",
+        folder,
+        `${folder}.mdx`
+      );
+      
+      // Read the MDX file
+      const fileContents = fs.readFileSync(mdxPath, 'utf8');
+      
+      // Parse frontmatter
+      const { data } = matter(fileContents);
+      
+      // Create metadata object
+      return {
+        id: data.id || folder,
+        title: data.title || "No Title",
+        icon: data.icon || "📄",
+        description: data.description || ""
+      };
     });
 
-    return response;
-  } catch {
-    throw new Error("なんか失敗したよ");
+    return blogPosts;
+  } catch (error) {
+    console.error("Error getting all document paths:", error);
+    throw new Error("ブログ一覧の取得に失敗しました");
   }
 }
