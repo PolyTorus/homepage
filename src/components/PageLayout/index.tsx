@@ -7,14 +7,20 @@ interface PageLayoutProps {
 
 export default function PageLayout({ title, children }: PageLayoutProps) {
   return (
-    <Box p={8} pt={20} flex={1} overflowY="auto">
-      <Box maxW="container.xl" mx="auto">
-        <Flex justifyContent="space-between">
-          <Heading as="h1" size="2xl" mb={8}>
+    <Box p={{ base: 4, md: 8 }} pt={{ base: 16, md: 20 }} flex={1} overflowY="auto" width="100%">
+      <Box maxW="container.xl" mx="auto" width="100%">
+        <Flex justifyContent="space-between" flexDirection={{ base: "column", md: "row" }}>
+          <Heading 
+            as="h1" 
+            size={{ base: "xl", md: "2xl" }} 
+            mb={{ base: 4, md: 8 }}
+            overflowWrap="break-word"
+            wordBreak="break-word"
+          >
             {title}
           </Heading>
         </Flex>
-        <Box>{children}</Box>
+        <Box width="100%">{children}</Box>
       </Box>
     </Box>
   );

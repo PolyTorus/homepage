@@ -6,7 +6,8 @@ import { Box, Flex } from "@yamada-ui/react";
 
 export const metadata: Metadata = {
   title: "Polytorus Homepage",
-  description: "Polytorus Homepage"
+  description: "Polytorus Homepage",
+  viewport: "width=device-width, initial-scale=1.0"
 };
 
 export default function RootLayout({
@@ -22,7 +23,7 @@ export default function RootLayout({
             <MainLayout>
               <Flex>
                 <Sidebar />
-                <Box>{children}</Box>
+                <Box width="100%" maxWidth="100vw" overflowX="hidden">{children}</Box>
               </Flex>
             </MainLayout>
           </ColorModeProvider>

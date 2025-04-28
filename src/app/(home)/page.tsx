@@ -48,17 +48,17 @@ export default function Home() {
   return (
     <PageLayout title="Polytorus">
       {/* ヒーローセクション */}
-      <Box mb={16} textAlign="center">
+      <Box mb={16} textAlign="center" width="100%" px={{ base: 4, md: 0 }}>
         <Heading 
           as="h2" 
-          size="2xl" 
+          size={{ base: "xl", md: "2xl" }}
           mb={4} 
           bgGradient={isDark ? "linear(to-r, #a18cd1, #fbc2eb)" : "linear(to-r, #6a11cb, #2575fc)"}
           bgClip="text"
         >
           次世代のレイヤー1ブロックチェーン
         </Heading>
-        <Text fontSize="xl" mb={8} maxW="container.md" mx="auto" lineHeight="tall">
+        <Text fontSize={{ base: "md", md: "xl" }} mb={8} maxW="container.md" mx="auto" lineHeight="tall">
           Polytorusは、スケーラビリティ、セキュリティ、使いやすさを兼ね備えた
           次世代のブロックチェーンプラットフォームです。
         </Text>
@@ -66,7 +66,7 @@ export default function Home() {
           <Button 
             as={Link} 
             href="/about" 
-            size="lg" 
+            size={{ base: "md", md: "lg" }}
             sx={buttonStyle}
           >
             詳細を見る
@@ -74,7 +74,7 @@ export default function Home() {
           <Button 
             as={Link} 
             href="/developers" 
-            size="lg" 
+            size={{ base: "md", md: "lg" }}
             variant="outline" 
             borderColor={isDark ? "rgba(255, 255, 255, 0.3)" : "rgba(50, 55, 60, 0.5)"}
             _hover={{
@@ -87,25 +87,25 @@ export default function Home() {
       </Box>
 
       {/* 特徴セクション */}
-      <Box mb={16}>
-        <Heading as="h3" size="lg" mb={8} textAlign="center">
+      <Box mb={16} width="100%" px={{ base: 4, md: 0 }}>
+        <Heading as="h3" size={{ base: "md", md: "lg" }} mb={8} textAlign="center">
           Polytorusの4つの原則
         </Heading>
         <Grid 
           templateColumns={{
             base: "repeat(1, 1fr)",
-            md: "repeat(2, 1fr)",
+            sm: "repeat(2, 1fr)",
             lg: "repeat(4, 1fr)"
           }}
-          gap={6}
+          gap={{ base: 4, md: 6 }}
         >
           {/* 最新 */}
           <Card sx={cardStyle}>
             <CardBody>
               <VStack gap={4} align="center">
-                <Icon as={FaRocket} boxSize={12} color={isDark ? "#a18cd1" : "#6a11cb"} />
-                <Heading as="h4" size="md">最新</Heading>
-                <Text textAlign="center">
+                <Icon as={FaRocket} boxSize={{ base: 8, md: 12 }} color={isDark ? "#a18cd1" : "#6a11cb"} />
+                <Heading as="h4" size={{ base: "sm", md: "md" }}>最新</Heading>
+                <Text textAlign="center" fontSize={{ base: "sm", md: "md" }}>
                   最先端の技術を採用し、常に革新的なソリューションを提供します。
                 </Text>
               </VStack>
@@ -116,9 +116,9 @@ export default function Home() {
           <Card sx={cardStyle}>
             <CardBody>
               <VStack gap={4} align="center">
-                <Icon as={FaBolt} boxSize={12} color={isDark ? "#fbc2eb" : "#2575fc"} />
-                <Heading as="h4" size="md">最速</Heading>
-                <Text textAlign="center">
+                <Icon as={FaBolt} boxSize={{ base: 8, md: 12 }} color={isDark ? "#fbc2eb" : "#2575fc"} />
+                <Heading as="h4" size={{ base: "sm", md: "md" }}>最速</Heading>
+                <Text textAlign="center" fontSize={{ base: "sm", md: "md" }}>
                   高速なトランザクション処理能力により、ストレスフリーな体験を実現します。
                 </Text>
               </VStack>
@@ -129,9 +129,9 @@ export default function Home() {
           <Card sx={cardStyle}>
             <CardBody>
               <VStack gap={4} align="center">
-                <Icon as={FaShieldAlt} boxSize={12} color={isDark ? "#a18cd1" : "#6a11cb"} />
-                <Heading as="h4" size="md">最安全</Heading>
-                <Text textAlign="center">
+                <Icon as={FaShieldAlt} boxSize={{ base: 8, md: 12 }} color={isDark ? "#a18cd1" : "#6a11cb"} />
+                <Heading as="h4" size={{ base: "sm", md: "md" }}>最安全</Heading>
+                <Text textAlign="center" fontSize={{ base: "sm", md: "md" }}>
                   強固なセキュリティ設計により、資産と取引の安全性を確保します。
                 </Text>
               </VStack>
@@ -142,9 +142,9 @@ export default function Home() {
           <Card sx={cardStyle}>
             <CardBody>
               <VStack gap={4} align="center">
-                <Icon as={FaUserShield} boxSize={12} color={isDark ? "#fbc2eb" : "#2575fc"} />
-                <Heading as="h4" size="md">最安心</Heading>
-                <Text textAlign="center">
+                <Icon as={FaUserShield} boxSize={{ base: 8, md: 12 }} color={isDark ? "#fbc2eb" : "#2575fc"} />
+                <Heading as="h4" size={{ base: "sm", md: "md" }}>最安心</Heading>
+                <Text textAlign="center" fontSize={{ base: "sm", md: "md" }}>
                   透明性と信頼性を重視した設計で、安心してご利用いただけます。
                 </Text>
               </VStack>
@@ -156,13 +156,14 @@ export default function Home() {
       {/* 統計情報 */}
       <Box 
         mb={16} 
-        p={8} 
+        p={{ base: 4, md: 8 }}
         borderRadius="lg" 
         bg={isDark ? "rgba(255, 255, 255, 0.03)" : "rgba(50, 55, 60, 0.03)"}
         border="1px solid"
         borderColor={isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(50, 55, 60, 0.1)"}
+        width="100%"
       >
-        <Heading as="h3" size="lg" mb={8} textAlign="center">
+        <Heading as="h3" size={{ base: "md", md: "lg" }} mb={8} textAlign="center">
           Polytorusの現在
         </Heading>
         <Grid 
@@ -170,54 +171,54 @@ export default function Home() {
             base: "repeat(2, 1fr)",
             md: "repeat(4, 1fr)"
           }}
-          gap={6}
+          gap={{ base: 3, md: 6 }}
         >
           <VStack>
             <Heading 
               as="h3" 
-              size="2xl" 
+              size={{ base: "xl", md: "2xl" }}
               bgGradient={isDark ? "linear(to-r, #a18cd1, #fbc2eb)" : "linear(to-r, #6a11cb, #2575fc)"}
               bgClip="text"
             >
               2.5秒
             </Heading>
-            <Text textAlign="center">ブロック生成時間</Text>
+            <Text textAlign="center" fontSize={{ base: "sm", md: "md" }}>ブロック生成時間</Text>
           </VStack>
           
           <VStack>
             <Heading 
               as="h3" 
-              size="2xl" 
+              size={{ base: "xl", md: "2xl" }}
               bgGradient={isDark ? "linear(to-r, #a18cd1, #fbc2eb)" : "linear(to-r, #6a11cb, #2575fc)"}
               bgClip="text"
             >
               10,000+
             </Heading>
-            <Text textAlign="center">TPS処理能力</Text>
+            <Text textAlign="center" fontSize={{ base: "sm", md: "md" }}>TPS処理能力</Text>
           </VStack>
           
           <VStack>
             <Heading 
               as="h3" 
-              size="2xl" 
+              size={{ base: "xl", md: "2xl" }}
               bgGradient={isDark ? "linear(to-r, #a18cd1, #fbc2eb)" : "linear(to-r, #6a11cb, #2575fc)"}
               bgClip="text"
             >
               100+
             </Heading>
-            <Text textAlign="center">アクティブ開発者</Text>
+            <Text textAlign="center" fontSize={{ base: "sm", md: "md" }}>アクティブ開発者</Text>
           </VStack>
           
           <VStack>
             <Heading 
               as="h3" 
-              size="2xl" 
+              size={{ base: "xl", md: "2xl" }}
               bgGradient={isDark ? "linear(to-r, #a18cd1, #fbc2eb)" : "linear(to-r, #6a11cb, #2575fc)"}
               bgClip="text"
             >
               50+
             </Heading>
-            <Text textAlign="center">dApps</Text>
+            <Text textAlign="center" fontSize={{ base: "sm", md: "md" }}>dApps</Text>
           </VStack>
         </Grid>
       </Box>
@@ -225,23 +226,24 @@ export default function Home() {
       {/* CTA セクション */}
       <Box 
         textAlign="center" 
-        p={10} 
+        p={{ base: 6, md: 10 }}
         borderRadius="lg" 
         bg={isDark ? "rgba(255, 255, 255, 0.05)" : "rgba(50, 55, 60, 0.05)"}
         border="1px solid"
         borderColor={isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(50, 55, 60, 0.1)"}
+        width="100%"
       >
-        <Heading as="h3" size="lg" mb={4}>
+        <Heading as="h3" size={{ base: "md", md: "lg" }} mb={4}>
           Polytorusでブロックチェーンの未来を体験しよう
         </Heading>
-        <Text fontSize="lg" mb={6} maxW="container.md" mx="auto">
+        <Text fontSize={{ base: "md", md: "lg" }} mb={6} maxW="container.md" mx="auto">
           最新・最速・最安全・最安心のブロックチェーンプラットフォームで、
           次世代のデジタルエコノミーを構築しましょう。
         </Text>
         <Button 
           as={Link} 
           href="/contact" 
-          size="lg" 
+          size={{ base: "md", md: "lg" }}
           sx={buttonStyle}
         >
           お問い合わせ
