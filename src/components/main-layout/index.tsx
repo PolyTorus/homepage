@@ -17,7 +17,8 @@ export function MainLayout({ children }: Props) {
       <Header />
       <Box
         as="main"
-        w="full"
+        w="100%"
+        minWidth="100vw"
         h="100vh"
         bg={state.bg}
         color={state.color}
