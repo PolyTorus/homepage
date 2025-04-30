@@ -14,8 +14,6 @@ export const generateStaticParams = (): { slug: string }[] => {
     return { slug: j.id };
   });
 
-  console.log(titles);
-
   return titles;
 };
 

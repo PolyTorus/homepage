@@ -9,6 +9,10 @@ function P(
 ) {
   if (!props.children) return;
 
+  if (typeof props.children === "object") {
+    return <>{props.children}</>;
+  }
+
   return (
     <Text display="flex" alignItems="center" marginTop={10} marginBottom={10}>
       {props.children}

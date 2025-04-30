@@ -10,12 +10,15 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@types/jsdom": "^21.1.7",
     "@types/mdx": "^2.0.13",
     "@yamada-ui/lucide": "^1.10.4",
     "@yamada-ui/next": "^1.0.14",
     "@yamada-ui/react": "^1.7.5",
+    "child_process": "^1.0.2",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
+    "jsdom": "^26.1.0",
     "katex": "^0.16.22",
     "next": "^15.2.2",
     "next-mdx-remote": "^5.0.0",
