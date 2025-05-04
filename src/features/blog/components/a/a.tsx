@@ -9,17 +9,17 @@ const A = (
     HTMLAnchorElement
   >
 ) => {
+  if (!props.href) return null;
+
   if (props.href === props.children)
     return (
       <Container>
-        <>
-          <LinkCustom url={props.href as string} />
-        </>
+        <LinkCustom url={props.href} />
       </Container>
     );
 
   return (
-    <Link href={props.href as string} target="_blank">
+    <Link href={props.href} target="_blank">
       {props.children}
     </Link>
   );

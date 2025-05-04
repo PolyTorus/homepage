@@ -3,7 +3,7 @@
 import { VStack } from "@yamada-ui/react";
 import { ReactNode } from "react";
 import { styles } from "./style";
-import { useDarkLight } from "@/libs/dark-light";
+import { useDarkLight } from "@/features/dark-light";
 
 interface Props {
   children: ReactNode;

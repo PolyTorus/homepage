@@ -1,6 +1,6 @@
 "use client";
 
-import { useDarkLight } from "@/libs/dark-light";
+import { useDarkLight } from "@/features/dark-light";
 import { Box } from "@yamada-ui/react";
 import { ReactNode } from "react";
 import { Header } from "../header";
