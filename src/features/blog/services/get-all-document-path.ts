@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { BlogMetadata } from "./types";
 
 export function getAllDocumentPath(): BlogMetadata[] {
-  const blogContentsPath = process.env.NEXT_PUBLIC_BLOG_CONTENTS;
+  const blogContentsPath = "./src/contents";
 
   if (!blogContentsPath) {
     throw new Error("ブログのパスがないよぉ〜〜");
@@ -12,7 +12,7 @@ export function getAllDocumentPath(): BlogMetadata[] {
 
   try {
     const pullFolders = fs.readdirSync(blogContentsPath);
-    
+
     const blogPosts = pullFolders.map((folder) => {
       const mdxPath = path.join(
         process.cwd(),
@@ -21,13 +21,13 @@ export function getAllDocumentPath(): BlogMetadata[] {
         folder,
         `${folder}.mdx`
       );
-      
+
       // Read the MDX file
-      const fileContents = fs.readFileSync(mdxPath, 'utf8');
-      
+      const fileContents = fs.readFileSync(mdxPath, "utf8");
+
       // Parse frontmatter
       const { data } = matter(fileContents);
-      
+
       // Create metadata object
       return {
         id: data.id || folder,

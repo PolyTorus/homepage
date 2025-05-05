@@ -10,7 +10,7 @@ import "katex/dist/katex.min.css";
 import matter from "gray-matter";
 
 export function getBlog(slug: string) {
-  const blogContentsPath = process.env.NEXT_PUBLIC_BLOG_CONTENTS;
+  const blogContentsPath = "./src/contents";
 
   if (!blogContentsPath) {
     throw new Error("ブログのパスがないよぉ〜〜");
@@ -26,10 +26,10 @@ export function getBlog(slug: string) {
     );
 
     const source = fs.readFileSync(sourceFile, "utf8").toString();
-    
+
     // Parse frontmatter from MDX file
     const { data, content } = matter(source);
-    
+
     // Extract metadata from frontmatter
     const metadata = {
       id: data.id || slug,
