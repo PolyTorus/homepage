@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Heading, HStack, useBreakpointValue  } from "@yamada-ui/react";
+import { Box, Heading, HStack } from "@yamada-ui/react";
 import { ModeChange } from "./mode-change";
 import { useDarkLight } from "@/libs/dark-light";
 

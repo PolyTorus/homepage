@@ -10,7 +10,7 @@ import "katex/dist/katex.min.css";
 import matter from "gray-matter";
 
 export function getBlog(slug: string) {
-  const blogContentsPath = "./src/contents";
+  const blogContentsPath = process.env.NEXT_PUBLIC_BLOG_CONTENTS;
 
   if (!blogContentsPath) {
     throw new Error("ブログのパスがないよぉ〜〜");
