@@ -4,7 +4,7 @@ import { Box, For, Icon, ListItem } from "@yamada-ui/react";
 import { styles } from "./style";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useDarkLight } from "@/libs/dark-light";
+import { useDarkLight } from "@/features/dark-light";
 import {
   FaBlog,
   FaHome,

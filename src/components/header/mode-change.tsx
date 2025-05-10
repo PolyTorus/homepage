@@ -1,6 +1,6 @@
 "use client";
 
-import { useDarkLight } from "@/libs/dark-light";
+import { useDarkLight } from "@/features/dark-light";
 import { SunIcon } from "@yamada-ui/lucide";
 import {
   Drawer,
