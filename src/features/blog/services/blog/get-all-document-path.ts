@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { BlogMetadata } from "./types";
 
 export function getAllDocumentPath(): BlogMetadata[] {
-  const blogContentsPath = process.env.NEXT_PUBLIC_BLOG_CONTENTS;
+  const blogContentsPath = "./src/contents";
 
   if (!blogContentsPath) {
     throw new Error("ブログのパスがないよぉ〜〜");
