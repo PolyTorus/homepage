@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Sidebar, Provider, MainLayout } from "@/components";
 import "@/app/globals.css";
-import { ColorModeProvider } from "@/libs/dark-light";
+import { ColorModeProvider } from "@/features/dark-light";
 import { Box, Flex } from "@yamada-ui/react";
 
 export const metadata: Metadata = {
@@ -23,7 +23,9 @@ export default function RootLayout({
             <MainLayout>
               <Flex>
                 <Sidebar />
-                <Box width="100%" maxWidth="100vw" overflowX="hidden">{children}</Box>
+                <Box width="100%" maxWidth="100vw" overflowX="hidden">
+                  {children}
+                </Box>
               </Flex>
             </MainLayout>
           </ColorModeProvider>

@@ -2,7 +2,7 @@
 
 import { Box, Heading, HStack } from "@yamada-ui/react";
 import { ModeChange } from "./mode-change";
-import { useDarkLight } from "@/libs/dark-light";
+import { useDarkLight } from "@/features/dark-light";
 
 export function Header() {
   const { state } = useDarkLight();

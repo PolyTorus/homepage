@@ -1,3 +1,3 @@
-export * from "./services/get-all-document-path";
-export * from "./services/get-blog";
+export * from "./services/blog/get-all-document-path";
+export * from "./services/blog/get-blog";
 export * from "./view/markdown";

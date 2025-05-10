@@ -1,14 +1,14 @@
 "use client";
 
-import { useDarkLight } from "@/libs/dark-light";
+import { useDarkLight } from "@/features/dark-light";
 import { Heading, Text } from "@yamada-ui/react";
 
 interface Props {
   title: string;
-  description?: string;
+  description: string;
 }
 
-export function LinkText({ title, description = "" }: Props) {
+export function LinkText({ title, description }: Props) {
   const { state } = useDarkLight();
 
   return (
