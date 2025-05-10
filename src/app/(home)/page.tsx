@@ -53,7 +53,7 @@ export default function Home() {
   };
 
   return (
-    <PageLayout title="Polytorus">
+    <PageLayout title="">
       {/* ヒーローセクション */}
       <Box mb={16} textAlign="center" width="100%" px={{ base: 4, md: 0 }}>
         <Heading

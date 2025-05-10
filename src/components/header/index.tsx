@@ -6,6 +6,7 @@ import { useDarkLight } from "@/features/dark-light";
 
 export function Header() {
   const { state } = useDarkLight();
+  
   return (
     <HStack
       w="100vw"
@@ -14,6 +15,7 @@ export function Header() {
       position="fixed"
       top={0}
       zIndex={4}
+      bg={{base:'transparent',lg:state.bg+'cc'}}
     >
       <Heading
         as="h1"
@@ -21,6 +23,7 @@ export function Header() {
         fontSize={30}
         fontWeight="bold"
         color={state.color}
+
       >
         Polytorus
       </Heading>
