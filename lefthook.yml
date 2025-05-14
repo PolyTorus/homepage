@@ -1,14 +1,19 @@
 pre-commit:
-  pre-commit:
   piped: true
   commands:
     prettier:
       priority: 1
       run: |
-        bunx prettier --check .
+        bun run format
       stage_fixed: true
 
     eslint:
       priority: 2
       run: |
-        run: bunx eslint .
+        bun run lint:fix
+
+post-merge:
+  commands:
+    install-deps:
+      run: |
+        bun install
