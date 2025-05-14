@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint . --max-warnings=0 --config eslint.config.mjs --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "postinstall": "lefthook install"
   },
   "dependencies": {
     "@types/jsdom": "^21.1.7",
