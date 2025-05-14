@@ -2,6 +2,7 @@ pre-commit:
   piped: true
   commands:
     prettier:
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,md,mdx,yaml,yml,json,html,css}"
       priority: 1
       run: |
         bunx prettier --write {staged_files}
@@ -17,3 +18,8 @@ post-merge:
     install-deps:
       run: |
         bun install
+
+commit-msg:
+  commands:
+    lint-message:
+      run: bunx commitlint --edit {1}
