@@ -1,0 +1,14 @@
+pre-commit:
+  pre-commit:
+  piped: true
+  commands:
+    prettier:
+      priority: 1
+      run: |
+        bunx prettier --check .
+      stage_fixed: true
+
+    eslint:
+      priority: 2
+      run: |
+        run: bunx eslint .
