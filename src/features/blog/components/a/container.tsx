@@ -1,8 +1,9 @@
 "use client";
 
-import { useDarkLight } from "@/features/dark-light";
 import { Box } from "@yamada-ui/react";
 import { ReactNode } from "react";
+
+import { useDarkLight } from "@/features/dark-light";
 
 interface Props {
   children: ReactNode;

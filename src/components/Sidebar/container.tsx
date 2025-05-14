@@ -2,8 +2,10 @@
 
 import { VStack } from "@yamada-ui/react";
 import { ReactNode } from "react";
-import { styles } from "./style";
+
 import { useDarkLight } from "@/features/dark-light";
+
+import { styles } from "./style";
 
 interface Props {
   children: ReactNode;

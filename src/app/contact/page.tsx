@@ -1,16 +1,17 @@
-'use client';
+"use client";
 
 import {
-  Text,
   Box,
-  VStack,
-  Input,
-  Textarea,
   Button,
   FormControl,
+  Input,
+  Text,
+  Textarea,
+  VStack
 } from "@yamada-ui/react";
-import { PageLayout } from "@/components";
 import { useState } from "react";
+
+import { PageLayout } from "@/components";
 
 export default function Contact() {
   const webhookUrl = process.env.NEXT_PUBLIC_DISCORD_WEBHOOK_URL_CONTACT;
@@ -21,10 +22,12 @@ export default function Contact() {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    message: "",
+    message: ""
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -33,10 +36,10 @@ export default function Contact() {
     const errors = {
       name: !form.name.trim() && "お名前を入力してください",
       email: !form.email.trim() && "メールアドレスを入力してください",
-      message: !form.message.trim() && "メッセージを入力してください",
+      message: !form.message.trim() && "メッセージを入力してください"
     };
 
-    if (Object.values(errors).some(error => error)) {
+    if (Object.values(errors).some((error) => error)) {
       alert(Object.values(errors).filter(Boolean).join("\n"));
       return;
     }
@@ -49,36 +52,36 @@ export default function Contact() {
     }
 
     const payload = {
-        embeds: [
-          {
-            title: "新しいお問い合わせが届きました",
-            color: 3447003, // 青色
-            fields: [
-              {
-                name: "👤 名前",
-                value: form.name.trim(),
-                inline: true
-              },
-              {
-                name: "📧 メール",
-                value: form.email.trim(),
-                inline: true
-              },
-              {
-                name: "📝 メッセージ",
-                value: form.message.trim()
-              }
-            ],
-            timestamp: new Date().toISOString()
-          }
-        ]
-    };      
+      embeds: [
+        {
+          title: "新しいお問い合わせが届きました",
+          color: 3447003, // 青色
+          fields: [
+            {
+              name: "👤 名前",
+              value: form.name.trim(),
+              inline: true
+            },
+            {
+              name: "📧 メール",
+              value: form.email.trim(),
+              inline: true
+            },
+            {
+              name: "📝 メッセージ",
+              value: form.message.trim()
+            }
+          ],
+          timestamp: new Date().toISOString()
+        }
+      ]
+    };
 
     try {
       await fetch(webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(payload)
       });
       alert("お問い合わせが送信されました");
       setForm({ name: "", email: "", message: "" });
@@ -94,7 +97,10 @@ export default function Contact() {
         <VStack gap="6" align="stretch">
           <Text textAlign="center" color="gray.600">
             お問い合わせはこちらのフォームからお願いします。
-            <Text as="span" color="red.500">*</Text>は必須項目です。
+            <Text as="span" color="red.500">
+              *
+            </Text>
+            は必須項目です。
           </Text>
 
           <VStack gap="4">

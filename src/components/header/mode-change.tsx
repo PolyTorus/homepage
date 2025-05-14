@@ -1,7 +1,7 @@
 "use client";
 
-import { useDarkLight } from "@/features/dark-light";
 import { SunIcon } from "@yamada-ui/lucide";
+import { MenuIcon } from "@yamada-ui/lucide";
 import {
   Drawer,
   DrawerBody,
@@ -9,7 +9,9 @@ import {
   List,
   useDisclosure
 } from "@yamada-ui/react";
-import { MenuIcon } from "@yamada-ui/lucide";
+
+import { useDarkLight } from "@/features/dark-light";
+
 import { NavLink } from "../Sidebar/nav-link";
 
 export function ModeChange() {

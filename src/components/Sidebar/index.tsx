@@ -1,7 +1,8 @@
 import { Box, List } from "@yamada-ui/react";
-import { styles } from "./style";
-import { NavLink } from "./nav-link";
+
 import { Container } from "./container";
+import { NavLink } from "./nav-link";
+import { styles } from "./style";
 
 export default function Sidebar() {
   return (

@@ -1,5 +1,5 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
 import { DiscList } from "@yamada-ui/react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 function Ul(
   props: DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>
