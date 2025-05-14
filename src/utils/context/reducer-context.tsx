@@ -1,6 +1,5 @@
 "use client";
 
-import { createResult, Result, RESULT_NG } from "@/utils/result";
 import {
   ActionDispatch,
   createContext,
@@ -9,6 +8,8 @@ import {
   useContext,
   useReducer
 } from "react";
+
+import { createResult, Result, RESULT_NG } from "@/utils/result";
 
 interface ReducerContext<S, A> {
   initialState: S;

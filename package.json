@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --max-warnings=0 --config eslint.config.mjs --fix",
     "format": "prettier --write ."
   },
   "dependencies": {
@@ -35,8 +36,10 @@
     "@types/node": "20",
     "@types/react": "19",
     "@types/react-dom": "19",
-    "eslint": "9",
+    "eslint": "^9.24.0",
     "eslint-config-next": "15.1.6",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "prettier": "3.5.2",
     "typescript": "5"
   },

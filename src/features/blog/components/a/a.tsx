@@ -1,7 +1,8 @@
-import React, { DetailedHTMLProps } from "react";
-import LinkCustom from "./link-custom";
 import { Link } from "@yamada-ui/react";
+import React, { DetailedHTMLProps } from "react";
+
 import { Container } from "./container";
+import LinkCustom from "./link-custom";
 
 const A = (
   props: DetailedHTMLProps<

@@ -1,4 +1,5 @@
 import { DARK_BG, DARK_COLOR, LIGHT_BG, LIGHT_COLOR } from "@/theme";
+
 import { ModeAction, ModeState } from "./dark-light.type";
 
 export function darkLightReducer(

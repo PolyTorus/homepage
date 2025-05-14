@@ -1,5 +1,5 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
 import { Heading } from "@yamada-ui/react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 function H1(
   props: DetailedHTMLProps<

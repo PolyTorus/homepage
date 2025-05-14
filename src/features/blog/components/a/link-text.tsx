@@ -1,7 +1,8 @@
 "use client";
 
-import { useDarkLight } from "@/features/dark-light";
 import { Heading, Text } from "@yamada-ui/react";
+
+import { useDarkLight } from "@/features/dark-light";
 
 interface Props {
   title: string;

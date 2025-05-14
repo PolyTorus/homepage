@@ -1,7 +1,8 @@
 import { Box, Flex, Grid, Heading, Text } from "@yamada-ui/react";
+import Link from "next/link";
+
 import { PageLayout } from "@/components";
 import { getAllDocumentPath } from "@/features/blog";
-import Link from "next/link";
 
 export default function Blog() {
   const blogAllInfo = getAllDocumentPath();

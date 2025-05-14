@@ -1,4 +1,5 @@
 import { JSDOM } from "jsdom";
+
 import { LinkDict } from "./get-url-contents.type";
 
 export const getUrlContents = async (url: string): Promise<LinkDict> => {
