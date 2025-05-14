@@ -4,13 +4,13 @@ pre-commit:
     prettier:
       priority: 1
       run: |
-        bun run format
+        bunx prettier --write {staged_files}
       stage_fixed: true
 
     eslint:
       priority: 2
       run: |
-        bun run lint:fix
+        echo "{staged_files}" | grep -E '\.(ts|tsx|js|jsx)$' | xargs bunx eslint --max-warnings=0 --fix
 
 post-merge:
   commands:
