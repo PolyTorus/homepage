@@ -1,13 +1,14 @@
 // src/features/blog/services/get-blog.ts
-import fs from "fs";
-import path from "path";
-import remarkGfm from "remark-gfm";
-import rehypeHighlight from "rehype-highlight";
-import math from "remark-math";
-import katex from "rehype-katex";
 import "highlight.js/styles/vs2015.min.css";
 import "katex/dist/katex.min.css";
+
+import fs from "fs";
 import matter from "gray-matter";
+import path from "path";
+import rehypeHighlight from "rehype-highlight";
+import katex from "rehype-katex";
+import remarkGfm from "remark-gfm";
+import math from "remark-math";
 
 export function getBlog(slug: string) {
   const blogContentsPath = "./src/contents";

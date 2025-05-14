@@ -1,5 +1,5 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
 import { Text } from "@yamada-ui/react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 function P(
   props: DetailedHTMLProps<

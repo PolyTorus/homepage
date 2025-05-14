@@ -1,18 +1,20 @@
 "use client";
 
 import { Box, For, Icon, ListItem } from "@yamada-ui/react";
-import { styles } from "./style";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useDarkLight } from "@/features/dark-light";
 import {
   FaBlog,
+  FaEnvelope,
   FaHome,
   FaInfoCircle,
-  FaUsers,
-  FaEnvelope,
-  FaListAlt
+  FaListAlt,
+  FaUsers
 } from "react-icons/fa";
+
+import { useDarkLight } from "@/features/dark-light";
+
+import { styles } from "./style";
 
 export const MENU_ITEMS = [
   { label: "Home", href: "/", icon: FaHome },

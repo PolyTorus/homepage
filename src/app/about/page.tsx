@@ -1,4 +1,5 @@
 import { Text } from "@yamada-ui/react";
+
 import { PageLayout } from "@/components";
 
 export default function About() {

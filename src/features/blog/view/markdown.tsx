@@ -1,13 +1,14 @@
 import { MDXComponents } from "mdx/types";
-import Ul from "../components/ul/ul";
+
+import A from "../components/a/a";
 import H1 from "../components/h1/h1";
-import P from "../components/p/p";
-import Table from "../components/table/table";
 import H2 from "../components/h2/h2";
+import H3 from "../components/h3/h3";
 import Li from "../components/li/li";
 import Ol from "../components/ol/ol";
-import H3 from "../components/h3/h3";
-import A from "../components/a/a";
+import P from "../components/p/p";
+import Table from "../components/table/table";
+import Ul from "../components/ul/ul";
 
 export const markdownComponent: MDXComponents = {
   a: (props) => <A {...props} />,

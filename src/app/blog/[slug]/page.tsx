@@ -1,11 +1,12 @@
+import { Box } from "@yamada-ui/react";
+import { MDXRemote } from "next-mdx-remote/rsc";
+
 import { PageLayout } from "@/components";
 import {
   getAllDocumentPath,
   getBlog,
   markdownComponent
 } from "@/features/blog";
-import { Box } from "@yamada-ui/react";
-import { MDXRemote } from "next-mdx-remote/rsc";
 
 export const generateStaticParams = (): { slug: string }[] => {
   const overviews = getAllDocumentPath();

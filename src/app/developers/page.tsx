@@ -1,6 +1,8 @@
-import { Text, Box, Grid, Flex, Heading, Avatar } from "@yamada-ui/react";
+import { Avatar, Box, Flex, Grid, Heading, Text } from "@yamada-ui/react";
+
 import { PageLayout } from "@/components";
-import { collaborators, Collaborator } from "./constant/collaborator";
+
+import { Collaborator, collaborators } from "./constant/collaborator";
 
 const DeveloperCard = ({ developer }: { developer: Collaborator }) => {
   return (

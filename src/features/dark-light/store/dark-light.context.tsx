@@ -1,10 +1,12 @@
 "use client";
 
-import { createReducerContext } from "@/utils/context";
-import { ModeAction, ModeState } from "./dark-light.type";
-import { darkLightReducer } from "./dark-light.reducer";
 import { ReactNode } from "react";
+
 import { LIGHT_BG, LIGHT_COLOR } from "@/theme";
+import { createReducerContext } from "@/utils/context";
+
+import { darkLightReducer } from "./dark-light.reducer";
+import { ModeAction, ModeState } from "./dark-light.type";
 
 export const darkLightContext = createReducerContext<ModeState, ModeAction>({
   reducer: darkLightReducer,

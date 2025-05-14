@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
-import { Sidebar, Provider, MainLayout } from "@/components";
 import "@/app/globals.css";
-import { ColorModeProvider } from "@/features/dark-light";
+
 import { Box, Flex } from "@yamada-ui/react";
+import type { Metadata } from "next";
+
+import { MainLayout, Provider, Sidebar } from "@/components";
+import { ColorModeProvider } from "@/features/dark-light";
 
 export const metadata: Metadata = {
   title: "Polytorus Homepage",

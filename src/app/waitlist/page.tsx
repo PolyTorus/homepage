@@ -1,18 +1,19 @@
-'use client';
+"use client";
 
 import {
-  Text,
   Box,
-  VStack,
-  Input,
-  Textarea,
   Button,
+  Checkbox,
   FormControl,
   Heading,
-  Checkbox,
+  Input,
+  Text,
+  Textarea,
+  VStack
 } from "@yamada-ui/react";
-import { PageLayout } from "@/components";
 import { useState } from "react";
+
+import { PageLayout } from "@/components";
 
 export default function Waitlist() {
   const webhookUrl = process.env.NEXT_PUBLIC_DISCORD_WEBHOOK_URL_WAITLIST;
@@ -32,7 +33,9 @@ export default function Waitlist() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -49,32 +52,32 @@ export default function Waitlist() {
   const handleSubmit = async () => {
     // webhookUrlが設定されているか確認
     if (!webhookUrl) {
-        console.error("DISCORD_WEBHOOK_URL_WAITLIST is not defined");
-        return;
+      console.error("DISCORD_WEBHOOK_URL_WAITLIST is not defined");
+      return;
     }
-    
+
     // 入力検証
     const errors = {
       name: !form.name.trim() && "お名前を入力してください",
       email: !form.email.trim() && "メールアドレスを入力してください"
     };
 
-    if (Object.values(errors).some(error => error)) {
-        console.error(Object.values(errors).filter(Boolean).join("\n"));
+    if (Object.values(errors).some((error) => error)) {
+      console.error(Object.values(errors).filter(Boolean).join("\n"));
     }
 
     // メールアドレスの形式チェック
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(form.email)) {
-        console.error("正しいメールアドレスの形式で入力してください");
-        return;
+      console.error("正しいメールアドレスの形式で入力してください");
+      return;
     }
 
     // 少なくとも1つの興味を選択していることを確認
-    const hasInterest = Object.values(form.interests).some(val => val);
+    const hasInterest = Object.values(form.interests).some((val) => val);
     if (!hasInterest) {
-        console.error("少なくとも1つの興味を選択してください");
-        return;
+      console.error("少なくとも1つの興味を選択してください");
+      return;
     }
     setIsSubmitting(true);
 
@@ -123,16 +126,16 @@ export default function Waitlist() {
       const response = await fetch(webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(payload)
       });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-    // 送信成功時の処理
-    console.log("ウェイトリスト登録が送信されました");
-      
+      // 送信成功時の処理
+      console.log("ウェイトリスト登録が送信されました");
+
       // フォームをリセット
       setForm({
         name: "",
@@ -148,8 +151,8 @@ export default function Waitlist() {
       });
     } catch (error) {
       console.error("送信エラー:", error);
-        // 送信失敗時の処理
-        console.error("送信に失敗しました");
+      // 送信失敗時の処理
+      console.error("送信に失敗しました");
     } finally {
       setIsSubmitting(false);
     }
@@ -199,25 +202,25 @@ export default function Waitlist() {
             <FormControl isRequired>
               <Text mb="3">興味のある分野（1つ以上選択）</Text>
               <VStack align="flex-start" gap="2">
-                <Checkbox 
+                <Checkbox
                   isChecked={form.interests.developer}
                   onChange={() => handleCheckboxChange("developer")}
                 >
                   開発者として参加したい
                 </Checkbox>
-                <Checkbox 
+                <Checkbox
                   isChecked={form.interests.investor}
                   onChange={() => handleCheckboxChange("investor")}
                 >
                   投資家として参加したい
                 </Checkbox>
-                <Checkbox 
+                <Checkbox
                   isChecked={form.interests.user}
                   onChange={() => handleCheckboxChange("user")}
                 >
                   ユーザーとして利用したい
                 </Checkbox>
-                <Checkbox 
+                <Checkbox
                   isChecked={form.interests.other}
                   onChange={() => handleCheckboxChange("other")}
                 >
@@ -256,18 +259,20 @@ export default function Waitlist() {
             </Button>
           </VStack>
 
-          <Box 
-            p="6" 
-            borderRadius="md" 
-            bg="rgba(50, 55, 60, 0.05)" 
+          <Box
+            p="6"
+            borderRadius="md"
+            bg="rgba(50, 55, 60, 0.05)"
             border="1px solid"
             borderColor="rgba(50, 55, 60, 0.1)"
-            _dark={{ 
+            _dark={{
               bg: "rgba(255, 255, 255, 0.05)",
               borderColor: "rgba(255, 255, 255, 0.1)"
             }}
           >
-            <Heading as="h4" size="sm" mb="3">プライバシーポリシー</Heading>
+            <Heading as="h4" size="sm" mb="3">
+              プライバシーポリシー
+            </Heading>
             <Text fontSize="sm">
               ご提供いただいた情報は、Polytorusのサービス提供およびリリース情報のご案内のみに使用し、
               第三者に提供することはありません。お客様の個人情報は適切に管理し、保護いたします。
@@ -278,5 +283,3 @@ export default function Waitlist() {
     </PageLayout>
   );
 }
-
-

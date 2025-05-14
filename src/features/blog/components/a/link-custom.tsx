@@ -1,9 +1,11 @@
-import React from "react";
-import { getUrlContents } from "../../services/link/get-url-contents";
 import { Box, HStack, Image, Link } from "@yamada-ui/react";
-import { LinkText } from "./link-text";
+import React from "react";
+
 import { Option, OPTION_SOME } from "@/utils/option";
+
+import { getUrlContents } from "../../services/link/get-url-contents";
 import { judgeStringType } from "../../services/link/get-url-contents.type";
+import { LinkText } from "./link-text";
 
 interface Props {
   url: string;
