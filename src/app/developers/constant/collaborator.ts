@@ -4,6 +4,7 @@ export interface Collaborator {
   role: string;
   description: string;
   avatar: string;
+  htmlUrl: string;
 }
 
 export const collaborators: Array<Collaborator> = [
@@ -12,13 +13,15 @@ export const collaborators: Array<Collaborator> = [
     name: "quantumshiro",
     role: "coming soon...✍️",
     description: "coming soon...✍️",
-    avatar: "https://avatars.githubusercontent.com/u/75029815?v=4"
+    avatar: "https://avatars.githubusercontent.com/u/75029815?v=4",
+    htmlUrl: "https://github.com/quantumshiro"
   },
   {
     id: 54161041,
     name: "iokira",
     role: "coming soon...✍️",
     description: "coming soon...✍️",
-    avatar: "https://avatars.githubusercontent.com/u/54161041?v=4"
+    avatar: "https://avatars.githubusercontent.com/u/54161041?v=4",
+    htmlUrl: "https://github.com/iokira"
   }
 ];
