@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint . --max-warnings=0 --config eslint.config.mjs --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "postinstall": "lefthook install"
   },
   "dependencies": {
     "@types/jsdom": "^21.1.7",
@@ -32,6 +33,7 @@
     "remark-math": "^6.0.0"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^19.8.1",
     "@eslint/eslintrc": "3",
     "@types/node": "20",
     "@types/react": "19",
@@ -40,6 +42,7 @@
     "eslint-config-next": "15.1.6",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-unused-imports": "^4.1.4",
+    "lefthook": "^1.11.12",
     "prettier": "3.5.2",
     "typescript": "5"
   },
