@@ -14,7 +14,7 @@ export function Container({ children }: Props) {
 
   return (
     <Box
-      height={120}
+      height={118}
       marginTop={4}
       border={`1px solid ${state.color}`}
       borderRadius={8}

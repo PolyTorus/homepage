@@ -1,12 +1,20 @@
 import { JSDOM } from "jsdom";
 
+import { createResult, Result } from "@/utils/result";
+
 import { LinkDict } from "./get-url-contents.type";
 
-export const getUrlContents = async (url: string): Promise<LinkDict> => {
+export const getUrlContents = async (
+  url: string
+): Promise<Result<LinkDict, string>> => {
   const res = await fetch(url);
 
   if (!res.ok) {
-    throw new Error("response is failed");
+    if (res.status === 429) {
+      return createResult.ng(url);
+    }
+
+    throw new Error(`${res.status}`);
   }
   const html = await res.text();
 
@@ -19,20 +27,20 @@ export const getUrlContents = async (url: string): Promise<LinkDict> => {
   const twitterPost = url.match(/https:\/\/x\.com\/([\w]+)\/status\/([\d]+)/);
 
   if (twitterPost) {
-    return {
+    return createResult.ok({
       url: url
-    };
+    });
   }
 
   const twitterHome = url.match(/^https?:\/\/x\.com\/([\w]+)/);
 
   //ここだけはnullは仕方ない
   if (twitterHome !== null) {
-    return {
+    return createResult.ok({
       "og:title": url,
       "og:image":
         "https://abs.twimg.com/responsive-web/client-web/icon-ios.77d25eba.png"
-    };
+    });
   }
 
   const meta = DOM.window.document.head.querySelectorAll("meta");
@@ -65,5 +73,5 @@ export const getUrlContents = async (url: string): Promise<LinkDict> => {
     dict["og:title"] = meta[0].textContent;
   }
 
-  return dict;
+  return createResult.ok(dict);
 };

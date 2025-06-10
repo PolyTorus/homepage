@@ -2,10 +2,12 @@ import { Box, HStack, Image, Link } from "@yamada-ui/react";
 import React from "react";
 
 import { Option, OPTION_SOME } from "@/utils/option";
+import { RESULT_NG } from "@/utils/result";
 
 import { getUrlContents } from "../../services/link/get-url-contents";
 import { judgeStringType } from "../../services/link/get-url-contents.type";
 import { LinkText } from "./link-text";
+import { StyledLink } from "./styled-link";
 
 interface Props {
   url: string;
@@ -15,9 +17,17 @@ const LinkCustom = async (props: Props) => {
   try {
     const ogp = await getUrlContents(props.url);
 
-    const title: Option<string> = judgeStringType(ogp["og:title"]);
-    const description: Option<string> = judgeStringType(ogp["og:description"]);
-    const imageUrl: Option<string> = judgeStringType(ogp["og:image"]);
+    if (ogp.kind === RESULT_NG) {
+      return <StyledLink url={props.url}>{props.url}</StyledLink>;
+    }
+
+    const value = ogp.value;
+
+    const title: Option<string> = judgeStringType(value["og:title"]);
+    const description: Option<string> = judgeStringType(
+      value["og:description"]
+    );
+    const imageUrl: Option<string> = judgeStringType(value["og:image"]);
 
     return (
       <Link href={props.url} target="_blank" textDecoration="none">
