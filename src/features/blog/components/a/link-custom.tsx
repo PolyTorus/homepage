@@ -32,7 +32,7 @@ const LinkCustom = async (props: Props) => {
     return (
       <Link href={props.url} target="_blank" textDecoration="none">
         <HStack justifyContent="space-between">
-          <Box height={120} minW={150}>
+          <Box height={120} minW={150} paddingLeft={5}>
             <LinkText
               title={title.kind === OPTION_SOME ? title.value : props.url}
               description={
