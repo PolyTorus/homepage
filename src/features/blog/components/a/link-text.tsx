@@ -21,12 +21,13 @@ export function LinkText({ title, description }: Props) {
         overflow="hidden"
         whiteSpace="nowrap"
         textOverflow="ellipsis"
+        paddingTop={20}
         p={1}
       >
         {title}
       </Heading>
 
-      <Text p={1} color={state.color} mt={5} fontSize={12}>
+      <Text p={1} color={state.color} fontSize={12}>
         {description}
       </Text>
     </>

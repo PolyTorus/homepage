@@ -11,7 +11,7 @@ pre-commit:
     eslint:
       priority: 2
       run: |
-        echo "{staged_files}" | grep -E '\.(ts|tsx|js|jsx)$' | xargs bunx eslint --max-warnings=0 --fix
+        echo "{staged_files}" | grep -E '\.(ts|tsx|js|jsx)$' | xargs bunx eslint --no-ignore --fix
 
 post-merge:
   commands:

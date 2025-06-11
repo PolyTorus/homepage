@@ -4,24 +4,25 @@ import React, { DetailedHTMLProps } from "react";
 import { Container } from "./container";
 import LinkCustom from "./link-custom";
 
-const A = (
-  props: DetailedHTMLProps<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  >
-) => {
-  if (!props.href) return null;
+const A = ({
+  href,
+  children
+}: DetailedHTMLProps<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+>) => {
+  if (!href) return null;
 
-  if (props.href === props.children)
+  if (href === children)
     return (
       <Container>
-        <LinkCustom url={props.href} />
+        <LinkCustom url={href} />
       </Container>
     );
 
   return (
-    <Link href={props.href} target="_blank">
-      {props.children}
+    <Link href={href} target="_blank">
+      {children}
     </Link>
   );
 };
