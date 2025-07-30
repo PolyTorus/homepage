@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(spago init:*)",
+      "Bash(mkdir:*)",
+      "Bash(spago install:*)",
+      "Bash(spago build:*)",
+      "Bash(spago bundle-app:*)",
+      "Bash(npx esbuild --version)",
+      "Bash(./node_modules/.bin/spago bundle-app --to dist/app.js)",
+      "Bash(npx esbuild:*)",
+      "Bash(npm run build:*)",
+      "Bash(rm:*)"
+    ],
+    "deny": []
+  }
+}
