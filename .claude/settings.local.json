@@ -28,7 +28,8 @@
       "Bash(curl:*)",
       "Bash(npm run purs:bundle:*)",
       "Bash(grep:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(npm run dev:*)"
     ],
     "deny": []
   }
