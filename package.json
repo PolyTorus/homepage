@@ -7,7 +7,7 @@
     "build": "npm run purs:build && npm run purs:bundle",
     "start": "npm run purs:serve",
     "purs:build": "npx spago build",
-    "purs:bundle": "mkdir -p dist && node build-script.js",
+    "purs:bundle": "mkdir -p dist && npx esbuild output/Main/index.js --bundle --outfile=dist/app.js --format=iife && node -e \"const fs=require('fs'); let c=fs.readFileSync('dist/app.js','utf8'); c=c.replace(/var main2 = /g,'var main = '); const m=c.match(/var (main) = .*runHalogenAff/); if(m){c+='\\n'+m[1]+'();'; fs.writeFileSync('dist/app.js',c); console.log('Added main() execution');} else {console.error('Main function not found');}\"",
     "purs:serve": "npx http-server . -p 3000 -o",
     "purs:watch": "npx spago build --watch",
     "format": "prettier --write .",
