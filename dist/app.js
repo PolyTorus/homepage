@@ -6637,4 +6637,7 @@
   );
 })();
 
-main2();
+setTimeout(function () {
+  if (typeof main2 !== "undefined") main2();
+  else console.error("main2 not found");
+}, 0);
