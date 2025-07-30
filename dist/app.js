@@ -1,4 +1,33 @@
-(() => {
+var PureScriptApp = (() => {
+  var __defProp = Object.defineProperty;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __export = (target5, all3) => {
+    for (var name15 in all3)
+      __defProp(target5, name15, { get: all3[name15], enumerable: true });
+  };
+  var __copyProps = (to, from2, except, desc) => {
+    if ((from2 && typeof from2 === "object") || typeof from2 === "function") {
+      for (let key of __getOwnPropNames(from2))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, {
+            get: () => from2[key],
+            enumerable:
+              !(desc = __getOwnPropDesc(from2, key)) || desc.enumerable
+          });
+    }
+    return to;
+  };
+  var __toCommonJS = (mod2) =>
+    __copyProps(__defProp({}, "__esModule", { value: true }), mod2);
+
+  // output/Main/index.js
+  var index_exports = {};
+  __export(index_exports, {
+    main: () => main2
+  });
+
   // output/Control.Semigroupoid/index.js
   var semigroupoidFn = {
     compose: function (f) {
@@ -6630,20 +6659,14 @@
   };
 
   // output/Main/index.js
-  var main2 = /* @__PURE__ */ runHalogenAff(
+  var main2 = (window.main2 = /* @__PURE__ */ runHalogenAff(
     /* @__PURE__ */ bind(bindAff)(awaitBody)(function (body2) {
       return runUI2(component)(unit)(body2);
     })
-  );
+  ));
+  return __toCommonJS(index_exports);
 })();
 
-console.log("Debug: Found main2");
 setTimeout(function () {
-  console.log("Executing main2...");
-  if (typeof main2 !== "undefined") {
-    main2();
-    console.log("Done");
-  } else {
-    console.error("Not found");
-  }
-}, 100);
+  window.main2();
+}, 0);
