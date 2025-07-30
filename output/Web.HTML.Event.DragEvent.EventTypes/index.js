@@ -8,12 +8,13 @@ var dragenter = "dragenter";
 var dragend = "dragend";
 var drag = "drag";
 export {
-  dragstart,
-  drag,
-  dragenter,
-  dragexit,
-  dragleave,
-  dragover,
-  drop,
-  dragend
+    dragstart,
+    drag,
+    dragenter,
+    dragexit,
+    dragleave,
+    dragover,
+    drop,
+    dragend
 };
+//# sourceMappingURL=index.js.map

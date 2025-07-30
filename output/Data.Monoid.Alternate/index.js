@@ -3,104 +3,105 @@ import * as Control_Alt from "../Control.Alt/index.js";
 import * as Control_Plus from "../Control.Plus/index.js";
 import * as Data_Show from "../Data.Show/index.js";
 var Alternate = function (x) {
-  return x;
+    return x;
 };
 var showAlternate = function (dictShow) {
-  var show = Data_Show.show(dictShow);
-  return {
-    show: function (v) {
-      return "(Alternate " + (show(v) + ")");
-    }
-  };
+    var show = Data_Show.show(dictShow);
+    return {
+        show: function (v) {
+            return "(Alternate " + (show(v) + ")");
+        }
+    };
 };
 var semigroupAlternate = function (dictAlt) {
-  var alt = Control_Alt.alt(dictAlt);
-  return {
-    append: function (v) {
-      return function (v1) {
-        return alt(v)(v1);
-      };
-    }
-  };
+    var alt = Control_Alt.alt(dictAlt);
+    return {
+        append: function (v) {
+            return function (v1) {
+                return alt(v)(v1);
+            };
+        }
+    };
 };
 var plusAlternate = function (dictPlus) {
-  return dictPlus;
+    return dictPlus;
 };
 var ordAlternate = function (dictOrd) {
-  return dictOrd;
+    return dictOrd;
 };
 var ord1Alternate = function (dictOrd1) {
-  return dictOrd1;
+    return dictOrd1;
 };
 var newtypeAlternate = {
-  Coercible0: function () {
-    return undefined;
-  }
+    Coercible0: function () {
+        return undefined;
+    }
 };
 var monoidAlternate = function (dictPlus) {
-  var semigroupAlternate1 = semigroupAlternate(dictPlus.Alt0());
-  return {
-    mempty: Control_Plus.empty(dictPlus),
-    Semigroup0: function () {
-      return semigroupAlternate1;
-    }
-  };
+    var semigroupAlternate1 = semigroupAlternate(dictPlus.Alt0());
+    return {
+        mempty: Control_Plus.empty(dictPlus),
+        Semigroup0: function () {
+            return semigroupAlternate1;
+        }
+    };
 };
 var monadAlternate = function (dictMonad) {
-  return dictMonad;
+    return dictMonad;
 };
 var functorAlternate = function (dictFunctor) {
-  return dictFunctor;
+    return dictFunctor;
 };
 var extendAlternate = function (dictExtend) {
-  return dictExtend;
+    return dictExtend;
 };
 var eqAlternate = function (dictEq) {
-  return dictEq;
+    return dictEq;
 };
 var eq1Alternate = function (dictEq1) {
-  return dictEq1;
+    return dictEq1;
 };
 var comonadAlternate = function (dictComonad) {
-  return dictComonad;
+    return dictComonad;
 };
 var boundedAlternate = function (dictBounded) {
-  return dictBounded;
+    return dictBounded;
 };
 var bindAlternate = function (dictBind) {
-  return dictBind;
+    return dictBind;
 };
 var applyAlternate = function (dictApply) {
-  return dictApply;
+    return dictApply;
 };
 var applicativeAlternate = function (dictApplicative) {
-  return dictApplicative;
+    return dictApplicative;
 };
 var alternativeAlternate = function (dictAlternative) {
-  return dictAlternative;
+    return dictAlternative;
 };
 var altAlternate = function (dictAlt) {
-  return dictAlt;
+    return dictAlt;
 };
 export {
-  Alternate,
-  newtypeAlternate,
-  eqAlternate,
-  eq1Alternate,
-  ordAlternate,
-  ord1Alternate,
-  boundedAlternate,
-  functorAlternate,
-  applyAlternate,
-  applicativeAlternate,
-  altAlternate,
-  plusAlternate,
-  alternativeAlternate,
-  bindAlternate,
-  monadAlternate,
-  extendAlternate,
-  comonadAlternate,
-  showAlternate,
-  semigroupAlternate,
-  monoidAlternate
+    Alternate,
+    newtypeAlternate,
+    eqAlternate,
+    eq1Alternate,
+    ordAlternate,
+    ord1Alternate,
+    boundedAlternate,
+    functorAlternate,
+    applyAlternate,
+    applicativeAlternate,
+    altAlternate,
+    plusAlternate,
+    alternativeAlternate,
+    bindAlternate,
+    monadAlternate,
+    extendAlternate,
+    comonadAlternate,
+    showAlternate,
+    semigroupAlternate,
+    monoidAlternate
 };
+//# sourceMappingURL=index.js.map

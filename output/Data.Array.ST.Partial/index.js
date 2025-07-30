@@ -2,9 +2,13 @@
 import * as $foreign from "./foreign.js";
 import * as Control_Monad_ST_Uncurried from "../Control.Monad.ST.Uncurried/index.js";
 var poke = function () {
-  return Control_Monad_ST_Uncurried.runSTFn3($foreign.pokeImpl);
+    return Control_Monad_ST_Uncurried.runSTFn3($foreign.pokeImpl);
 };
 var peek = function () {
-  return Control_Monad_ST_Uncurried.runSTFn2($foreign.peekImpl);
+    return Control_Monad_ST_Uncurried.runSTFn2($foreign.peekImpl);
 };
-export { peek, poke };
+export {
+    peek,
+    poke
+};
+//# sourceMappingURL=index.js.map

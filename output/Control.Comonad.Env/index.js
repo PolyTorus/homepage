@@ -9,23 +9,29 @@ var map = /* #__PURE__ */ Data_Functor.map(Data_Tuple.functorTuple);
 var unwrap = /* #__PURE__ */ Data_Newtype.unwrap();
 var withEnv = Control_Comonad_Env_Trans.withEnvT;
 var runEnv = function (v) {
-  return map(unwrap)(v);
+    return map(unwrap)(v);
 };
-var mapEnv = /* #__PURE__ */ Data_Functor.map(
-  /* #__PURE__ */ Control_Comonad_Env_Trans.functorEnvT(
-    Data_Identity.functorIdentity
-  )
-);
+var mapEnv = /* #__PURE__ */ Data_Functor.map(/* #__PURE__ */ Control_Comonad_Env_Trans.functorEnvT(Data_Identity.functorIdentity));
 var env = function (e) {
-  return function (a) {
-    return new Data_Tuple.Tuple(e, a);
-  };
+    return function (a) {
+        return new Data_Tuple.Tuple(e, a);
+    };
 };
-export { runEnv, withEnv, mapEnv, env };
-export { ask, asks, local } from "../Control.Comonad.Env.Class/index.js";
 export {
-  EnvT,
-  mapEnvT,
-  runEnvT,
-  withEnvT
+    runEnv,
+    withEnv,
+    mapEnv,
+    env
+};
+export {
+    ask,
+    asks,
+    local
+} from "../Control.Comonad.Env.Class/index.js";
+export {
+    EnvT,
+    mapEnvT,
+    runEnvT,
+    withEnvT
 } from "../Control.Comonad.Env.Trans/index.js";
+//# sourceMappingURL=index.js.map

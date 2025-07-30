@@ -2,13 +2,14 @@
 import * as $foreign from "./foreign.js";
 
 export {
-  new,
-  then_,
-  thenOrCatch,
-  catch,
-  finally,
-  resolve,
-  reject,
-  all,
-  race
+    new,
+    then_,
+    thenOrCatch,
+    catch,
+    finally,
+    resolve,
+    reject,
+    all,
+    race
 } from "./foreign.js";
+//# sourceMappingURL=index.js.map

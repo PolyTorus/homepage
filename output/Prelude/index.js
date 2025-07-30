@@ -27,33 +27,104 @@ import * as Data_Show from "../Data.Show/index.js";
 import * as Data_Unit from "../Data.Unit/index.js";
 import * as Data_Void from "../Data.Void/index.js";
 
-export { liftA1, pure, unless, when } from "../Control.Applicative/index.js";
-export { apply } from "../Control.Apply/index.js";
-export { bind, discard, ifM, join } from "../Control.Bind/index.js";
-export { identity } from "../Control.Category/index.js";
-export { ap, liftM1, unlessM, whenM } from "../Control.Monad/index.js";
-export { compose } from "../Control.Semigroupoid/index.js";
-export { otherwise } from "../Data.Boolean/index.js";
-export { bottom, top } from "../Data.Bounded/index.js";
-export { recip } from "../Data.DivisionRing/index.js";
-export { eq, notEq } from "../Data.Eq/index.js";
-export { degree, div, gcd, lcm, mod } from "../Data.EuclideanRing/index.js";
-export { const, flip } from "../Data.Function/index.js";
-export { flap, map, void } from "../Data.Functor/index.js";
-export { conj, disj, not } from "../Data.HeytingAlgebra/index.js";
-export { mempty } from "../Data.Monoid/index.js";
 export {
-  between,
-  clamp,
-  compare,
-  comparing,
-  max,
-  min
+    liftA1,
+    pure,
+    unless,
+    when
+} from "../Control.Applicative/index.js";
+export {
+    apply
+} from "../Control.Apply/index.js";
+export {
+    bind,
+    discard,
+    ifM,
+    join
+} from "../Control.Bind/index.js";
+export {
+    identity
+} from "../Control.Category/index.js";
+export {
+    ap,
+    liftM1,
+    unlessM,
+    whenM
+} from "../Control.Monad/index.js";
+export {
+    compose
+} from "../Control.Semigroupoid/index.js";
+export {
+    otherwise
+} from "../Data.Boolean/index.js";
+export {
+    bottom,
+    top
+} from "../Data.Bounded/index.js";
+export {
+    recip
+} from "../Data.DivisionRing/index.js";
+export {
+    eq,
+    notEq
+} from "../Data.Eq/index.js";
+export {
+    degree,
+    div,
+    gcd,
+    lcm,
+    mod
+} from "../Data.EuclideanRing/index.js";
+export {
+    const,
+    flip
+} from "../Data.Function/index.js";
+export {
+    flap,
+    map,
+    void
+} from "../Data.Functor/index.js";
+export {
+    conj,
+    disj,
+    not
+} from "../Data.HeytingAlgebra/index.js";
+export {
+    mempty
+} from "../Data.Monoid/index.js";
+export {
+    between,
+    clamp,
+    compare,
+    comparing,
+    max,
+    min
 } from "../Data.Ord/index.js";
-export { EQ, GT, LT } from "../Data.Ordering/index.js";
-export { negate, sub } from "../Data.Ring/index.js";
-export { append } from "../Data.Semigroup/index.js";
-export { add, mul, one, zero } from "../Data.Semiring/index.js";
-export { show } from "../Data.Show/index.js";
-export { unit } from "../Data.Unit/index.js";
-export { absurd } from "../Data.Void/index.js";
+export {
+    EQ,
+    GT,
+    LT
+} from "../Data.Ordering/index.js";
+export {
+    negate,
+    sub
+} from "../Data.Ring/index.js";
+export {
+    append
+} from "../Data.Semigroup/index.js";
+export {
+    add,
+    mul,
+    one,
+    zero
+} from "../Data.Semiring/index.js";
+export {
+    show
+} from "../Data.Show/index.js";
+export {
+    unit
+} from "../Data.Unit/index.js";
+export {
+    absurd
+} from "../Data.Void/index.js";
+//# sourceMappingURL=index.js.map

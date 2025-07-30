@@ -8,14 +8,20 @@ import * as Web_UIEvent_InputEvent_InputType from "../Web.UIEvent.InputEvent.Inp
 var toUIEvent = Unsafe_Coerce.unsafeCoerce;
 var toEvent = Unsafe_Coerce.unsafeCoerce;
 var inputType = function ($2) {
-  return Web_UIEvent_InputEvent_InputType.parse($foreign["_inputType"]($2));
+    return Web_UIEvent_InputEvent_InputType.parse($foreign["_inputType"]($2));
 };
-var fromUIEvent =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("InputEvent");
-var fromEvent =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("InputEvent");
-var data_ = /* #__PURE__ */ Data_Functor.map(Data_Functor.functorFn)(
-  Data_Nullable.toMaybe
-)($foreign["_data_"]);
-export { isComposing } from "./foreign.js";
-export { fromEvent, fromUIEvent, toEvent, toUIEvent, data_, inputType };
+var fromUIEvent = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("InputEvent");
+var fromEvent = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("InputEvent");
+var data_ = /* #__PURE__ */ Data_Functor.map(Data_Functor.functorFn)(Data_Nullable.toMaybe)($foreign["_data_"]);
+export {
+    isComposing
+} from "./foreign.js";
+export {
+    fromEvent,
+    fromUIEvent,
+    toEvent,
+    toUIEvent,
+    data_,
+    inputType
+};
+//# sourceMappingURL=index.js.map

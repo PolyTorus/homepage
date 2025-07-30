@@ -9,7 +9,7 @@ export function unsafeHasAny(key, obj) {
 }
 
 export function unsafeSetAny(key, val, obj) {
-  obj[key] = val;
+    obj[key] = val;
 }
 
 export function unsafeDeleteAny(key, obj) {
@@ -48,7 +48,7 @@ export function diffWithIxE(a1, a2, f1, f2, f3) {
   var a3 = [];
   var l1 = a1.length;
   var l2 = a2.length;
-  var i = 0;
+  var i  = 0;
   while (1) {
     if (i < l1) {
       if (i < l2) {
@@ -112,7 +112,7 @@ export function createElement(ns, name, doc) {
   if (ns != null) {
     return doc.createElementNS(ns, name);
   } else {
-    return doc.createElement(name);
+    return doc.createElement(name)
   }
 }
 

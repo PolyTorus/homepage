@@ -5,17 +5,24 @@ import * as Data_Identity from "../Data.Identity/index.js";
 import * as Data_Newtype from "../Data.Newtype/index.js";
 var unwrap = /* #__PURE__ */ Data_Newtype.unwrap();
 var traced = function ($4) {
-  return Control_Comonad_Traced_Trans.TracedT(Data_Identity.Identity($4));
+    return Control_Comonad_Traced_Trans.TracedT(Data_Identity.Identity($4));
 };
 var runTraced = function (v) {
-  return unwrap(v);
+    return unwrap(v);
 };
-export { runTraced, traced };
 export {
-  censor,
-  listen,
-  listens,
-  track,
-  tracks
+    runTraced,
+    traced
+};
+export {
+    censor,
+    listen,
+    listens,
+    track,
+    tracks
 } from "../Control.Comonad.Traced.Class/index.js";
-export { TracedT, runTracedT } from "../Control.Comonad.Traced.Trans/index.js";
+export {
+    TracedT,
+    runTracedT
+} from "../Control.Comonad.Traced.Trans/index.js";
+//# sourceMappingURL=index.js.map

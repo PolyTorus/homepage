@@ -5,27 +5,25 @@ import * as Control_Monad_Except_Trans from "../Control.Monad.Except.Trans/index
 import * as Data_Boolean from "../Data.Boolean/index.js";
 import * as Foreign from "../Foreign/index.js";
 var keys = function (dictMonad) {
-  var fail = Foreign.fail(dictMonad);
-  var pure = Control_Applicative.pure(
-    Control_Monad_Except_Trans.applicativeExceptT(dictMonad)
-  );
-  return function (value) {
-    if (Foreign.isNull(value)) {
-      return fail(new Foreign.TypeMismatch("object", "null"));
-    }
-    if (Foreign.isUndefined(value)) {
-      return fail(new Foreign.TypeMismatch("object", "undefined"));
-    }
-    if (Foreign.typeOf(value) === "object") {
-      return pure($foreign.unsafeKeys(value));
-    }
-    if (Data_Boolean.otherwise) {
-      return fail(new Foreign.TypeMismatch("object", Foreign.typeOf(value)));
-    }
-    throw new Error(
-      "Failed pattern match at Foreign.Keys (line 17, column 1 - line 17, column 93): " +
-        [value.constructor.name]
-    );
-  };
+    var fail = Foreign.fail(dictMonad);
+    var pure = Control_Applicative.pure(Control_Monad_Except_Trans.applicativeExceptT(dictMonad));
+    return function (value) {
+        if (Foreign.isNull(value)) {
+            return fail(new Foreign.TypeMismatch("object", "null"));
+        };
+        if (Foreign.isUndefined(value)) {
+            return fail(new Foreign.TypeMismatch("object", "undefined"));
+        };
+        if (Foreign.typeOf(value) === "object") {
+            return pure($foreign.unsafeKeys(value));
+        };
+        if (Data_Boolean.otherwise) {
+            return fail(new Foreign.TypeMismatch("object", Foreign.typeOf(value)));
+        };
+        throw new Error("Failed pattern match at Foreign.Keys (line 17, column 1 - line 17, column 93): " + [ value.constructor.name ]);
+    };
 };
-export { keys };
+export {
+    keys
+};
+//# sourceMappingURL=index.js.map

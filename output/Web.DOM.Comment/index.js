@@ -6,25 +6,21 @@ var toNode = Unsafe_Coerce.unsafeCoerce;
 var toEventTarget = Unsafe_Coerce.unsafeCoerce;
 var toChildNode = Unsafe_Coerce.unsafeCoerce;
 var toCharacterData = Unsafe_Coerce.unsafeCoerce;
-var fromNonDocumentTypeChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("Comment");
-var fromNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("Comment");
-var fromEventTarget =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("Comment");
-var fromChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("Comment");
-var fromCharacterData =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("Comment");
+var fromNonDocumentTypeChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("Comment");
+var fromNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("Comment");
+var fromEventTarget = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("Comment");
+var fromChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("Comment");
+var fromCharacterData = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("Comment");
 export {
-  fromCharacterData,
-  fromNode,
-  fromChildNode,
-  fromNonDocumentTypeChildNode,
-  fromEventTarget,
-  toCharacterData,
-  toNode,
-  toChildNode,
-  toNonDocumentTypeChildNode,
-  toEventTarget
+    fromCharacterData,
+    fromNode,
+    fromChildNode,
+    fromNonDocumentTypeChildNode,
+    fromEventTarget,
+    toCharacterData,
+    toNode,
+    toChildNode,
+    toNonDocumentTypeChildNode,
+    toEventTarget
 };
+//# sourceMappingURL=index.js.map

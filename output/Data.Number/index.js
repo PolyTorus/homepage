@@ -10,38 +10,45 @@ var log10e = 0.4342944819032518;
 var ln2 = 0.6931471805599453;
 var ln10 = 2.302585092994046;
 var fromString = function (str) {
-  return $foreign.fromStringImpl(
-    str,
-    $foreign["isFinite"],
-    Data_Maybe.Just.create,
-    Data_Maybe.Nothing.value
-  );
+    return $foreign.fromStringImpl(str, $foreign["isFinite"], Data_Maybe.Just.create, Data_Maybe.Nothing.value);
 };
 var e = 2.718281828459045;
 export {
-  nan,
-  isNaN,
-  infinity,
-  isFinite,
-  abs,
-  acos,
-  asin,
-  atan,
-  atan2,
-  ceil,
-  cos,
-  exp,
-  floor,
-  log,
-  max,
-  min,
-  pow,
-  remainder,
-  round,
-  sign,
-  sin,
-  sqrt,
-  tan,
-  trunc
+    nan,
+    isNaN,
+    infinity,
+    isFinite,
+    abs,
+    acos,
+    asin,
+    atan,
+    atan2,
+    ceil,
+    cos,
+    exp,
+    floor,
+    log,
+    max,
+    min,
+    pow,
+    remainder,
+    round,
+    sign,
+    sin,
+    sqrt,
+    tan,
+    trunc
 } from "./foreign.js";
-export { fromString, e, ln2, ln10, log10e, log2e, pi, sqrt1_2, sqrt2, tau };
+export {
+    fromString,
+    e,
+    ln2,
+    ln10,
+    log10e,
+    log2e,
+    pi,
+    sqrt1_2,
+    sqrt2,
+    tau
+};
+//# sourceMappingURL=index.js.map

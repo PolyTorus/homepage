@@ -13,59 +13,53 @@ var toHTMLElement = Unsafe_Coerce.unsafeCoerce;
 var toEventTarget = Unsafe_Coerce.unsafeCoerce;
 var toElement = Unsafe_Coerce.unsafeCoerce;
 var toChildNode = Unsafe_Coerce.unsafeCoerce;
-var fromParentNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
-var fromNonDocumentTypeChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
-var fromNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
-var fromHTMLElement =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
-var fromEventTarget =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
-var fromElement =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
-var fromChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
+var fromParentNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
+var fromNonDocumentTypeChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
+var fromNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
+var fromHTMLElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
+var fromEventTarget = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
+var fromElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
+var fromChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLIFrameElement");
 var contentWindow = /* #__PURE__ */ (function () {
-  var $2 = map(Data_Nullable.toMaybe);
-  return function ($3) {
-    return $2($foreign["_contentWindow"]($3));
-  };
+    var $2 = map(Data_Nullable.toMaybe);
+    return function ($3) {
+        return $2($foreign["_contentWindow"]($3));
+    };
 })();
 var contentDocument = /* #__PURE__ */ (function () {
-  var $4 = map(Data_Nullable.toMaybe);
-  return function ($5) {
-    return $4($foreign["_contentDocument"]($5));
-  };
+    var $4 = map(Data_Nullable.toMaybe);
+    return function ($5) {
+        return $4($foreign["_contentDocument"]($5));
+    };
 })();
 export {
-  src,
-  setSrc,
-  srcdoc,
-  setSrcdoc,
-  name,
-  setName,
-  width,
-  setWidth,
-  height,
-  setHeight
+    src,
+    setSrc,
+    srcdoc,
+    setSrcdoc,
+    name,
+    setName,
+    width,
+    setWidth,
+    height,
+    setHeight
 } from "./foreign.js";
 export {
-  fromHTMLElement,
-  fromElement,
-  fromNode,
-  fromChildNode,
-  fromNonDocumentTypeChildNode,
-  fromParentNode,
-  fromEventTarget,
-  toHTMLElement,
-  toElement,
-  toNode,
-  toChildNode,
-  toNonDocumentTypeChildNode,
-  toParentNode,
-  toEventTarget,
-  contentDocument,
-  contentWindow
+    fromHTMLElement,
+    fromElement,
+    fromNode,
+    fromChildNode,
+    fromNonDocumentTypeChildNode,
+    fromParentNode,
+    fromEventTarget,
+    toHTMLElement,
+    toElement,
+    toNode,
+    toChildNode,
+    toNonDocumentTypeChildNode,
+    toParentNode,
+    toEventTarget,
+    contentDocument,
+    contentWindow
 };
+//# sourceMappingURL=index.js.map

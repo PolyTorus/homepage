@@ -20,65 +20,59 @@ import * as Data_Traversable from "../Data.Traversable/index.js";
 import * as Data_TraversableWithIndex from "../Data.TraversableWithIndex/index.js";
 import * as Data_Unfoldable1 from "../Data.Unfoldable1/index.js";
 var NonEmptyArray = function (x) {
-  return x;
+    return x;
 };
 var unfoldable1NonEmptyArray = Data_Unfoldable1.unfoldable1Array;
-var traversableWithIndexNonEmptyArray =
-  Data_TraversableWithIndex.traversableWithIndexArray;
+var traversableWithIndexNonEmptyArray = Data_TraversableWithIndex.traversableWithIndexArray;
 var traversableNonEmptyArray = Data_Traversable.traversableArray;
 var showNonEmptyArray = function (dictShow) {
-  var show = Data_Show.show(Data_Show.showArray(dictShow));
-  return {
-    show: function (v) {
-      return "(NonEmptyArray " + (show(v) + ")");
-    }
-  };
+    var show = Data_Show.show(Data_Show.showArray(dictShow));
+    return {
+        show: function (v) {
+            return "(NonEmptyArray " + (show(v) + ")");
+        }
+    };
 };
 var semigroupNonEmptyArray = Data_Semigroup.semigroupArray;
 var ordNonEmptyArray = function (dictOrd) {
-  return Data_Ord.ordArray(dictOrd);
+    return Data_Ord.ordArray(dictOrd);
 };
 var ord1NonEmptyArray = Data_Ord.ord1Array;
 var monadNonEmptyArray = Control_Monad.monadArray;
 var functorWithIndexNonEmptyArray = Data_FunctorWithIndex.functorWithIndexArray;
 var functorNonEmptyArray = Data_Functor.functorArray;
-var foldableWithIndexNonEmptyArray =
-  Data_FoldableWithIndex.foldableWithIndexArray;
+var foldableWithIndexNonEmptyArray = Data_FoldableWithIndex.foldableWithIndexArray;
 var foldableNonEmptyArray = Data_Foldable.foldableArray;
 var foldable1NonEmptyArray = {
-  foldMap1: function (dictSemigroup) {
-    return Data_Semigroup_Foldable.foldMap1DefaultL(foldable1NonEmptyArray)(
-      functorNonEmptyArray
-    )(dictSemigroup);
-  },
-  foldr1: /* #__PURE__ */ Data_Function_Uncurried.runFn2($foreign.foldr1Impl),
-  foldl1: /* #__PURE__ */ Data_Function_Uncurried.runFn2($foreign.foldl1Impl),
-  Foldable0: function () {
-    return foldableNonEmptyArray;
-  }
+    foldMap1: function (dictSemigroup) {
+        return Data_Semigroup_Foldable.foldMap1DefaultL(foldable1NonEmptyArray)(functorNonEmptyArray)(dictSemigroup);
+    },
+    foldr1: /* #__PURE__ */ Data_Function_Uncurried.runFn2($foreign.foldr1Impl),
+    foldl1: /* #__PURE__ */ Data_Function_Uncurried.runFn2($foreign.foldl1Impl),
+    Foldable0: function () {
+        return foldableNonEmptyArray;
+    }
 };
 var traversable1NonEmptyArray = {
-  traverse1: function (dictApply) {
-    var apply = Control_Apply.apply(dictApply);
-    var map = Data_Functor.map(dictApply.Functor0());
-    return function (f) {
-      return $foreign.traverse1Impl(apply, map, f);
-    };
-  },
-  sequence1: function (dictApply) {
-    return Data_Semigroup_Traversable.sequence1Default(
-      traversable1NonEmptyArray
-    )(dictApply);
-  },
-  Foldable10: function () {
-    return foldable1NonEmptyArray;
-  },
-  Traversable1: function () {
-    return traversableNonEmptyArray;
-  }
+    traverse1: function (dictApply) {
+        var apply = Control_Apply.apply(dictApply);
+        var map = Data_Functor.map(dictApply.Functor0());
+        return function (f) {
+            return $foreign.traverse1Impl(apply, map, f);
+        };
+    },
+    sequence1: function (dictApply) {
+        return Data_Semigroup_Traversable.sequence1Default(traversable1NonEmptyArray)(dictApply);
+    },
+    Foldable10: function () {
+        return foldable1NonEmptyArray;
+    },
+    Traversable1: function () {
+        return traversableNonEmptyArray;
+    }
 };
 var eqNonEmptyArray = function (dictEq) {
-  return Data_Eq.eqArray(dictEq);
+    return Data_Eq.eqArray(dictEq);
 };
 var eq1NonEmptyArray = Data_Eq.eq1Array;
 var bindNonEmptyArray = Control_Bind.bindArray;
@@ -86,25 +80,26 @@ var applyNonEmptyArray = Control_Apply.applyArray;
 var applicativeNonEmptyArray = Control_Applicative.applicativeArray;
 var altNonEmptyArray = Control_Alt.altArray;
 export {
-  NonEmptyArray,
-  showNonEmptyArray,
-  eqNonEmptyArray,
-  eq1NonEmptyArray,
-  ordNonEmptyArray,
-  ord1NonEmptyArray,
-  semigroupNonEmptyArray,
-  functorNonEmptyArray,
-  functorWithIndexNonEmptyArray,
-  foldableNonEmptyArray,
-  foldableWithIndexNonEmptyArray,
-  foldable1NonEmptyArray,
-  unfoldable1NonEmptyArray,
-  traversableNonEmptyArray,
-  traversableWithIndexNonEmptyArray,
-  traversable1NonEmptyArray,
-  applyNonEmptyArray,
-  applicativeNonEmptyArray,
-  bindNonEmptyArray,
-  monadNonEmptyArray,
-  altNonEmptyArray
+    NonEmptyArray,
+    showNonEmptyArray,
+    eqNonEmptyArray,
+    eq1NonEmptyArray,
+    ordNonEmptyArray,
+    ord1NonEmptyArray,
+    semigroupNonEmptyArray,
+    functorNonEmptyArray,
+    functorWithIndexNonEmptyArray,
+    foldableNonEmptyArray,
+    foldableWithIndexNonEmptyArray,
+    foldable1NonEmptyArray,
+    unfoldable1NonEmptyArray,
+    traversableNonEmptyArray,
+    traversableWithIndexNonEmptyArray,
+    traversable1NonEmptyArray,
+    applyNonEmptyArray,
+    applicativeNonEmptyArray,
+    bindNonEmptyArray,
+    monadNonEmptyArray,
+    altNonEmptyArray
 };
+//# sourceMappingURL=index.js.map

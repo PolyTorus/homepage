@@ -5,15 +5,19 @@ import * as Data_Nullable from "../Data.Nullable/index.js";
 import * as Effect from "../Effect/index.js";
 var map = /* #__PURE__ */ Data_Functor.map(Effect.functorEffect);
 var previousElementSibling = /* #__PURE__ */ (function () {
-  var $2 = map(Data_Nullable.toMaybe);
-  return function ($3) {
-    return $2($foreign["_previousElementSibling"]($3));
-  };
+    var $2 = map(Data_Nullable.toMaybe);
+    return function ($3) {
+        return $2($foreign["_previousElementSibling"]($3));
+    };
 })();
 var nextElementSibling = /* #__PURE__ */ (function () {
-  var $4 = map(Data_Nullable.toMaybe);
-  return function ($5) {
-    return $4($foreign["_nextElementSibling"]($5));
-  };
+    var $4 = map(Data_Nullable.toMaybe);
+    return function ($5) {
+        return $4($foreign["_nextElementSibling"]($5));
+    };
 })();
-export { previousElementSibling, nextElementSibling };
+export {
+    previousElementSibling,
+    nextElementSibling
+};
+//# sourceMappingURL=index.js.map
