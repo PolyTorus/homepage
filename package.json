@@ -7,7 +7,7 @@
     "build": "npm run purs:build && npm run purs:bundle",
     "start": "npm run purs:serve",
     "purs:build": "npx spago build",
-    "purs:bundle": "mkdir -p dist && npx esbuild output/Main/index.js --bundle --outfile=dist/app.js --format=iife",
+    "purs:bundle": "mkdir -p dist && node build-script.js",
     "purs:serve": "npx http-server . -p 3000 -o",
     "purs:watch": "npx spago build --watch",
     "format": "prettier --write .",
@@ -20,10 +20,10 @@
     "http-server": "^14.1.1",
     "lefthook": "^1.11.12",
     "prettier": "3.5.2",
-    "purescript": "0.15.16-7",
-    "spago": "0.21.0"
+    "purescript": "0.15.15",
+    "spago": "next"
   },
   "engines": {
-    "node": ">=18.18.0"
+    "node": ">=20.18.1"
   }
 }
