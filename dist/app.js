@@ -6630,11 +6630,11 @@
   };
 
   // output/Main/index.js
-  var main = /* @__PURE__ */ runHalogenAff(
+  var main2 = /* @__PURE__ */ runHalogenAff(
     /* @__PURE__ */ bind(bindAff)(awaitBody)(function (body2) {
       return runUI2(component)(unit)(body2);
     })
   );
 })();
 
-main();
+main2();
