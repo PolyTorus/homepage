@@ -6,30 +6,27 @@ var toNonDocumentTypeChildNode = Unsafe_Coerce.unsafeCoerce;
 var toNode = Unsafe_Coerce.unsafeCoerce;
 var toEventTarget = Unsafe_Coerce.unsafeCoerce;
 var toChildNode = Unsafe_Coerce.unsafeCoerce;
-var fromNonDocumentTypeChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("CharacterData");
-var fromNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("CharacterData");
-var fromEventTarget =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("CharacterData");
-var fromChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("CharacterData");
+var fromNonDocumentTypeChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("CharacterData");
+var fromNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("CharacterData");
+var fromEventTarget = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("CharacterData");
+var fromChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("CharacterData");
 export {
-  data_,
-  length,
-  substringData,
-  appendData,
-  insertData,
-  deleteData,
-  replaceData
+    data_,
+    length,
+    substringData,
+    appendData,
+    insertData,
+    deleteData,
+    replaceData
 } from "./foreign.js";
 export {
-  fromNode,
-  fromChildNode,
-  fromNonDocumentTypeChildNode,
-  fromEventTarget,
-  toNode,
-  toChildNode,
-  toNonDocumentTypeChildNode,
-  toEventTarget
+    fromNode,
+    fromChildNode,
+    fromNonDocumentTypeChildNode,
+    fromEventTarget,
+    toNode,
+    toChildNode,
+    toNonDocumentTypeChildNode,
+    toEventTarget
 };
+//# sourceMappingURL=index.js.map

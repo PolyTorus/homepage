@@ -1,16 +1,12 @@
-export function typeImpl(blob) {
-  return blob.type;
-}
+export function typeImpl(blob) { return blob.type; }
 
 export function blobImpl(args) {
   return function (mediaType) {
-    return new Blob(args, { type: mediaType });
+    return new Blob(args, {type: mediaType});
   };
 }
 
-export function size(blob) {
-  return blob.size;
-}
+export function size(blob) { return blob.size; }
 
 export function slice(contentType) {
   return function (start) {

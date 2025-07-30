@@ -1,24 +1,25 @@
-var AVar = (function () {
-  function MutableQueue() {
+var AVar = function () {
+
+  function MutableQueue () {
     this.head = null;
     this.last = null;
     this.size = 0;
   }
 
-  function MutableCell(queue, value) {
+  function MutableCell (queue, value) {
     this.queue = queue;
     this.value = value;
-    this.next = null;
-    this.prev = null;
+    this.next  = null;
+    this.prev  = null;
   }
 
-  function AVar(value) {
+  function AVar (value) {
     this.draining = false;
-    this.error = null;
-    this.value = value;
-    this.takes = new MutableQueue();
-    this.reads = new MutableQueue();
-    this.puts = new MutableQueue();
+    this.error    = null;
+    this.value    = value;
+    this.takes    = new MutableQueue();
+    this.reads    = new MutableQueue();
+    this.puts     = new MutableQueue();
   }
 
   var EMPTY = {};
@@ -33,7 +34,7 @@ var AVar = (function () {
     }
   }
 
-  function putLast(queue, value) {
+  function putLast (queue, value) {
     var cell = new MutableCell(queue, value);
     switch (queue.size) {
       case 0:
@@ -53,7 +54,7 @@ var AVar = (function () {
     return cell;
   }
 
-  function takeLast(queue) {
+  function takeLast (queue) {
     var cell;
     switch (queue.size) {
       case 0:
@@ -78,7 +79,7 @@ var AVar = (function () {
     return cell.value;
   }
 
-  function takeHead(queue) {
+  function takeHead (queue) {
     var cell;
     switch (queue.size) {
       case 0:
@@ -104,7 +105,7 @@ var AVar = (function () {
     return cell.value;
   }
 
-  function deleteCell(cell) {
+  function deleteCell (cell) {
     if (cell.queue === null) {
       return;
     }
@@ -125,11 +126,11 @@ var AVar = (function () {
     cell.queue.size--;
     cell.queue = null;
     cell.value = null;
-    cell.next = null;
-    cell.prev = null;
+    cell.next  = null;
+    cell.prev  = null;
   }
 
-  function drainVar(util, avar) {
+  function drainVar (util, avar) {
     if (avar.draining) {
       return;
     }
@@ -141,8 +142,7 @@ var AVar = (function () {
 
     avar.draining = true;
 
-    while (1) {
-      // eslint-disable-line no-constant-condition
+    while (1) { // eslint-disable-line no-constant-condition
       p = null;
       r = null;
       t = null;
@@ -151,16 +151,13 @@ var AVar = (function () {
 
       if (avar.error !== null) {
         value = util.left(avar.error);
-        while ((p = takeHead(ps))) {
-          // eslint-disable-line no-cond-assign
+        while (p = takeHead(ps)) { // eslint-disable-line no-cond-assign
           runEff(p.cb(value));
         }
-        while ((r = takeHead(rs))) {
-          // eslint-disable-line no-cond-assign
+        while (r = takeHead(rs)) { // eslint-disable-line no-cond-assign
           runEff(r(value));
         }
-        while ((t = takeHead(ts))) {
-          // eslint-disable-line no-cond-assign
+        while (t = takeHead(ts)) { // eslint-disable-line no-cond-assign
           runEff(t(value));
         }
         break;
@@ -194,25 +191,22 @@ var AVar = (function () {
 
       // Callbacks could have queued up more items so we need to guard on the
       // actual mutable properties.
-      if (
-        (avar.value === EMPTY && ps.size === 0) ||
-        (avar.value !== EMPTY && ts.size === 0)
-      ) {
+      if (avar.value === EMPTY && ps.size === 0 || avar.value !== EMPTY && ts.size === 0) {
         break;
       }
     }
     avar.draining = false;
   }
 
-  AVar.EMPTY = EMPTY;
-  AVar.putLast = putLast;
-  AVar.takeLast = takeLast;
-  AVar.takeHead = takeHead;
+  AVar.EMPTY      = EMPTY;
+  AVar.putLast    = putLast;
+  AVar.takeLast   = takeLast;
+  AVar.takeHead   = takeHead;
   AVar.deleteCell = deleteCell;
-  AVar.drainVar = drainVar;
+  AVar.drainVar   = drainVar;
 
   return AVar;
-})();
+}();
 
 export function empty() {
   return new AVar(AVar.EMPTY);
@@ -310,3 +304,4 @@ export function _status(util, avar) {
     return util.filled(avar.value);
   };
 }
+

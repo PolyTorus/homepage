@@ -5,12 +5,17 @@ import * as Data_Maybe from "../Data.Maybe/index.js";
 import * as Unsafe_Coerce from "../Unsafe.Coerce/index.js";
 import * as Web_Internal_FFI from "../Web.Internal.FFI/index.js";
 var toEventTarget = Unsafe_Coerce.unsafeCoerce;
-var fromEventTarget =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("Clipboard");
+var fromEventTarget = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("Clipboard");
 var clipboard = /* #__PURE__ */ (function () {
-  return Data_Function_Uncurried.runFn3($foreign.clipboardWrapper)(
-    Data_Maybe.Just.create
-  )(Data_Maybe.Nothing.value);
+    return Data_Function_Uncurried.runFn3($foreign.clipboardWrapper)(Data_Maybe.Just.create)(Data_Maybe.Nothing.value);
 })();
-export { readText, writeText } from "./foreign.js";
-export { clipboard, toEventTarget, fromEventTarget };
+export {
+    readText,
+    writeText
+} from "./foreign.js";
+export {
+    clipboard,
+    toEventTarget,
+    fromEventTarget
+};
+//# sourceMappingURL=index.js.map

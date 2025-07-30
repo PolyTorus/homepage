@@ -9,22 +9,15 @@ export const showNumberImpl = function (n) {
 
 export const showCharImpl = function (c) {
   var code = c.charCodeAt(0);
-  if (code < 0x20 || code === 0x7f) {
+  if (code < 0x20 || code === 0x7F) {
     switch (c) {
-      case "\x07":
-        return "'\\a'";
-      case "\b":
-        return "'\\b'";
-      case "\f":
-        return "'\\f'";
-      case "\n":
-        return "'\\n'";
-      case "\r":
-        return "'\\r'";
-      case "\t":
-        return "'\\t'";
-      case "\v":
-        return "'\\v'";
+      case "\x07": return "'\\a'";
+      case "\b": return "'\\b'";
+      case "\f": return "'\\f'";
+      case "\n": return "'\\n'";
+      case "\r": return "'\\r'";
+      case "\t": return "'\\t'";
+      case "\v": return "'\\v'";
     }
     return "'\\" + code.toString(10) + "'";
   }
@@ -33,37 +26,26 @@ export const showCharImpl = function (c) {
 
 export const showStringImpl = function (s) {
   var l = s.length;
-  return (
-    '"' +
-    s.replace(
-      /[\0-\x1F\x7F"\\]/g, // eslint-disable-line no-control-regex
-      function (c, i) {
-        switch (c) {
-          case '"':
-          case "\\":
-            return "\\" + c;
-          case "\x07":
-            return "\\a";
-          case "\b":
-            return "\\b";
-          case "\f":
-            return "\\f";
-          case "\n":
-            return "\\n";
-          case "\r":
-            return "\\r";
-          case "\t":
-            return "\\t";
-          case "\v":
-            return "\\v";
-        }
-        var k = i + 1;
-        var empty = k < l && s[k] >= "0" && s[k] <= "9" ? "\\&" : "";
-        return "\\" + c.charCodeAt(0).toString(10) + empty;
+  return "\"" + s.replace(
+    /[\0-\x1F\x7F"\\]/g, // eslint-disable-line no-control-regex
+    function (c, i) {
+      switch (c) {
+        case "\"":
+        case "\\":
+          return "\\" + c;
+        case "\x07": return "\\a";
+        case "\b": return "\\b";
+        case "\f": return "\\f";
+        case "\n": return "\\n";
+        case "\r": return "\\r";
+        case "\t": return "\\t";
+        case "\v": return "\\v";
       }
-    ) +
-    '"'
-  );
+      var k = i + 1;
+      var empty = k < l && s[k] >= "0" && s[k] <= "9" ? "\\&" : "";
+      return "\\" + c.charCodeAt(0).toString(10) + empty;
+    }
+  ) + "\"";
 };
 
 export const showArrayImpl = function (f) {

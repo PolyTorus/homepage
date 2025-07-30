@@ -9,34 +9,33 @@ var toHTMLElement = Unsafe_Coerce.unsafeCoerce;
 var toEventTarget = Unsafe_Coerce.unsafeCoerce;
 var toElement = Unsafe_Coerce.unsafeCoerce;
 var toChildNode = Unsafe_Coerce.unsafeCoerce;
-var fromParentNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
-var fromNonDocumentTypeChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
-var fromNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
-var fromHTMLElement =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
-var fromEventTarget =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
-var fromElement =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
-var fromChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
-export { width, setWidth, height, setHeight } from "./foreign.js";
+var fromParentNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
+var fromNonDocumentTypeChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
+var fromNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
+var fromHTMLElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
+var fromEventTarget = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
+var fromElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
+var fromChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLCanvasElement");
 export {
-  fromHTMLElement,
-  fromElement,
-  fromNode,
-  fromChildNode,
-  fromNonDocumentTypeChildNode,
-  fromParentNode,
-  fromEventTarget,
-  toHTMLElement,
-  toElement,
-  toNode,
-  toChildNode,
-  toNonDocumentTypeChildNode,
-  toParentNode,
-  toEventTarget
+    width,
+    setWidth,
+    height,
+    setHeight
+} from "./foreign.js";
+export {
+    fromHTMLElement,
+    fromElement,
+    fromNode,
+    fromChildNode,
+    fromNonDocumentTypeChildNode,
+    fromParentNode,
+    fromEventTarget,
+    toHTMLElement,
+    toElement,
+    toNode,
+    toChildNode,
+    toNonDocumentTypeChildNode,
+    toParentNode,
+    toEventTarget
 };
+//# sourceMappingURL=index.js.map

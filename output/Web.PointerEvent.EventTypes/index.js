@@ -10,14 +10,15 @@ var pointercancel = "pointercancel";
 var lostpointercapture = "lostpointercapture";
 var gotpointercapture = "gotpointercapture";
 export {
-  gotpointercapture,
-  lostpointercapture,
-  pointercancel,
-  pointerdown,
-  pointerenter,
-  pointerleave,
-  pointermove,
-  pointerout,
-  pointerover,
-  pointerup
+    gotpointercapture,
+    lostpointercapture,
+    pointercancel,
+    pointerdown,
+    pointerenter,
+    pointerleave,
+    pointermove,
+    pointerout,
+    pointerover,
+    pointerup
 };
+//# sourceMappingURL=index.js.map

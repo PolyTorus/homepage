@@ -2,7 +2,8 @@
 import * as $foreign from "./foreign.js";
 
 export {
-  hasPointerCapture,
-  releasePointerCapture,
-  setPointerCapture
+    hasPointerCapture,
+    releasePointerCapture,
+    setPointerCapture
 } from "./foreign.js";
+//# sourceMappingURL=index.js.map

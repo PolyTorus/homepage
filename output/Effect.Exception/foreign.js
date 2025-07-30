@@ -7,13 +7,13 @@ export function error(msg) {
 }
 
 export function errorWithCause(msg) {
-  return function (cause) {
+  return function(cause) {
     return new Error(msg, { cause });
   };
 }
 
 export function errorWithName(msg) {
-  return function (name) {
+  return function(name) {
     const e = new Error(msg);
     e.name = name;
     return e;
@@ -48,10 +48,7 @@ export function catchException(c) {
       try {
         return t();
       } catch (e) {
-        if (
-          e instanceof Error ||
-          Object.prototype.toString.call(e) === "[object Error]"
-        ) {
+        if (e instanceof Error || Object.prototype.toString.call(e) === "[object Error]") {
           return c(e)();
         } else {
           return c(new Error(e.toString()))();

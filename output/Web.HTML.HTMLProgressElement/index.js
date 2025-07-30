@@ -9,40 +9,35 @@ var toHTMLElement = Unsafe_Coerce.unsafeCoerce;
 var toEventTarget = Unsafe_Coerce.unsafeCoerce;
 var toElement = Unsafe_Coerce.unsafeCoerce;
 var toChildNode = Unsafe_Coerce.unsafeCoerce;
-var fromParentNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged(
-  "HTMLProgressElement"
-);
-var fromNonDocumentTypeChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLProgressElement");
-var fromNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged(
-  "HTMLProgressElement"
-);
-var fromHTMLElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged(
-  "HTMLProgressElement"
-);
-var fromEventTarget = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged(
-  "HTMLProgressElement"
-);
-var fromElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged(
-  "HTMLProgressElement"
-);
-var fromChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged(
-  "HTMLProgressElement"
-);
-export { value, setValue, max, setMax, position, labels } from "./foreign.js";
+var fromParentNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLProgressElement");
+var fromNonDocumentTypeChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLProgressElement");
+var fromNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLProgressElement");
+var fromHTMLElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLProgressElement");
+var fromEventTarget = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLProgressElement");
+var fromElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLProgressElement");
+var fromChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLProgressElement");
 export {
-  fromHTMLElement,
-  fromElement,
-  fromNode,
-  fromChildNode,
-  fromNonDocumentTypeChildNode,
-  fromParentNode,
-  fromEventTarget,
-  toHTMLElement,
-  toElement,
-  toNode,
-  toChildNode,
-  toNonDocumentTypeChildNode,
-  toParentNode,
-  toEventTarget
+    value,
+    setValue,
+    max,
+    setMax,
+    position,
+    labels
+} from "./foreign.js";
+export {
+    fromHTMLElement,
+    fromElement,
+    fromNode,
+    fromChildNode,
+    fromNonDocumentTypeChildNode,
+    fromParentNode,
+    fromEventTarget,
+    toHTMLElement,
+    toElement,
+    toNode,
+    toChildNode,
+    toNonDocumentTypeChildNode,
+    toParentNode,
+    toEventTarget
 };
+//# sourceMappingURL=index.js.map

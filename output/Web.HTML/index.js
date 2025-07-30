@@ -69,4 +69,7 @@ import * as Web_HTML_Location from "../Web.HTML.Location/index.js";
 import * as Web_HTML_Navigator from "../Web.HTML.Navigator/index.js";
 import * as Web_HTML_Window from "../Web.HTML.Window/index.js";
 
-export { window } from "./foreign.js";
+export {
+    window
+} from "./foreign.js";
+//# sourceMappingURL=index.js.map

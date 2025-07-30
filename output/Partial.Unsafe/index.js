@@ -4,8 +4,12 @@ import * as Partial from "../Partial/index.js";
 var crashWith = /* #__PURE__ */ Partial.crashWith();
 var unsafePartial = $foreign["_unsafePartial"];
 var unsafeCrashWith = function (msg) {
-  return unsafePartial(function () {
-    return crashWith(msg);
-  });
+    return unsafePartial(function () {
+        return crashWith(msg);
+    });
 };
-export { unsafePartial, unsafeCrashWith };
+export {
+    unsafePartial,
+    unsafeCrashWith
+};
+//# sourceMappingURL=index.js.map

@@ -8,33 +8,27 @@ var toHTMLElement = Unsafe_Coerce.unsafeCoerce;
 var toEventTarget = Unsafe_Coerce.unsafeCoerce;
 var toElement = Unsafe_Coerce.unsafeCoerce;
 var toChildNode = Unsafe_Coerce.unsafeCoerce;
-var fromParentNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
-var fromNonDocumentTypeChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
-var fromNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
-var fromHTMLElement =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
-var fromEventTarget =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
-var fromElement =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
-var fromChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
+var fromParentNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
+var fromNonDocumentTypeChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
+var fromNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
+var fromHTMLElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
+var fromEventTarget = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
+var fromElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
+var fromChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLHeadElement");
 export {
-  fromHTMLElement,
-  fromElement,
-  fromNode,
-  fromChildNode,
-  fromNonDocumentTypeChildNode,
-  fromParentNode,
-  fromEventTarget,
-  toHTMLElement,
-  toElement,
-  toNode,
-  toChildNode,
-  toNonDocumentTypeChildNode,
-  toParentNode,
-  toEventTarget
+    fromHTMLElement,
+    fromElement,
+    fromNode,
+    fromChildNode,
+    fromNonDocumentTypeChildNode,
+    fromParentNode,
+    fromEventTarget,
+    toHTMLElement,
+    toElement,
+    toNode,
+    toChildNode,
+    toNonDocumentTypeChildNode,
+    toParentNode,
+    toEventTarget
 };
+//# sourceMappingURL=index.js.map

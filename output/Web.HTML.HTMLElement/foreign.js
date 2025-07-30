@@ -1,9 +1,6 @@
 export function _read(nothing, just, value) {
   var tag = Object.prototype.toString.call(value);
-  if (
-    tag.indexOf("[object HTML") === 0 &&
-    tag.indexOf("Element]") === tag.length - 8
-  ) {
+  if (tag.indexOf("[object HTML") === 0 && tag.indexOf("Element]") === tag.length - 8) {
     return just(value);
   } else {
     return nothing;

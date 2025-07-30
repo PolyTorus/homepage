@@ -6,32 +6,47 @@ import * as Control_Plus from "../Control.Plus/index.js";
 import * as Data_Functor from "../Data.Functor/index.js";
 import * as Data_Unit from "../Data.Unit/index.js";
 var guard = function (dictAlternative) {
-  var pure = Control_Applicative.pure(dictAlternative.Applicative0());
-  var empty = Control_Plus.empty(dictAlternative.Plus1());
-  return function (v) {
-    if (v) {
-      return pure(Data_Unit.unit);
-    }
-    if (!v) {
-      return empty;
-    }
-    throw new Error(
-      "Failed pattern match at Control.Alternative (line 48, column 1 - line 48, column 54): " +
-        [v.constructor.name]
-    );
-  };
+    var pure = Control_Applicative.pure(dictAlternative.Applicative0());
+    var empty = Control_Plus.empty(dictAlternative.Plus1());
+    return function (v) {
+        if (v) {
+            return pure(Data_Unit.unit);
+        };
+        if (!v) {
+            return empty;
+        };
+        throw new Error("Failed pattern match at Control.Alternative (line 48, column 1 - line 48, column 54): " + [ v.constructor.name ]);
+    };
 };
 var alternativeArray = {
-  Applicative0: function () {
-    return Control_Applicative.applicativeArray;
-  },
-  Plus1: function () {
-    return Control_Plus.plusArray;
-  }
+    Applicative0: function () {
+        return Control_Applicative.applicativeArray;
+    },
+    Plus1: function () {
+        return Control_Plus.plusArray;
+    }
 };
-export { guard, alternativeArray };
-export { alt } from "../Control.Alt/index.js";
-export { liftA1, pure, unless, when } from "../Control.Applicative/index.js";
-export { apply } from "../Control.Apply/index.js";
-export { empty } from "../Control.Plus/index.js";
-export { map, void } from "../Data.Functor/index.js";
+export {
+    guard,
+    alternativeArray
+};
+export {
+    alt
+} from "../Control.Alt/index.js";
+export {
+    liftA1,
+    pure,
+    unless,
+    when
+} from "../Control.Applicative/index.js";
+export {
+    apply
+} from "../Control.Apply/index.js";
+export {
+    empty
+} from "../Control.Plus/index.js";
+export {
+    map,
+    void
+} from "../Data.Functor/index.js";
+//# sourceMappingURL=index.js.map

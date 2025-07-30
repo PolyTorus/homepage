@@ -13,68 +13,62 @@ var toHTMLElement = Unsafe_Coerce.unsafeCoerce;
 var toEventTarget = Unsafe_Coerce.unsafeCoerce;
 var toElement = Unsafe_Coerce.unsafeCoerce;
 var toChildNode = Unsafe_Coerce.unsafeCoerce;
-var fromParentNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
-var fromNonDocumentTypeChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
-var fromNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
-var fromHTMLElement =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
-var fromEventTarget =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
-var fromElement =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
-var fromChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
+var fromParentNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
+var fromNonDocumentTypeChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
+var fromNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
+var fromHTMLElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
+var fromEventTarget = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
+var fromElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
+var fromChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLObjectElement");
 var form = /* #__PURE__ */ (function () {
-  var $2 = map(Data_Nullable.toMaybe);
-  return function ($3) {
-    return $2($foreign["_form"]($3));
-  };
+    var $2 = map(Data_Nullable.toMaybe);
+    return function ($3) {
+        return $2($foreign["_form"]($3));
+    };
 })();
 var contentDocument = /* #__PURE__ */ (function () {
-  var $4 = map(Data_Nullable.toMaybe);
-  return function ($5) {
-    return $4($foreign["_contentDocument"]($5));
-  };
+    var $4 = map(Data_Nullable.toMaybe);
+    return function ($5) {
+        return $4($foreign["_contentDocument"]($5));
+    };
 })();
 export {
-  data_,
-  setData,
-  type_,
-  setType,
-  typeMustMatch,
-  name,
-  setName,
-  useMap,
-  setUseMap,
-  width,
-  setWidth,
-  height,
-  setHeight,
-  willValidate,
-  validity,
-  validationMessage,
-  checkValidity,
-  reportValidity,
-  setCustomValidity
+    data_,
+    setData,
+    type_,
+    setType,
+    typeMustMatch,
+    name,
+    setName,
+    useMap,
+    setUseMap,
+    width,
+    setWidth,
+    height,
+    setHeight,
+    willValidate,
+    validity,
+    validationMessage,
+    checkValidity,
+    reportValidity,
+    setCustomValidity
 } from "./foreign.js";
 export {
-  fromHTMLElement,
-  fromElement,
-  fromNode,
-  fromChildNode,
-  fromNonDocumentTypeChildNode,
-  fromParentNode,
-  fromEventTarget,
-  toHTMLElement,
-  toElement,
-  toNode,
-  toChildNode,
-  toNonDocumentTypeChildNode,
-  toParentNode,
-  toEventTarget,
-  form,
-  contentDocument
+    fromHTMLElement,
+    fromElement,
+    fromNode,
+    fromChildNode,
+    fromNonDocumentTypeChildNode,
+    fromParentNode,
+    fromEventTarget,
+    toHTMLElement,
+    toElement,
+    toNode,
+    toChildNode,
+    toNonDocumentTypeChildNode,
+    toParentNode,
+    toEventTarget,
+    form,
+    contentDocument
 };
+//# sourceMappingURL=index.js.map

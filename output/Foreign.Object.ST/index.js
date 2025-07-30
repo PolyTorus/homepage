@@ -2,7 +2,14 @@
 import * as $foreign from "./foreign.js";
 import * as Data_Maybe from "../Data.Maybe/index.js";
 var peek = /* #__PURE__ */ (function () {
-  return $foreign.peekImpl(Data_Maybe.Just.create)(Data_Maybe.Nothing.value);
+    return $foreign.peekImpl(Data_Maybe.Just.create)(Data_Maybe.Nothing.value);
 })();
-export { new, poke, delete } from "./foreign.js";
-export { peek };
+export {
+    new,
+    poke,
+    delete
+} from "./foreign.js";
+export {
+    peek
+};
+//# sourceMappingURL=index.js.map

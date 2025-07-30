@@ -4,39 +4,40 @@ import * as Data_Show from "../Data.Show/index.js";
 var show = /* #__PURE__ */ Data_Show.show(Data_Show.showString);
 var compare = /* #__PURE__ */ Data_Ord.compare(Data_Ord.ordString);
 var MediaType = function (x) {
-  return x;
+    return x;
 };
 var showMediaType = {
-  show: function (v) {
-    return "(MediaType " + (show(v) + ")");
-  }
+    show: function (v) {
+        return "(MediaType " + (show(v) + ")");
+    }
 };
 var newtypeMediaType = {
-  Coercible0: function () {
-    return undefined;
-  }
+    Coercible0: function () {
+        return undefined;
+    }
 };
 var eqMediaType = {
-  eq: function (x) {
-    return function (y) {
-      return x === y;
-    };
-  }
+    eq: function (x) {
+        return function (y) {
+            return x === y;
+        };
+    }
 };
 var ordMediaType = {
-  compare: function (x) {
-    return function (y) {
-      return compare(x)(y);
-    };
-  },
-  Eq0: function () {
-    return eqMediaType;
-  }
+    compare: function (x) {
+        return function (y) {
+            return compare(x)(y);
+        };
+    },
+    Eq0: function () {
+        return eqMediaType;
+    }
 };
 export {
-  MediaType,
-  newtypeMediaType,
-  eqMediaType,
-  ordMediaType,
-  showMediaType
+    MediaType,
+    newtypeMediaType,
+    eqMediaType,
+    ordMediaType,
+    showMediaType
 };
+//# sourceMappingURL=index.js.map

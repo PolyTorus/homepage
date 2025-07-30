@@ -4,57 +4,58 @@ import * as Data_Function from "../Data.Function/index.js";
 import * as Data_Ordering from "../Data.Ordering/index.js";
 var eq = /* #__PURE__ */ Data_Eq.eq(Data_Ordering.eqOrdering);
 var Equivalence = function (x) {
-  return x;
+    return x;
 };
 var semigroupEquivalence = {
-  append: function (v) {
-    return function (v1) {
-      return function (a) {
-        return function (b) {
-          return v(a)(b) && v1(a)(b);
+    append: function (v) {
+        return function (v1) {
+            return function (a) {
+                return function (b) {
+                    return v(a)(b) && v1(a)(b);
+                };
+            };
         };
-      };
-    };
-  }
+    }
 };
 var newtypeEquivalence = {
-  Coercible0: function () {
-    return undefined;
-  }
+    Coercible0: function () {
+        return undefined;
+    }
 };
 var monoidEquivalence = {
-  mempty: function (v) {
-    return function (v1) {
-      return true;
-    };
-  },
-  Semigroup0: function () {
-    return semigroupEquivalence;
-  }
+    mempty: function (v) {
+        return function (v1) {
+            return true;
+        };
+    },
+    Semigroup0: function () {
+        return semigroupEquivalence;
+    }
 };
 var defaultEquivalence = function (dictEq) {
-  return Data_Eq.eq(dictEq);
+    return Data_Eq.eq(dictEq);
 };
 var contravariantEquivalence = {
-  cmap: function (f) {
-    return function (v) {
-      return Data_Function.on(v)(f);
-    };
-  }
+    cmap: function (f) {
+        return function (v) {
+            return Data_Function.on(v)(f);
+        };
+    }
 };
 var comparisonEquivalence = function (v) {
-  return function (a) {
-    return function (b) {
-      return eq(v(a)(b))(Data_Ordering.EQ.value);
+    return function (a) {
+        return function (b) {
+            return eq(v(a)(b))(Data_Ordering.EQ.value);
+        };
     };
-  };
 };
 export {
-  Equivalence,
-  defaultEquivalence,
-  comparisonEquivalence,
-  newtypeEquivalence,
-  contravariantEquivalence,
-  semigroupEquivalence,
-  monoidEquivalence
+    Equivalence,
+    defaultEquivalence,
+    comparisonEquivalence,
+    newtypeEquivalence,
+    contravariantEquivalence,
+    semigroupEquivalence,
+    monoidEquivalence
 };
+//# sourceMappingURL=index.js.map

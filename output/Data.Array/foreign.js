@@ -5,8 +5,7 @@
 export const rangeImpl = function (start, end) {
   var step = start > end ? -1 : 1;
   var result = new Array(step * (end - start) + 1);
-  var i = start,
-    n = 0;
+  var i = start, n = 0;
   while (i !== end) {
     result[n++] = i;
     i += step;
@@ -33,10 +32,7 @@ var replicatePolyfill = function (count, value) {
 };
 
 // In browsers that have Array.prototype.fill we use it, as it's faster.
-export const replicateImpl =
-  typeof Array.prototype.fill === "function"
-    ? replicateFill
-    : replicatePolyfill;
+export const replicateImpl = typeof Array.prototype.fill === "function" ? replicateFill : replicatePolyfill;
 
 export const fromFoldableImpl = (function () {
   function Cons(head, tail) {
@@ -88,7 +84,7 @@ export const unconsImpl = function (empty, next, xs) {
 //------------------------------------------------------------------------------
 
 export const indexImpl = function (just, nothing, xs, i) {
-  return i < 0 || i >= xs.length ? nothing : just(xs[i]);
+  return i < 0 || i >= xs.length ? nothing :  just(xs[i]);
 };
 
 export const findMapImpl = function (nothing, isJust, f, xs) {
@@ -165,11 +161,13 @@ export const filterImpl = function (f, xs) {
 
 export const partitionImpl = function (f, xs) {
   var yes = [];
-  var no = [];
+  var no  = [];
   for (var i = 0; i < xs.length; i++) {
     var x = xs[i];
-    if (f(x)) yes.push(x);
-    else no.push(x);
+    if (f(x))
+      yes.push(x);
+    else
+      no.push(x);
   }
   return { yes: yes, no: no };
 };
@@ -224,7 +222,8 @@ export const sortByImpl = (function () {
       if (c > 0) {
         xs1[k++] = y;
         ++j;
-      } else {
+      }
+      else {
         xs1[k++] = x;
         ++i;
       }

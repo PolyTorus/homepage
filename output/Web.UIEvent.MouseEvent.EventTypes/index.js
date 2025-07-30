@@ -10,14 +10,15 @@ var dblclick = "dblclick";
 var click = "click";
 var auxclick = "auxclick";
 export {
-  auxclick,
-  click,
-  dblclick,
-  mousedown,
-  mouseenter,
-  mouseleave,
-  mousemove,
-  mouseout,
-  mouseover,
-  mouseup
+    auxclick,
+    click,
+    dblclick,
+    mousedown,
+    mouseenter,
+    mouseleave,
+    mousemove,
+    mouseout,
+    mouseover,
+    mouseup
 };
+//# sourceMappingURL=index.js.map

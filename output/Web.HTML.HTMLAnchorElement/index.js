@@ -10,51 +10,45 @@ var toHTMLElement = Unsafe_Coerce.unsafeCoerce;
 var toEventTarget = Unsafe_Coerce.unsafeCoerce;
 var toElement = Unsafe_Coerce.unsafeCoerce;
 var toChildNode = Unsafe_Coerce.unsafeCoerce;
-var fromParentNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
-var fromNonDocumentTypeChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
-var fromNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
-var fromHTMLElement =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
-var fromEventTarget =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
-var fromElement =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
-var fromChildNode =
-  /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
+var fromParentNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
+var fromNonDocumentTypeChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
+var fromNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
+var fromHTMLElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
+var fromEventTarget = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
+var fromElement = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
+var fromChildNode = /* #__PURE__ */ Web_Internal_FFI.unsafeReadProtoTagged("HTMLAnchorElement");
 export {
-  target,
-  setTarget,
-  download,
-  setDownload,
-  rel,
-  setRel,
-  rev,
-  setRev,
-  relList,
-  hreflang,
-  setHreflang,
-  type_,
-  setType,
-  text,
-  setText
+    target,
+    setTarget,
+    download,
+    setDownload,
+    rel,
+    setRel,
+    rev,
+    setRev,
+    relList,
+    hreflang,
+    setHreflang,
+    type_,
+    setType,
+    text,
+    setText
 } from "./foreign.js";
 export {
-  fromHTMLElement,
-  fromElement,
-  fromNode,
-  fromChildNode,
-  fromNonDocumentTypeChildNode,
-  fromParentNode,
-  fromEventTarget,
-  toHTMLElement,
-  toElement,
-  toNode,
-  toChildNode,
-  toNonDocumentTypeChildNode,
-  toParentNode,
-  toEventTarget,
-  toHTMLHyperlinkElementUtils
+    fromHTMLElement,
+    fromElement,
+    fromNode,
+    fromChildNode,
+    fromNonDocumentTypeChildNode,
+    fromParentNode,
+    fromEventTarget,
+    toHTMLElement,
+    toElement,
+    toNode,
+    toChildNode,
+    toNonDocumentTypeChildNode,
+    toParentNode,
+    toEventTarget,
+    toHTMLHyperlinkElementUtils
 };
+//# sourceMappingURL=index.js.map

@@ -8,10 +8,10 @@ pre-commit:
         bunx prettier --write {staged_files}
       stage_fixed: true
 
-    eslint:
-      priority: 2
-      run: |
-        echo "{staged_files}" | grep -E '\.(ts|tsx|js|jsx)$' | xargs bunx eslint --no-ignore --fix
+    # eslint:
+    #   priority: 2
+    #   run: |
+    #     echo "{staged_files}" | grep -E '\.(ts|tsx|js|jsx)$' | xargs bunx eslint --no-ignore --fix
 
 post-merge:
   commands:

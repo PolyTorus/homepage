@@ -8,46 +8,45 @@ import * as Data_Ord from "../Data.Ord/index.js";
 import * as Web_Event_EventPhase from "../Web.Event.EventPhase/index.js";
 import * as Web_Event_Internal_Types from "../Web.Event.Internal.Types/index.js";
 var fromJust = /* #__PURE__ */ Data_Maybe.fromJust();
-var toEnum = /* #__PURE__ */ Data_Enum.toEnum(
-  Web_Event_EventPhase.boundedEnumEventPhase
-);
+var toEnum = /* #__PURE__ */ Data_Enum.toEnum(Web_Event_EventPhase.boundedEnumEventPhase);
 var EventType = function (x) {
-  return x;
+    return x;
 };
 var target = function ($3) {
-  return Data_Nullable.toMaybe($foreign["_target"]($3));
+    return Data_Nullable.toMaybe($foreign["_target"]($3));
 };
 var ordEventType = Data_Ord.ordString;
 var newtypeEventType = {
-  Coercible0: function () {
-    return undefined;
-  }
+    Coercible0: function () {
+        return undefined;
+    }
 };
 var eventPhase = function () {
-  return function ($4) {
-    return fromJust(toEnum($foreign.eventPhaseIndex($4)));
-  };
+    return function ($4) {
+        return fromJust(toEnum($foreign.eventPhaseIndex($4)));
+    };
 };
 var eqEventType = Data_Eq.eqString;
 var currentTarget = function ($5) {
-  return Data_Nullable.toMaybe($foreign["_currentTarget"]($5));
+    return Data_Nullable.toMaybe($foreign["_currentTarget"]($5));
 };
 export {
-  type_,
-  stopPropagation,
-  stopImmediatePropagation,
-  bubbles,
-  cancelable,
-  preventDefault,
-  defaultPrevented,
-  timeStamp
+    type_,
+    stopPropagation,
+    stopImmediatePropagation,
+    bubbles,
+    cancelable,
+    preventDefault,
+    defaultPrevented,
+    timeStamp
 } from "./foreign.js";
 export {
-  EventType,
-  target,
-  currentTarget,
-  eventPhase,
-  newtypeEventType,
-  eqEventType,
-  ordEventType
+    EventType,
+    target,
+    currentTarget,
+    eventPhase,
+    newtypeEventType,
+    eqEventType,
+    ordEventType
 };
+//# sourceMappingURL=index.js.map

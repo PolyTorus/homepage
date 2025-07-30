@@ -384,13 +384,7 @@ export function setRangeText(replacement) {
   };
 }
 
-export function _setRangeText(
-  replacement,
-  start,
-  end,
-  selectionMode,
-  textarea
-) {
+export function _setRangeText(replacement, start, end, selectionMode, textarea) {
   textarea.setRangeText(replacement, start, end, selectionMode);
 }
 

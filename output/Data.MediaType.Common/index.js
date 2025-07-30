@@ -14,18 +14,19 @@ var applicationJavascript = "application/javascript";
 var applicationJSON = "application/json";
 var applicationFormURLEncoded = "application/x-www-form-urlencoded";
 export {
-  applicationFormURLEncoded,
-  applicationJSON,
-  applicationJavascript,
-  applicationOctetStream,
-  applicationXML,
-  imageGIF,
-  imageJPEG,
-  imagePNG,
-  multipartFormData,
-  textCSV,
-  textHTML,
-  textPlain,
-  textXML,
-  textCSS
+    applicationFormURLEncoded,
+    applicationJSON,
+    applicationJavascript,
+    applicationOctetStream,
+    applicationXML,
+    imageGIF,
+    imageJPEG,
+    imagePNG,
+    multipartFormData,
+    textCSV,
+    textHTML,
+    textPlain,
+    textXML,
+    textCSS
 };
+//# sourceMappingURL=index.js.map

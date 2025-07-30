@@ -5,11 +5,10 @@ import * as Data_Unit from "../Data.Unit/index.js";
 import * as Effect_Aff from "../Effect.Aff/index.js";
 import * as Halogen_Aff_Util from "../Halogen.Aff.Util/index.js";
 import * as Halogen_VDom_Driver from "../Halogen.VDom.Driver/index.js";
-var main = /* #__PURE__ */ Halogen_Aff_Util.runHalogenAff(
-  /* #__PURE__ */ Control_Bind.bind(Effect_Aff.bindAff)(
-    Halogen_Aff_Util.awaitBody
-  )(function (body) {
+var main = /* #__PURE__ */ Halogen_Aff_Util.runHalogenAff(/* #__PURE__ */ Control_Bind.bind(Effect_Aff.bindAff)(Halogen_Aff_Util.awaitBody)(function (body) {
     return Halogen_VDom_Driver.runUI(App_Root.component)(Data_Unit.unit)(body);
-  })
-);
-export { main };
+}));
+export {
+    main
+};
+//# sourceMappingURL=index.js.map

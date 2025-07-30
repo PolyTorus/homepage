@@ -11,7 +11,24 @@
       "Bash(./node_modules/.bin/spago bundle-app --to dist/app.js)",
       "Bash(npx esbuild:*)",
       "Bash(npm run build:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(git config:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(true)",
+      "Bash(git submodule:*)",
+      "Bash(git rm:*)",
+      "Bash(cat:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(bun install:*)",
+      "Bash(npm view:*)",
+      "Bash(npx spago:*)",
+      "Bash(curl:*)",
+      "Bash(npm run purs:bundle:*)",
+      "Bash(grep:*)",
+      "Bash(mv:*)"
     ],
     "deny": []
   }
