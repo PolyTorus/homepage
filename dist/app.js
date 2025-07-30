@@ -6637,4 +6637,13 @@
   );
 })();
 
-main2();
+console.log("Debug: Found main2");
+setTimeout(function () {
+  console.log("Executing main2...");
+  if (typeof main2 !== "undefined") {
+    main2();
+    console.log("Done");
+  } else {
+    console.error("Not found");
+  }
+}, 100);
