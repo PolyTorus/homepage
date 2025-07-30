@@ -7113,9 +7113,11 @@
   };
 
   // output/Main/index.js
-  var main2 = /* @__PURE__ */ runHalogenAff(
+  var main = /* @__PURE__ */ runHalogenAff(
     /* @__PURE__ */ bind(bindAff)(awaitBody)(function (body2) {
       return runUI2(component2)(unit)(body2);
     })
   );
 })();
+
+main();

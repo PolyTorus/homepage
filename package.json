@@ -7,7 +7,7 @@
     "build": "npm run purs:build && npm run purs:bundle",
     "start": "npm run purs:serve",
     "purs:build": "npx spago build",
-    "purs:bundle": "mkdir -p dist && npx esbuild output/Main/index.js --bundle --outfile=dist/app.js --format=iife",
+    "purs:bundle": "mkdir -p dist && node build-script.js",
     "purs:serve": "npx http-server . -p 3000 -o",
     "purs:watch": "npx spago build --watch",
     "format": "prettier --write .",
