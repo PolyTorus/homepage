@@ -7404,7 +7404,3 @@ var PureScriptApp = (() => {
   ));
   return __toCommonJS(index_exports);
 })();
-
-setTimeout(function () {
-  window.main2();
-}, 0);
