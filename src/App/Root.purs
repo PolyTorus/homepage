@@ -8,15 +8,20 @@ import Type.Proxy (Proxy(..))
 import Halogen as H
 import Halogen.HTML as HH
 import Halogen.HTML.Properties as HP
-import Components.Header as Header
+import Halogen.HTML.Events as HE
+import Store.Theme as Theme
 
-type State = { }
+type State = 
+  { sidebarHovered :: Boolean
+  , theme :: Theme.ThemeState
+  }
 
-data Action = Initialize
+data Action 
+  = Initialize
+  | SetSidebarHover Boolean
+  | ToggleTheme
 
-type Slots = 
-  ( header :: forall query. H.Slot query Void Unit
-  )
+type Slots = ( )
 
 component :: forall query input output. H.Component query input output Aff
 component =
@@ -30,17 +35,92 @@ component =
     }
 
 initialState :: forall input. input -> State
-initialState _ = { }
+initialState _ = { sidebarHovered: false, theme: Theme.initialTheme }
 
 render :: State -> H.ComponentHTML Action Slots Aff
-render _ =
+render state =
   HH.div
     [ HP.class_ (HH.ClassName "app-root")
-    , HP.style "min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"
+    , HP.style "min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); position: relative;"
     ]
-    [ HH.slot_ (Proxy :: Proxy "header") unit Header.component unit
+    [ -- ホバーエリア（左端20px幅の不可視エリア）
+      HH.div
+        [ HP.class_ (HH.ClassName "hover-trigger")
+        , HP.style "position: fixed; top: 0; left: 0; width: 20px; height: 100vh; z-index: 15; background: transparent;"
+        , HE.onMouseEnter \_ -> SetSidebarHover true
+        ]
+        []
+    -- サイドバーのヒント表示（非ホバー時に表示）
+    , if not state.sidebarHovered then
+        HH.div
+          [ HP.class_ (HH.ClassName "sidebar-hint")
+          , HP.style $ "position: fixed; top: 50%; left: 0; transform: translateY(-50%); " <>
+                       "background: " <> state.theme.bg <> "e0; " <>
+                       "color: " <> state.theme.color <> "; " <>
+                       "padding: 8px 12px 8px 8px; border-radius: 0 8px 8px 0; " <>
+                       "z-index: 5; cursor: pointer; " <>
+                       "box-shadow: 2px 0 10px rgba(0,0,0,0.1); " <>
+                       "backdrop-filter: blur(10px); " <>
+                       "border: 1px solid " <> borderColor <> "; " <>
+                       "transition: all 0.3s ease;"
+          , HE.onMouseEnter \_ -> SetSidebarHover true
+          ]
+          [ HH.text "☰" ]
+      else
+        HH.text ""
+    -- サイドバー
+    , HH.aside
+        [ HP.class_ (HH.ClassName "sidebar")
+        , HP.style $ "background-color: " <> state.theme.bg <> "f0; " <>
+                     "color: " <> state.theme.color <> "; " <>
+                     "position: fixed; top: 0; left: " <> sidebarPosition <> "; height: 100vh; width: 280px; z-index: 10; " <>
+                     "padding: 32px 24px; " <>
+                     "border-right: 1px solid " <> borderColor <> "; " <>
+                     "backdrop-filter: blur(10px); " <>
+                     "display: flex; flex-direction: column; gap: 32px; " <>
+                     "box-shadow: 2px 0 10px rgba(0,0,0,0.1); " <>
+                     "transition: left 0.3s ease;"
+        , HE.onMouseEnter \_ -> SetSidebarHover true
+        , HE.onMouseLeave \_ -> SetSidebarHover false
+        ]
+        [ HH.div
+            [ HP.class_ (HH.ClassName "sidebar-header")
+            , HP.style "display: flex; justify-content: space-between; align-items: center;"
+            ]
+            [ HH.h1
+                [ HP.class_ (HH.ClassName "logo")
+                , HP.style "font-size: 24px; font-weight: bold; margin: 0; cursor: pointer;"
+                ]
+                [ HH.text "Polytorus" ]
+            , HH.button
+                [ HP.class_ (HH.ClassName "theme-toggle")
+                , HP.style $ "background: none; border: none; cursor: pointer; " <>
+                             "padding: 8px; border-radius: 4px; color: " <> state.theme.color
+                , HE.onClick \_ -> ToggleTheme
+                ]
+                [ HH.text $ themeIcon state.theme.mode ]
+            ]
+        , HH.nav
+            [ HP.class_ (HH.ClassName "sidebar-nav")
+            , HP.style "flex: 1;"
+            ]
+            [ HH.ul
+                [ HP.style "list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px;"
+                ]
+                [ navItem "🌟" "特徴" "#features"
+                , navItem "🏛️" "アーキテクチャ" "#architecture"
+                , navItem "🚀" "始めよう" "#get-started"
+                , navItem "📚" "ドキュメント" "https://github.com/PolyTorus/polytorus/blob/main/README.ja.md"
+                , navItem "💻" "GitHub" "https://github.com/PolyTorus/polytorus"
+                ]
+            ]
+        ]
+    -- メインコンテンツ（サイドバーの状態に応じて移動）
     , HH.main
-        [ HP.style "padding-top: 100px; padding: 100px 2rem 2rem 2rem; max-width: 1200px; margin: 0 auto;"
+        [ HP.style $ "padding: 2rem; max-width: 1200px; overflow-x: hidden; width: 100%; " <>
+                     "margin-left: " <> contentMarginLeft <> "; " <>
+                     "margin-right: " <> contentMarginRight <> "; " <>
+                     "transition: margin-left 0.3s ease;"
         ]
         [ heroSection
         , featuresSection
@@ -48,6 +128,34 @@ render _ =
         , getStartedSection
         ]
     ]
+  where
+    sidebarPosition = if state.sidebarHovered then "0" else "-260px"
+    contentMarginLeft = if state.sidebarHovered then "280px" else "auto"
+    contentMarginRight = if state.sidebarHovered then "auto" else "auto"
+    
+    borderColor = case state.theme.mode of
+      Theme.Dark -> "rgba(255, 255, 255, 0.1)"
+      Theme.Light -> "rgba(50, 55, 60, 0.1)"
+    
+    themeIcon mode = case mode of
+      Theme.Dark -> "☀️"
+      Theme.Light -> "🌙"
+    
+    navItem icon text href =
+      HH.li_
+        [ HH.a
+            [ HP.href href
+            , HP.style $ "display: flex; align-items: center; gap: 12px; " <>
+                         "padding: 12px 16px; border-radius: 8px; " <>
+                         "text-decoration: none; color: " <> state.theme.color <> "; " <>
+                         "transition: background-color 0.2s ease; " <>
+                         "font-weight: 500;"
+            , HP.class_ (HH.ClassName "nav-item")
+            ]
+            [ HH.span [ HP.style "font-size: 18px;" ] [ HH.text icon ]
+            , HH.span_ [ HH.text text ]
+            ]
+        ]
 
 heroSection :: forall w i. HH.HTML w i
 heroSection =
@@ -83,7 +191,8 @@ heroSection =
 featuresSection :: forall w i. HH.HTML w i
 featuresSection =
   HH.section
-    [ HP.class_ (HH.ClassName "features")
+    [ HP.id "features"
+    , HP.class_ (HH.ClassName "features")
     , HP.style "padding: 4rem 0; background: rgba(255,255,255,0.95); border-radius: 16px; margin: 2rem 0; backdrop-filter: blur(10px);"
     ]
     [ HH.h2 
@@ -120,7 +229,8 @@ featureCard icon title description =
 architectureSection :: forall w i. HH.HTML w i
 architectureSection =
   HH.section
-    [ HP.class_ (HH.ClassName "architecture")
+    [ HP.id "architecture"
+    , HP.class_ (HH.ClassName "architecture")
     , HP.style "padding: 4rem 0; color: white;"
     ]
     [ HH.h2 
@@ -201,3 +311,14 @@ getStartedSection =
 handleAction :: forall output. Action -> H.HalogenM State Action Slots output Aff Unit
 handleAction = case _ of
   Initialize -> pure unit
+  
+  SetSidebarHover isHovered -> do
+    H.modify_ \s -> s { sidebarHovered = isHovered }
+    
+  ToggleTheme -> do
+    currentTheme <- H.gets _.theme
+    let newMode = case currentTheme.mode of
+          Theme.Light -> Theme.Dark
+          Theme.Dark -> Theme.Light
+        newTheme = Theme.getThemeForMode newMode
+    H.modify_ _ { theme = newTheme }
