@@ -1,13 +1,13 @@
 {
-  "name": "polytorus-homepage",
+  "name": "homepage",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "npm run purs:build && npm run purs:serve",
     "build": "npm run purs:build && npm run purs:bundle",
     "start": "npm run purs:serve",
-    "purs:build": "npx spago build",
-    "purs:bundle": "npx spago bundle --outfile dist/index.js --minify && cp dist/index.js index.js",
+    "purs:build": "npx spago build --output dist/",
+    "purs:bundle": "npx spago bundle --outfile dist/index.js --minify",
     "purs:serve": "npx http-server . -p 3000 -o",
     "purs:watch": "npx spago build --watch",
     "format": "prettier --write .",
