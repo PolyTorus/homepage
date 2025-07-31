@@ -45,3 +45,5 @@ next-env.d.ts
 output/
 .psc-ide-port
 .psa-stash
+
+dist/
