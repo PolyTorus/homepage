@@ -29,7 +29,8 @@
       "Bash(npm run purs:bundle:*)",
       "Bash(grep:*)",
       "Bash(mv:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(python3:*)"
     ],
     "deny": []
   }
