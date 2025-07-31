@@ -10,7 +10,8 @@
             "effect",
             "halogen",
             "maybe",
-            "prelude"
+            "prelude",
+            "strings"
           ],
           "build_plan": [
             "aff",

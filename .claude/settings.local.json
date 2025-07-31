@@ -30,7 +30,10 @@
       "Bash(grep:*)",
       "Bash(mv:*)",
       "Bash(npm run dev:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(npm run purs:build:*)",
+      "Bash(git pull:*)",
+      "Bash(git rebase:*)"
     ],
     "deny": []
   }

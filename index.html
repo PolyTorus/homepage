@@ -72,6 +72,10 @@
         main {
           padding: 80px 1rem 1rem 1rem !important;
         }
+
+        nav ul {
+          display: none !important;
+        }
       }
 
       /* アニメーション */
@@ -97,7 +101,21 @@
       .feature-card:hover,
       .layer-card:hover {
         transform: translateY(-5px);
-        transition: transform 0.3s ease;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-card {
+        transition: all 0.3s ease;
+      }
+
+      .layer-card {
+        transition: all 0.3s ease;
+      }
+
+      /* ボタンホバーエフェクト */
+      a[href*="github"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
       }
 
       /* グラデーション背景の改善 */
@@ -140,6 +158,32 @@
         background: linear-gradient(90deg, #667eea, #764ba2);
         border-radius: 8px 8px 0 0;
       }
+
+      /* ナビゲーションリンクのアンダーラインアニメーション */
+      nav a {
+        position: relative;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #667eea;
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      /* スクロール時のヘッダースタイル変更 */
+      header.scrolled {
+        background: rgba(255, 255, 255, 0.98) !important;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15) !important;
+      }
     </style>
   </head>
   <body>
@@ -157,6 +201,45 @@
                 behavior: "smooth",
                 block: "start"
               });
+            }
+          });
+        });
+
+        // スクロール時のヘッダースタイル変更
+        const header = document.querySelector("header");
+        let lastScroll = 0;
+
+        window.addEventListener("scroll", function () {
+          const currentScroll = window.pageYOffset;
+
+          if (currentScroll > 50) {
+            header?.classList.add("scrolled");
+          } else {
+            header?.classList.remove("scrolled");
+          }
+
+          lastScroll = currentScroll;
+        });
+
+        // セクション間の自動スクロールインジケーター
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll("nav a[href^='#']");
+
+        window.addEventListener("scroll", function () {
+          let current = "";
+
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop - 200) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+              link.classList.add("active");
             }
           });
         });
