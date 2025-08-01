@@ -70,44 +70,44 @@ baasDetailContent =
         [ HH.h2
             [ HP.style "font-size: 2rem; font-weight: 600; color: #E60012; margin-bottom: 1.5rem;"
             ]
-            [ HH.text "企業向けカスタムブロックチェーンソリューション" ]
+            [ HH.text "企業向けカスタムL1ブロックチェーンソリューション" ]
         , HH.p
             [ HP.style "font-size: 1.2rem; color: #32373C; line-height: 1.6; margin-bottom: 2rem;"
             ]
-            [ HH.text "PolyTorusのBaaS（Blockchain as a Service）プラットフォームは、企業のデジタル変革を支援する包括的なブロックチェーンソリューションです。従来のブロックチェーンの制約を超える革新的な技術で、お客様のビジネス要件に最適化されたカスタムソリューションを提供します。" ]
+            [ HH.text "PolyTorusのL1ブロックチェーン・BaaSプラットフォームは、企業のデジタル変革を支援する次世代Layer 1ブロックチェーンソリューションです。耐量子暗号・no_std実装による革新的な技術で、従来のブロックチェーンの限界を超えたカスタムL1チェーンを提供します。" ]
         ]
     
     , HH.div
         [ HP.style "display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;"
         ]
-        [ featureCard "カスタムブロックチェーン構築"
-            "お客様の要件に合わせたブロックチェーンネットワークを構築"
-            [ "CRDT による分散合意"
-            , "WebRTC ネイティブ通信"
-            , "モジュラー設計"
-            , "高スループット処理"
+        [ featureCard "カスタムL1ブロックチェーン構築"
+            "お客様専用のLayer 1ブロックチェーンネットワークを構築"
+            [ "耐量子暗号による長期セキュリティ"
+            , "no_std実装による軽量動作"
+            , "高スループット・低レイテンシ"
+            , "モジュラー設計・カスタマイズ対応"
             ]
-        , featureCard "スマートコントラクト開発"
-            "ビジネスロジックを自動化するスマートコントラクト"
-            [ "Rust/WASM 実装"
-            , "形式検証対応"
+        , featureCard "耐量子スマートコントラクト"
+            "量子コンピューター時代に対応したスマートコントラクト"
+            [ "no_std Rust実装"
+            , "形式検証・セキュリティ監査"
             , "ガス効率最適化"
-            , "セキュリティ監査付き"
+            , "量子攻撃耐性保証"
             ]
-        , featureCard "API・SDK提供"
-            "開発者フレンドリーな統合インターフェース"
-            [ "REST API"
-            , "GraphQL対応"
-            , "多言語SDK"
-            , "詳細ドキュメント"
+        , featureCard "no_std対応API・SDK"
+            "組み込み環境でも動作する軽量インターフェース"
+            [ "軽量REST API"
+            , "no_std対応SDK"
+            , "マルチプラットフォーム対応"
+            , "包括的ドキュメント"
             ]
         ]
     
-    , pricingSection "BaaSプラットフォーム" "月額 ¥200,000〜" 
-        [ "基本プラットフォーム利用料"
-        , "カスタマイズ開発費別途"
-        , "初期設定・導入支援込み"
-        , "24/7技術サポート"
+    , pricingSection "L1ブロックチェーン・BaaSプラットフォーム" "月額 ¥200,000〜（L1チェーン利用は無料）" 
+        [ "パブリックL1チェーン利用無料"
+        , "BaaSプラットフォーム利用料"
+        , "プライベートL1開発・運用費別途"
+        , "24/7技術サポート・SLA保証"
         ]
     ]
 

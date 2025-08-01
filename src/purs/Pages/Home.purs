@@ -24,11 +24,11 @@ homeContent theme onNavigate =
         , HH.p
             [ HP.style $ "font-size: 1.5rem; color: " <> theme.color <> "; opacity: 0.9; margin-bottom: 1rem; line-height: 1.6;"
             ]
-            [ HH.text "次世代分散システムプラットフォーム" ]
+            [ HH.text "次世代L1ブロックチェーンプラットフォーム" ]
         , HH.p
             [ HP.style $ "font-size: 1.2rem; color: " <> theme.color <> "; opacity: 0.8; margin-bottom: 4rem; line-height: 1.6;"
             ]
-            [ HH.text "革新的な研究開発とエンタープライズソリューションの融合" ]
+            [ HH.text "耐量子暗号・no_std実装による革新的なLayer 1ブロックチェーン" ]
         , HH.div
             [ HP.class_ (HH.ClassName "page-buttons")
             , HP.style "display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;"

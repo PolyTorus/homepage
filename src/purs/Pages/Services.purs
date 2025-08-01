@@ -44,13 +44,13 @@ serviceOverviewSection =
     , HH.p
         [ HP.style "font-size: 1.3rem; color: #32373C; line-height: 1.8; margin-bottom: 2rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;"
         ]
-        [ HH.text "PolyTorusは革新的な分散システム技術を活用したエンタープライズソリューションを提供します。no_std実装による軽量・高性能な耐量子暗号化技術で、IoT・衛星通信・ブロックチェーンの新しい価値をお客様のビジネスに。" ]
+        [ HH.text "PolyTorusは次世代L1ブロックチェーン技術を活用したエンタープライズソリューションを提供します。耐量子暗号・no_std実装による革新的なLayer 1ブロックチェーンで、従来の限界を超えた新しい価値をお客様のビジネスに。" ]
     , HH.div
         [ HP.style "display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;"
         ]
-        [ serviceHighlightCard "革新技術" "no_std・CRDT・WebRTC・耐量子暗号" "fas fa-rocket"
+        [ serviceHighlightCard "L1ブロックチェーン" "耐量子暗号・no_std実装による次世代基盤" "fas fa-cube"
         , serviceHighlightCard "実績重視" "研究開発で培った確かな技術力" "fas fa-award"
-        , serviceHighlightCard "幅広い対応" "IoT・衛星・ブロックチェーン統合" "fas fa-satellite"
+        , serviceHighlightCard "スケーラビリティ" "IoT・組み込み環境での高性能動作" "fas fa-microchip"
         , serviceHighlightCard "24/7サポート" "安心の運用サポート体制" "fas fa-headset"
         ]
     ]
@@ -86,16 +86,16 @@ mainServicesSection onNavigate =
     , HH.div
         [ HP.style "display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;"
         ]
-        [ serviceCard onNavigate Page.BaaSPlatform "BaaS・ブロックチェーンプラットフォーム"
-            "企業向けカスタムブロックチェーンソリューション"
-            [ "カスタムブロックチェーン構築"
-            , "スマートコントラクト開発"
-            , "API・SDK提供"
-            , "クラウドインフラ管理"
+        [ serviceCard onNavigate Page.BaaSPlatform "L1ブロックチェーン・BaaSプラットフォーム"
+            "企業向けカスタムL1ブロックチェーンソリューション"
+            [ "カスタムL1ブロックチェーン構築"
+            , "耐量子スマートコントラクト"
+            , "no_std対応API・SDK"
+            , "高性能ノードインフラ"
             ]
             "fas fa-cube"
             "#E60012"
-            "月額 ¥200,000〜"
+            "月額 ¥200,000〜（L1チェーン利用は無料）"
         
         , serviceCard onNavigate Page.P2PInfra "P2P通信インフラ"
             "WebRTCベースの分散通信プラットフォーム"

@@ -45,7 +45,7 @@ pageTitle Services = "PolyTorus - サービス"
 pageTitle (ServiceDetail serviceType) = "PolyTorus - " <> serviceTypeTitle serviceType
 
 serviceTypeTitle :: ServiceType -> String
-serviceTypeTitle BaaSPlatform = "BaaS・ブロックチェーンプラットフォーム"
+serviceTypeTitle BaaSPlatform = "L1ブロックチェーン・BaaSプラットフォーム"
 serviceTypeTitle P2PInfra = "P2P通信インフラ"
 serviceTypeTitle IoTSatelliteSecurity = "IoT・衛星通信セキュリティ"
 serviceTypeTitle IoTMining = "IoTマイニング・分散コンピューティング"
