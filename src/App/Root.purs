@@ -15,6 +15,7 @@ import Pages.Home as Home
 import Pages.Developers as Developers
 import Pages.General as General
 import Pages.Services as Services
+import Pages.ServiceDetail as ServiceDetail
 
 type State = 
   { theme :: Theme.ThemeState
@@ -108,7 +109,8 @@ render state =
       Page.Home -> Home.homeContent state.theme NavigateTo
       Page.ForDevelopers -> Developers.developersContent state.theme
       Page.ForGeneral -> General.generalContent state.theme
-      Page.Services -> Services.servicesContent state.theme
+      Page.Services -> Services.servicesContent state.theme NavigateTo
+      Page.ServiceDetail serviceType -> ServiceDetail.serviceDetailContent state.theme serviceType NavigateTo
     
     borderColor = case state.theme.mode of
       Theme.Dark -> "rgba(255, 255, 255, 0.1)"

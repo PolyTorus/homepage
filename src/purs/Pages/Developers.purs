@@ -23,6 +23,9 @@ developersContent theme =
     -- 技術的な独自性
     , uniquenessSection
     
+    -- no_std組み込み実装セクション
+    , embeddedSecuritySection
+    
     -- API・実装セクション
     , implementationSection
     
@@ -99,6 +102,122 @@ uniquenessSection =
             , "部分的ネットワーク対応"
             , "断続的接続への最適化"
             ]
+        , innovationCardBlue "no_std耐量子実装"
+            "組み込み環境での量子耐性暗号化を実現"
+            [ "標準ライブラリ不要の軽量実装"
+            , "IoT機器での直接実行"
+            , "メモリ制約環境での最適化"
+            , "リアルタイム処理対応"
+            ]
+        ]
+    ]
+
+-- no_std実装とIoT/衛星通信セクション
+embeddedSecuritySection :: forall w i. HH.HTML w i
+embeddedSecuritySection =
+  HH.section
+    [ HP.class_ (HH.ClassName "embedded-security")
+    , HP.style "margin-bottom: 4rem; background: linear-gradient(135deg, rgba(0,149,217,0.05), rgba(50,55,60,0.05)); border-radius: 16px; padding: 3rem; border: 1px solid rgba(0,149,217,0.1);"
+    ]
+    [ HH.h2
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; text-align: center; color: #0095d9;"
+        ]
+        [ HH.i [ HP.class_ (HH.ClassName "fas fa-microchip"), HP.style "margin-right: 0.5rem;" ] []
+        , HH.text "no_std組み込み実装による革新的応用"
+        ]
+    
+    , HH.div
+        [ HP.style "display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-bottom: 3rem;"
+        ]
+        [ embeddedUseCase "IoTデバイス間セキュア通信"
+            "耐量子暗号による組み込み機器の安全な接続"
+            [ "センサーネットワークの暗号化"
+            , "産業IoTのセキュリティ強化"
+            , "スマートシティインフラ保護"
+            , "車載システム間通信"
+            , "医療機器データ保護"
+            ]
+            "fas fa-wifi"
+        
+        , embeddedUseCase "衛星通信セキュリティ"
+            "宇宙空間での耐量子ブロックチェーン通信"
+            [ "衛星間データ中継の暗号化"
+            , "地上局との安全な通信"
+            , "宇宙ベースブロックチェーン"
+            , "軌道上データ処理"
+            , "深宇宙通信プロトコル"
+            ]
+            "fas fa-satellite"
+        
+        , embeddedUseCase "エッジコンピューティング"
+            "リソース制約環境での分散システム"
+            [ "マイクロコントローラー対応"
+            , "低消費電力暗号処理"
+            , "リアルタイム応答保証"
+            , "メモリ効率化アルゴリズム"
+            , "バッテリー駆動デバイス最適化"
+            ]
+            "fas fa-memory"
+        ]
+    
+    , HH.div
+        [ HP.style "background: rgba(0,149,217,0.1); padding: 2rem; border-radius: 12px; border-left: 4px solid #0095d9;"
+        ]
+        [ HH.h3
+            [ HP.style "font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #32373C;"
+            ]
+            [ HH.text "技術的優位性" ]
+        , HH.div
+            [ HP.style "display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;"
+            ]
+            [ techAdvantage "軽量実装" "数KB〜数十KBでの動作" "fas fa-feather"
+            , techAdvantage "低レイテンシ" "マイクロ秒単位での処理" "fas fa-bolt"
+            , techAdvantage "省電力" "バッテリー駆動に最適化" "fas fa-battery-full"
+            , techAdvantage "スケーラブル" "単一チップから大規模まで" "fas fa-expand-arrows-alt"
+            ]
+        ]
+    ]
+
+embeddedUseCase :: forall w i. String -> String -> Array String -> String -> HH.HTML w i
+embeddedUseCase title description features iconClass =
+  HH.div
+    [ HP.style "background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-top: 4px solid #0095d9;"
+    ]
+    [ HH.div
+        [ HP.style "display: flex; align-items: center; margin-bottom: 1rem;"
+        ]
+        [ HH.i [ HP.class_ (HH.ClassName iconClass), HP.style "font-size: 2rem; color: #0095d9; margin-right: 1rem;" ] []
+        , HH.h3
+            [ HP.style "font-size: 1.4rem; font-weight: 600; color: #32373C; margin: 0;"
+            ]
+            [ HH.text title ]
+        ]
+    , HH.p
+        [ HP.style "color: #32373C; margin-bottom: 1.5rem; line-height: 1.6; opacity: 0.8;"
+        ]
+        [ HH.text description ]
+    , HH.ul
+        [ HP.style "list-style: none; padding: 0; margin: 0;"
+        ]
+        (map (\feature -> 
+          HH.li
+            [ HP.style "display: flex; align-items: center; margin-bottom: 0.5rem;"
+            ]
+            [ HH.i [ HP.class_ (HH.ClassName "fas fa-check-circle"), HP.style "color: #0095d9; margin-right: 0.5rem;" ] []
+            , HH.span [ HP.style "color: #32373C; font-size: 0.9rem;" ] [ HH.text feature ]
+            ]
+        ) features)
+    ]
+
+techAdvantage :: forall w i. String -> String -> String -> HH.HTML w i
+techAdvantage title description iconClass =
+  HH.div
+    [ HP.style "display: flex; align-items: center; gap: 1rem;"
+    ]
+    [ HH.i [ HP.class_ (HH.ClassName iconClass), HP.style "font-size: 1.5rem; color: #0095d9;" ] []
+    , HH.div_
+        [ HH.div [ HP.style "font-weight: 600; color: #32373C;" ] [ HH.text title ]
+        , HH.div [ HP.style "font-size: 0.9rem; color: #32373C; opacity: 0.7;" ] [ HH.text description ]
         ]
     ]
 
