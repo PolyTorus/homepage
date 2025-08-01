@@ -14,10 +14,13 @@ developersContent =
     [ HH.h1
         [ HP.style "font-size: 3rem; font-weight: 700; margin-bottom: 2rem; color: white; text-align: center;"
         ]
-        [ HH.text "開発者向けドキュメント" ]
+        [ HH.text "技術仕様とアーキテクチャ" ]
     
     -- アーキテクチャセクション
     , architectureSection
+    
+    -- 技術的な独自性
+    , uniquenessSection
     
     -- API・実装セクション
     , implementationSection
@@ -27,6 +30,9 @@ developersContent =
     
     -- テスト環境セクション
     , testingSection
+    
+    -- エンタープライズ向けサービス
+    , enterpriseSection
     ]
 
 architectureSection :: forall w i. HH.HTML w i
@@ -39,14 +45,59 @@ architectureSection =
         [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #333; text-align: center;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-building"), HP.style "margin-right: 0.5rem;" ] []
-        , HH.text "技術アーキテクチャ" ]
+        , HH.text "モジュラー設計" ]
     , HH.div
         [ HP.style "display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;"
         ]
-        [ layerCard "実行層" "WASM スマートコントラクト実行" "execution" "#e74c3c"
-        , layerCard "決済層" "オプティミスティックロールアップ" "settlement" "#f39c12"
-        , layerCard "合意層" "PoW コンセンサスメカニズム" "consensus" "#27ae60"
-        , layerCard "データ可用性層" "Merkle tree とデータ配布" "data-availability" "#3498db"
+        [ layerCard "P2Pネットワーク層" "WebRTC による直接通信" "network" "#e74c3c"
+        , layerCard "データ同期層" "CRDTによる状態管理" "sync" "#f39c12"
+        , layerCard "実行層" "Rustベースの処理エンジン" "execution" "#27ae60"
+        , layerCard "ストレージ層" "分散データストレージ" "storage" "#3498db"
+        ]
+    ]
+
+uniquenessSection :: forall w i. HH.HTML w i
+uniquenessSection =
+  HH.section
+    [ HP.class_ (HH.ClassName "uniqueness")
+    , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
+    ]
+    [ HH.h2
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #333; text-align: center;"
+        ]
+        [ HH.i [ HP.class_ (HH.ClassName "fas fa-lightbulb"), HP.style "margin-right: 0.5rem;" ] []
+        , HH.text "技術的イノベーション" ]
+    , HH.div
+        [ HP.style "display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;"
+        ]
+        [ innovationCard "コンセンサス不要のアーキテクチャ"
+            "従来のブロックチェーンが必須とするコンセンサスメカニズムを排除"
+            [ "CRDTによる自動競合解決"
+            , "最終的一貫性の保証"
+            , "ネットワーク分断時も動作継続"
+            , "マージ時の自動調整"
+            ]
+        , innovationCard "WebRTCネイティブ通信"
+            "ブラウザ標準技術を活用した革新的なP2P通信"
+            [ "NAT/ファイアウォール透過"
+            , "STUN/TURNによる接続確立"
+            , "低レイテンシデータチャネル"
+            , "メディアストリーム対応"
+            ]
+        , innovationCard "完全モジュラー設計"
+            "各層が独立して動作・交換可能な真のモジュラー構造"
+            [ "層間の疎結合"
+            , "プロトコル独立性"
+            , "段階的アップグレード"
+            , "カスタム実装の容易さ"
+            ]
+        , innovationCard "オフラインファースト"
+            "ネットワーク接続なしでも完全に機能"
+            [ "ローカル状態の保持"
+            , "再接続時の自動同期"
+            , "部分的ネットワーク対応"
+            , "断続的接続への最適化"
+            ]
         ]
     ]
 
@@ -64,10 +115,10 @@ implementationSection =
     , HH.div
         [ HP.style "display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;"
         ]
-        [ implementationCard "Rust実装" "高性能なコアライブラリ" "Zero-copy deserialization, async/await, type safety"
-        , implementationCard "WebRTC P2P" "分散ネットワーキング" "NAT traversal, direct peer connections, mesh topology"
-        , implementationCard "WASM Runtime" "スマートコントラクト実行" "Sandboxed execution, gas metering, deterministic runtime"
-        , implementationCard "暗号ライブラリ" "ポスト量子暗号" "Lattice-based signatures, quantum-resistant hashing"
+        [ implementationCard "Rustコア" "高速な処理とメモリ安全性" "async/await, zero-copy, 強力な型システム"
+        , implementationCard "WebRTC通信" "ブラウザ間P2P接続" "STUN/TURN, データチャネル, メディアストリーム"
+        , implementationCard "CRDT実装" "競合なし複製データ型" "最終的一貫性, 自動マージ, オフライン対応"
+        , implementationCard "テスト基盤" "包括的なテスト環境" "Container Lab, E2Eテスト, CI/CD統合"
         ]
     ]
 
@@ -93,18 +144,18 @@ quickStartSection =
             [ HP.style "background: #1a1a1a; color: #f0f0f0; padding: 1.5rem; border-radius: 8px; overflow-x: auto; margin-bottom: 2rem;"
             ]
             [ HH.code_
-                [ HH.text "# リポジトリのクローン\ngit clone https://github.com/PolyTorus/polytorus.git\ncd polytorus\n\n# 依存関係のインストール\ncargo build --release\n\n# 開発サーバーの起動\ncargo run start --dev"
+                [ HH.text "# リポジトリのクローン\ngit clone https://github.com/PolyTorus/polytorus.git\ncd polytorus\n\n# 依存関係のインストール\ncargo build --release\n\n# ローカルノードの起動\ncargo run -- node --dev"
                 ]
             ]
         , HH.h3
             [ HP.style "font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #333;"
             ]
-            [ HH.text "基本的なAPI使用例" ]
+            [ HH.text "基本的な使用例" ]
         , HH.pre
             [ HP.style "background: #1a1a1a; color: #f0f0f0; padding: 1.5rem; border-radius: 8px; overflow-x: auto; margin-bottom: 2rem;"
             ]
             [ HH.code_
-                [ HH.text "use polytorus::{Node, Transaction, Address};\n\n// ノードの初期化\nlet node = Node::new().await?;\n\n// トランザクションの作成\nlet tx = Transaction::new()\n    .from(alice_address)\n    .to(bob_address)\n    .amount(100)\n    .sign(&alice_key)?;\n\n// トランザクションの送信\nnode.broadcast_transaction(tx).await?;"
+                [ HH.text "use polytorus::{Node, PeerConnection};\n\n// ノードの初期化\nlet mut node = Node::new().await?;\n\n// ピアへの接続\nnode.connect_peer(\"peer_address\").await?;\n\n// データの同期\nlet data = node.sync_data().await?;\n\n// P2Pメッセージの送信\nnode.broadcast_message(\"Hello, peers!\").await?;"
                 ]
             ]
         ]
@@ -127,13 +178,71 @@ testingSection =
         [ HH.p
             [ HP.style "font-size: 1.2rem; color: #666; margin-bottom: 2rem; line-height: 1.6;"
             ]
-            [ HH.text "Container Lab E2Eテスト環境で本番環境を再現し、WebRTC P2Pネットワーキング、トランザクション伝播、マルチノード協調をDockerコンテナで簡単にテスト可能。"
+            [ HH.text "Dockerベースのテスト環境で複数ノードのP2Pネットワークをローカルで再現。WebRTC接続、データ同期、障害シナリオを簡単にテスト可能。"
             ]
         , HH.pre
             [ HP.style "background: #1a1a1a; color: #f0f0f0; padding: 1.5rem; border-radius: 8px; overflow-x: auto;"
             ]
             [ HH.code_
                 [ HH.text "# テストネット用Dockerイメージのビルド\ndocker build -f Dockerfile.testnet -t polytorus:testnet .\n\n# 3ノードテストネットのデプロイ\n./scripts/manual-test.sh start\n\n# ログの確認\ndocker logs polytorus-node-1\n\n# テストの実行\ncargo test --release"
+                ]
+            ]
+        ]
+    ]
+
+enterpriseSection :: forall w i. HH.HTML w i
+enterpriseSection =
+  HH.section
+    [ HP.class_ (HH.ClassName "enterprise")
+    , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
+    ]
+    [ HH.h2
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #333; text-align: center;"
+        ]
+        [ HH.i [ HP.class_ (HH.ClassName "fas fa-building"), HP.style "margin-right: 0.5rem;" ] []
+        , HH.text "エンタープライズサービス" ]
+    , HH.div
+        [ HP.style "max-width: 1000px; margin: 0 auto;"
+        ]
+        [ HH.div
+            [ HP.style "display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;"
+            ]
+            [ serviceCard "BaaS (Blockchain-as-a-Service)"
+                "PolyTorusインフラを簡単に導入"
+                [ "マネージドノード運用"
+                , "API経由でのアクセス"
+                , "SLA保証・24/7サポート"
+                , "スケーラブルな従量課金"
+                ]
+            , serviceCard "P2Pインフラ提供"
+                "WebRTCベースの通信基盤"
+                [ "NAT/ファイアウォール透過"
+                , "低レイテンシ通信"
+                , "オフライン対応"
+                , "カスタムプロトコル対応"
+                ]
+            , serviceCard "技術コンサルティング"
+                "分散システム設計支援"
+                [ "アーキテクチャ設計"
+                , "技術選定アドバイス"
+                , "開発チーム教育"
+                , "プロトタイプ開発"
+                ]
+            ]
+        , HH.div
+            [ HP.style "background: #f8f9fa; padding: 2rem; border-radius: 12px;"
+            ]
+            [ HH.h3
+                [ HP.style "font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #333;"
+                ]
+                [ HH.text "導入事例・ユースケース" ]
+            , HH.div
+                [ HP.style "display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;"
+                ]
+                [ useCaseCard "金融サービス" "高頻度取引システム" "リアルタイム同期"
+                , useCaseCard "IoTプラットフォーム" "デバイス間通信" "オフライン対応"
+                , useCaseCard "コラボレーション" "分散ワークスペース" "P2P通信"
+                , useCaseCard "ゲーミング" "マルチプレイヤー" "低レイテンシ"
                 ]
             ]
         ]
@@ -176,4 +285,77 @@ implementationCard title subtitle details =
         [ HP.style "color: #888; font-size: 0.9rem; line-height: 1.5;"
         ]
         [ HH.text details ]
+    ]
+
+innovationCard :: forall w i. String -> String -> Array String -> HH.HTML w i
+innovationCard title description features =
+  HH.div
+    [ HP.style "background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-left: 4px solid #667eea;"
+    ]
+    [ HH.h3
+        [ HP.style "font-size: 1.4rem; font-weight: 600; margin-bottom: 0.8rem; color: #333;"
+        ]
+        [ HH.text title ]
+    , HH.p
+        [ HP.style "color: #666; margin-bottom: 1.5rem; line-height: 1.6;"
+        ]
+        [ HH.text description ]
+    , HH.ul
+        [ HP.style "list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem;"
+        ]
+        (map featureItem features)
+    ]
+  where
+    featureItem feature =
+      HH.li
+        [ HP.style "display: flex; align-items: center; gap: 0.5rem; color: #555; font-size: 0.95rem;"
+        ]
+        [ HH.i [ HP.class_ (HH.ClassName "fas fa-check-circle"), HP.style "color: #667eea; font-size: 0.9rem;" ] []
+        , HH.span_ [ HH.text feature ]
+        ]
+
+serviceCard :: forall w i. String -> String -> Array String -> HH.HTML w i
+serviceCard title description features =
+  HH.div
+    [ HP.style "background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-top: 3px solid #667eea;"
+    ]
+    [ HH.h3
+        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 0.8rem; color: #333;"
+        ]
+        [ HH.text title ]
+    , HH.p
+        [ HP.style "color: #666; margin-bottom: 1.5rem; line-height: 1.6;"
+        ]
+        [ HH.text description ]
+    , HH.ul
+        [ HP.style "list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem;"
+        ]
+        (map serviceFeatureItem features)
+    ]
+  where
+    serviceFeatureItem feature =
+      HH.li
+        [ HP.style "display: flex; align-items: center; gap: 0.5rem; color: #555; font-size: 0.9rem;"
+        ]
+        [ HH.i [ HP.class_ (HH.ClassName "fas fa-arrow-right"), HP.style "color: #667eea; font-size: 0.8rem;" ] []
+        , HH.span_ [ HH.text feature ]
+        ]
+
+useCaseCard :: forall w i. String -> String -> String -> HH.HTML w i
+useCaseCard industry application benefit =
+  HH.div
+    [ HP.style "background: white; padding: 1.5rem; border-radius: 8px; text-align: center;"
+    ]
+    [ HH.h4
+        [ HP.style "font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;"
+        ]
+        [ HH.text industry ]
+    , HH.p
+        [ HP.style "color: #666; font-size: 0.9rem; margin-bottom: 0.5rem;"
+        ]
+        [ HH.text application ]
+    , HH.span
+        [ HP.style "color: #667eea; font-size: 0.8rem; font-weight: 500;"
+        ]
+        [ HH.text benefit ]
     ]

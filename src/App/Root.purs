@@ -15,6 +15,7 @@ import Types.Page as Page
 import Pages.Home as Home
 import Pages.Developers as Developers
 import Pages.General as General
+import Pages.Services as Services
 
 type State = 
   { theme :: Theme.ThemeState
@@ -90,6 +91,7 @@ render state =
                 [ navItemWithAction Icons.starIcon "ホーム" Page.Home (state.currentPage == Page.Home)
                 , navItemWithAction Icons.rocketIcon "開発者向け" Page.ForDevelopers (state.currentPage == Page.ForDevelopers)
                 , navItemWithAction Icons.starIcon "一般向け" Page.ForGeneral (state.currentPage == Page.ForGeneral)
+                , navItemWithAction Icons.buildingIcon "サービス" Page.Services (state.currentPage == Page.Services)
                 , navItemWithIcon Icons.bookIcon "ドキュメント" "https://github.com/PolyTorus/polytorus/blob/main/README.ja.md"
                 , navItemWithIcon Icons.githubIcon "GitHub" "https://github.com/PolyTorus/polytorus"
                 ]
@@ -106,6 +108,7 @@ render state =
       Page.Home -> Home.homeContent
       Page.ForDevelopers -> Developers.developersContent
       Page.ForGeneral -> General.generalContent
+      Page.Services -> Services.servicesContent
     
     borderColor = case state.theme.mode of
       Theme.Dark -> "rgba(255, 255, 255, 0.1)"

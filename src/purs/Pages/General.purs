@@ -19,11 +19,17 @@ generalContent =
     -- 概要セクション
     , overviewSection
     
+    -- 他のブロックチェーンとの違い
+    , differencesSection
+    
     -- 特徴セクション
     , featuresSection
     
     -- 利点セクション
     , benefitsSection
+    
+    -- ビジネスモデルの違い
+    , businessModelSection
     
     -- よくある質問
     , faqSection
@@ -39,18 +45,65 @@ overviewSection =
         [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #333;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-star"), HP.style "margin-right: 0.5rem;" ] []
-        , HH.text "次世代ブロックチェーン" ]
+        , HH.text "PolyTorusプロジェクト" ]
     , HH.p
         [ HP.style "font-size: 1.3rem; color: #555; line-height: 1.8; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;"
         ]
-        [ HH.text "PolyTorusは、従来のブロックチェーンの限界を超える革新的なプラットフォームです。量子コンピュータの脅威に備えた安全性と、柔軟で拡張可能な設計を兼ね備えています。"
+        [ HH.text "PolyTorusは、P2P技術とモジュラーアーキテクチャを探求する実験的な分散システムプロジェクトです。新しい通信プロトコルとデータ同期手法の研究開発を行っています。"
         ]
     , HH.div
         [ HP.style "display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 3rem;"
         ]
-        [ statCard "100%" "量子耐性"
-        , statCard "4層" "モジュラー設計"
-        , statCard "P2P" "分散ネットワーク"
+        [ statCard "Rust" "実装言語"
+        , statCard "WebRTC" "P2P通信"
+        , statCard "CRDT" "データ同期"
+        ]
+    ]
+
+differencesSection :: forall w i. HH.HTML w i
+differencesSection =
+  HH.section
+    [ HP.class_ (HH.ClassName "differences")
+    , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
+    ]
+    [ HH.h2
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: #333; text-align: center;"
+        ]
+        [ HH.i [ HP.class_ (HH.ClassName "fas fa-exchange-alt"), HP.style "margin-right: 0.5rem;" ] []
+        , HH.text "従来のブロックチェーンとの違い" ]
+    , HH.div
+        [ HP.style "display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;"
+        ]
+        [ comparisonCard "アーキテクチャ設計"
+            [ "従来: モノリシック（全機能一体型）"
+            , "Celestia/Fuel: 部分的モジュラー"
+            , "PolyTorus: 完全モジュラー + 独立層"
+            ]
+        , comparisonCard "コンセンサスメカニズム" 
+            [ "従来: PoW/PoS/PoH必須"
+            , "全ノードの合意形成が必要"
+            , "PolyTorus: CRDTで合意不要"
+            ]
+        , comparisonCard "ネットワーク構造" 
+            [ "従来: バリデータ中心の階層構造"
+            , "特定ノードへの依存"
+            , "PolyTorus: 完全P2P・フラット構造"
+            ]
+        , comparisonCard "通信プロトコル" 
+            [ "従来: 専用プロトコル（libp2p等）"
+            , "ファイアウォール問題あり"
+            , "PolyTorus: WebRTC（NAT透過）"
+            ]
+        , comparisonCard "データ同期" 
+            [ "従来: ブロック単位の同期"
+            , "フォークや再編成の可能性"
+            , "PolyTorus: リアルタイム自動マージ"
+            ]
+        , comparisonCard "実装の影響" 
+            [ "低レイテンシ通信"
+            , "オフライン対応"
+            , "スケーラビリティの向上"
+            ]
         ]
     ]
 
@@ -64,16 +117,16 @@ featuresSection =
         [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: #333; text-align: center;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-sparkles"), HP.style "margin-right: 0.5rem;" ] []
-        , HH.text "主な特徴" ]
+        , HH.text "プロジェクトの特徴" ]
     , HH.div
         [ HP.style "display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;"
         ]
-        [ featureCardFA "fas fa-shield-alt" "量子耐性セキュリティ" "将来の量子コンピュータからも安全" "最新のポスト量子暗号技術により、量子コンピュータが実用化されても安全性を保ちます。"
-        , featureCardFA "fas fa-puzzle-piece" "柔軟なモジュラー設計" "用途に応じてカスタマイズ可能" "4つの独立した層で構成され、それぞれの用途に最適化された設定が可能です。"
-        , featureCardFA "fas fa-bolt" "高速処理" "従来比10倍の処理速度" "効率的なアルゴリズムと最適化により、高速なトランザクション処理を実現します。"
-        , featureCardFA "fas fa-globe" "真の分散化" "中央管理者なしで動作" "P2Pネットワークにより、誰でも参加可能な完全分散型システムです。"
-        , featureCardFA "fas fa-tools" "開発者フレンドリー" "簡単な開発環境" "充実したツールとドキュメントで、誰でも簡単にアプリケーションを開発できます。"
-        , featureCardFA "fas fa-shield" "堅牢性" "24/7安定稼働" "厳格なテストと検証により、高い信頼性と安定性を提供します。"
+        [ featureCardFA "fas fa-network-wired" "P2P通信" "直接ピア間通信" "WebRTCを使用してNATやファイアウォールを越えて直接通信を実現"
+        , featureCardFA "fas fa-sync" "リアルタイム同期" "高速データ同期" "CRDTを使用して競合なしでデータを自動的にマージ"
+        , featureCardFA "fas fa-cubes" "モジュラー設計" "レイヤー分離アーキテクチャ" "各機能層が独立して動作し、必要に応じて交換可能"
+        , featureCardFA "fas fa-code" "Rust実装" "高速で安全" "メモリ安全性と並行処理性能を両立した実装"
+        , featureCardFA "fas fa-flask" "実験的プロジェクト" "新技術の探求" "最新の分散システム技術を実験的に実装・検証"
+        , featureCardFA "fas fa-github" "オープンソース" "透明な開発" "すべてのコードはGitHubで公開され、誰でも貢献可能"
         ]
     ]
 
@@ -87,27 +140,106 @@ benefitsSection =
         [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; text-align: center;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-bullseye"), HP.style "margin-right: 0.5rem;" ] []
-        , HH.text "PolyTorusの利点" ]
+        , HH.text "想定される活用方法" ]
     , HH.div
         [ HP.style "display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;"
         ]
-        [ benefitCard "個人ユーザー" 
-            [ "安全で透明な取引"
-            , "低い手数料"
-            , "プライバシー保護"
-            , "簡単な操作"
-            ]
-        , benefitCard "企業" 
-            [ "コスト削減"
-            , "業務効率化"
-            , "規制遵守"
-            , "カスタマイズ可能"
+        [ benefitCard "研究者" 
+            [ "分散システムの実験環境"
+            , "新しいプロトコルの検証"
+            , "P2P通信の研究"
+            , "CRDTアルゴリズムの実装"
             ]
         , benefitCard "開発者" 
-            [ "豊富なツール"
-            , "活発なコミュニティ"
-            , "詳細なドキュメント"
-            , "収益機会"
+            [ "Rustによる実装学習"
+            , "WebRTC技術の習得"
+            , "モジュラー設計の実践"
+            , "オープンソースへの貢献"
+            ]
+        , benefitCard "学生" 
+            [ "最新技術の学習教材"
+            , "実践的なコード例"
+            , "システム設計の理解"
+            , "コミュニティでの議論"
+            ]
+        ]
+    ]
+
+businessModelSection :: forall w i. HH.HTML w i
+businessModelSection =
+  HH.section
+    [ HP.class_ (HH.ClassName "business-model")
+    , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
+    ]
+    [ HH.h2
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: #333; text-align: center;"
+        ]
+        [ HH.i [ HP.class_ (HH.ClassName "fas fa-briefcase"), HP.style "margin-right: 0.5rem;" ] []
+        , HH.text "ビジネスモデルの違い" ]
+    , HH.div
+        [ HP.style "max-width: 1000px; margin: 0 auto;"
+        ]
+        [ HH.div
+            [ HP.style "display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 2rem;"
+            ]
+            [ businessComparisonCard "従来のブロックチェーン企業"
+                [ "ConsenSys: MetaMask・Infura運営（年間収益$100M+）"
+                , "Alchemy: 開発者向けAPI・インフラ提供"
+                , "Solana Labs: エンタープライズ向けコンサル"
+                , "Polygon: BaaS（Blockchain-as-a-Service）"
+                , "収益モデル: SaaS料金・コンサル・トークン"
+                ]
+            , businessComparisonCard "PolyTorusの独自アプローチ"
+                [ "研究開発 + ビジネスのハイブリッド"
+                , "BaaS・インフラ提供サービス"
+                , "エンタープライズ向けコンサルティング"
+                , "革新的技術の商業化"
+                , "収益モデル: サービス提供 + 研究投資"
+                ]
+            ]
+        , HH.div
+            [ HP.style "background: #f8f9fa; padding: 2rem; border-radius: 12px; margin-top: 2rem;"
+            ]
+            [ HH.h3
+                [ HP.style "font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #333;"
+                ]
+                [ HH.text "PolyTorusの独自戦略" ]
+            , HH.p
+                [ HP.style "color: #666; line-height: 1.8; margin-bottom: 1rem;"
+                ]
+                [ HH.text "研究開発とビジネスを両立させることで、持続可能なイノベーションと価値提供を実現します。" ]
+            , HH.div
+                [ HP.style "display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;"
+                ]
+                [ HH.div_
+                    [ HH.h4
+                        [ HP.style "font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem; color: #667eea;"
+                        ]
+                        [ HH.text "研究開発" ]
+                    , HH.ul
+                        [ HP.style "list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem;"
+                        ]
+                        [ businessPointItem "CRDTによる新しい同期手法"
+                        , businessPointItem "WebRTCの限界への挑戦"
+                        , businessPointItem "モジュラー設計の最適化"
+                        , businessPointItem "学術論文・技術公開"
+                        ]
+                    ]
+                , HH.div_
+                    [ HH.h4
+                        [ HP.style "font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem; color: #667eea;"
+                        ]
+                        [ HH.text "ビジネス展開" ]
+                    , HH.ul
+                        [ HP.style "list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem;"
+                        ]
+                        [ businessPointItem "エンタープライズ向けBaaS"
+                        , businessPointItem "P2Pインフラの提供"
+                        , businessPointItem "技術コンサルティング"
+                        , businessPointItem "カスタム開発支援"
+                        ]
+                    ]
+                ]
             ]
         ]
     ]
@@ -126,11 +258,11 @@ faqSection =
     , HH.div
         [ HP.style "max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;"
         ]
-        [ faqItem "PolyTorusって何ですか？" "PolyTorusは次世代のブロックチェーンプラットフォームです。従来のブロックチェーンの問題を解決し、量子コンピュータの脅威にも対応した革新的な技術です。"
-        , faqItem "なぜ量子耐性が重要なの？" "将来、量子コンピュータが実用化されると、現在の暗号技術では安全性が保てなくなります。PolyTorusは最初から量子耐性を考慮して設計されています。"
-        , faqItem "普通の人でも使えますか？" "はい。PolyTorusは技術者でなくても簡単に使えるよう設計されています。直感的なインターフェースと分かりやすいドキュメントを提供します。"
-        , faqItem "どんな用途に使えますか？" "デジタル通貨、スマートコントラクト、サプライチェーン管理、デジタルアイデンティティなど、様々な用途に活用できます。"
-        , faqItem "開発に参加するには？" "GitHubでオープンソースとして公開されています。誰でも開発に参加でき、コミュニティも活発です。"
+        [ faqItem "PolyTorusって何ですか？" "PolyTorusはP2P通信とモジュラーアーキテクチャを研究する実験的プロジェクトです。Rust、WebRTC、CRDTなどの技術を使用して分散システムの新しい可能性を探求しています。"
+        , faqItem "実用的なシステムですか？" "現在は研究・実験段階のプロジェクトです。新しい技術の検証と学習を主な目的としており、本番環境での使用は想定していません。"
+        , faqItem "どんな技術を使っていますか？" "Rustプログラミング言語、WebRTC（P2P通信）、CRDT（競合なしデータ同期）、Dockerコンテナなどの技術を組み合わせて実装しています。"
+        , faqItem "参加するには何が必要ですか？" "Rustの基礎知識と分散システムへの興味があれば参加できます。GitHubリポジトリで開発が行われており、issue報告やプルリクエストを歓迎しています。"
+        , faqItem "ドキュメントはどこにありますか？" "GitHubリポジトリのREADMEとdocsディレクトリに技術仕様やアーキテクチャの説明があります。また、コード内のコメントも参考になります。"
         ]
     ]
 
@@ -195,6 +327,29 @@ featureCardFA iconClass title subtitle description =
         [ HH.text description ]
     ]
 
+comparisonCard :: forall w i. String -> Array String -> HH.HTML w i
+comparisonCard title points =
+  HH.div
+    [ HP.style "background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
+    ]
+    [ HH.h3
+        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #333;"
+        ]
+        [ HH.text title ]
+    , HH.ul
+        [ HP.style "list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;"
+        ]
+        (map pointItem points)
+    ]
+  where
+    pointItem point =
+      HH.li
+        [ HP.style "display: flex; align-items: flex-start; gap: 0.5rem; color: #666; line-height: 1.5;"
+        ]
+        [ HH.i [ HP.class_ (HH.ClassName "fas fa-angle-right"), HP.style "color: #667eea; margin-top: 0.2rem; flex-shrink: 0;" ] []
+        , HH.span_ [ HH.text point ]
+        ]
+
 benefitCard :: forall w i. String -> Array String -> HH.HTML w i
 benefitCard title benefits =
   HH.div
@@ -217,6 +372,38 @@ benefitCard title benefits =
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-check"), HP.style "color: #4ade80; font-size: 1.2rem;" ] []
         , HH.span_ [ HH.text benefit ]
         ]
+
+businessComparisonCard :: forall w i. String -> Array String -> HH.HTML w i
+businessComparisonCard title points =
+  HH.div
+    [ HP.style "background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
+    ]
+    [ HH.h3
+        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #333; text-align: center;"
+        ]
+        [ HH.text title ]
+    , HH.ul
+        [ HP.style "list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;"
+        ]
+        (map businessPoint points)
+    ]
+  where
+    businessPoint point =
+      HH.li
+        [ HP.style "display: flex; align-items: flex-start; gap: 0.5rem; color: #666; line-height: 1.5;"
+        ]
+        [ HH.i [ HP.class_ (HH.ClassName "fas fa-circle"), HP.style "color: #667eea; font-size: 0.5rem; margin-top: 0.5rem;" ] []
+        , HH.span_ [ HH.text point ]
+        ]
+
+businessPointItem :: forall w i. String -> HH.HTML w i
+businessPointItem text =
+  HH.li
+    [ HP.style "display: flex; align-items: center; gap: 0.5rem; color: #555;"
+    ]
+    [ HH.i [ HP.class_ (HH.ClassName "fas fa-arrow-right"), HP.style "color: #667eea; font-size: 0.9rem;" ] []
+    , HH.span_ [ HH.text text ]
+    ]
 
 faqItem :: forall w i. String -> String -> HH.HTML w i
 faqItem question answer =

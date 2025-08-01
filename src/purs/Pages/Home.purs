@@ -21,11 +21,11 @@ homeContent =
         , HH.p
             [ HP.style "font-size: 1.5rem; color: rgba(255,255,255,0.9); margin-bottom: 1rem; line-height: 1.6;"
             ]
-            [ HH.text "次世代モジュラーブロックチェーンプラットフォーム" ]
+            [ HH.text "次世代分散システムプラットフォーム" ]
         , HH.p
             [ HP.style "font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-bottom: 4rem; line-height: 1.6;"
             ]
-            [ HH.text "ポスト量子時代に対応した革新的な4層アーキテクチャで、安全で拡張可能な分散システムを実現" ]
+            [ HH.text "革新的な研究開発とエンタープライズソリューションの融合" ]
         , HH.div
             [ HP.class_ (HH.ClassName "page-buttons")
             , HP.style "display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;"
@@ -42,7 +42,7 @@ homeContent =
                     ]
                     [ HH.i [ HP.class_ (HH.ClassName "fas fa-code"), HP.style "font-size: 2rem;" ] []
                     , HH.span_ [ HH.text "開発者向け" ]
-                    , HH.small [ HP.style "opacity: 0.9; font-weight: 400;" ] [ HH.text "技術詳細・API・実装" ]
+                    , HH.small [ HP.style "opacity: 0.9; font-weight: 400;" ] [ HH.text "実装詳細・コード構成" ]
                     ]
                 ]
             , HH.div
@@ -57,7 +57,7 @@ homeContent =
                     ]
                     [ HH.i [ HP.class_ (HH.ClassName "fas fa-users"), HP.style "font-size: 2rem;" ] []
                     , HH.span_ [ HH.text "一般向け" ]
-                    , HH.small [ HP.style "opacity: 0.9; font-weight: 400;" ] [ HH.text "特徴・利点・概要" ]
+                    , HH.small [ HP.style "opacity: 0.9; font-weight: 400;" ] [ HH.text "プロジェクト概要" ]
                     ]
                 ]
             ]
