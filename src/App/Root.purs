@@ -4,7 +4,6 @@ import Prelude
 
 import Data.Maybe (Maybe(..))
 import Effect.Aff (Aff)
-import Type.Proxy (Proxy(..))
 import Halogen as H
 import Halogen.HTML as HH
 import Halogen.HTML.Properties as HP
@@ -27,6 +26,7 @@ data Action
   | ToggleTheme
   | NavigateTo Page.Page
 
+type Slots :: forall k. Row k
 type Slots = ( )
 
 component :: forall query input output. H.Component query input output Aff
@@ -47,7 +47,7 @@ render :: State -> H.ComponentHTML Action Slots Aff
 render state =
   HH.div
     [ HP.class_ (HH.ClassName "app-root")
-    , HP.style "min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; margin: 0; padding: 0;"
+    , HP.style $ "min-height: 100vh; background-color: " <> state.theme.bg <> "; display: flex; margin: 0; padding: 0;"
     ]
     [ -- サイドバー（固定表示）
       HH.aside
@@ -99,20 +99,25 @@ render state =
         ]
     -- メインコンテンツ（サイドバーの幅を考慮）
     , HH.main
-        [ HP.style "flex: 1; margin-left: 200px; padding: 0; overflow-x: hidden;"
+        [ HP.style $ "flex: 1; margin-left: 200px; padding: 0; overflow-x: hidden; background-color: " <> state.theme.bg <> "; color: " <> state.theme.color <> ";"
         ]
         [ renderCurrentPage state.currentPage ]
     ]
   where
     renderCurrentPage page = case page of
-      Page.Home -> Home.homeContent
-      Page.ForDevelopers -> Developers.developersContent
-      Page.ForGeneral -> General.generalContent
-      Page.Services -> Services.servicesContent
+      Page.Home -> Home.homeContent state.theme NavigateTo
+      Page.ForDevelopers -> Developers.developersContent state.theme
+      Page.ForGeneral -> General.generalContent state.theme
+      Page.Services -> Services.servicesContent state.theme
     
     borderColor = case state.theme.mode of
       Theme.Dark -> "rgba(255, 255, 255, 0.1)"
       Theme.Light -> "rgba(50, 55, 60, 0.1)"
+    
+    getActiveColor page = case page of
+      Page.ForDevelopers -> "rgba(0, 149, 217, 0.2)"
+      Page.Services -> "rgba(0, 149, 217, 0.2)"
+      _ -> "rgba(230, 0, 18, 0.2)"
     
     navItemWithAction icon text page isActive =
       HH.li_
@@ -122,7 +127,7 @@ render state =
                          "text-decoration: none; color: " <> state.theme.color <> "; " <>
                          "transition: background-color 0.2s ease; " <>
                          "font-weight: 500; font-size: 14px; cursor: pointer; " <>
-                         (if isActive then "background-color: rgba(102, 126, 234, 0.2); " else "")
+                         (if isActive then "background-color: " <> getActiveColor page <> "; " else "")
             , HP.class_ (HH.ClassName "nav-item")
             , HE.onClick \_ -> NavigateTo page
             ]

@@ -3,10 +3,13 @@ module Pages.Home where
 import Prelude
 import Halogen.HTML as HH
 import Halogen.HTML.Properties as HP
+import Halogen.HTML.Events as HE
+import Store.Theme as Theme
+import Types.Page as Page
 
 -- シンプルなトップページ
-homeContent :: forall w i. HH.HTML w i
-homeContent =
+homeContent :: forall w i. Theme.ThemeState -> (Page.Page -> i) -> HH.HTML w i
+homeContent theme onNavigate =
   HH.div
     [ HP.class_ (HH.ClassName "home-page")
     , HP.style "min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem;"
@@ -15,15 +18,15 @@ homeContent =
         [ HP.style "max-width: 800px; margin: 0 auto;"
         ]
         [ HH.h1
-            [ HP.style "font-size: 4rem; font-weight: 800; margin-bottom: 2rem; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); line-height: 1.2;"
+            [ HP.style $ "font-size: 4rem; font-weight: 800; margin-bottom: 2rem; color: " <> theme.color <> "; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); line-height: 1.2;"
             ]
             [ HH.text "PolyTorus" ]
         , HH.p
-            [ HP.style "font-size: 1.5rem; color: rgba(255,255,255,0.9); margin-bottom: 1rem; line-height: 1.6;"
+            [ HP.style $ "font-size: 1.5rem; color: " <> theme.color <> "; opacity: 0.9; margin-bottom: 1rem; line-height: 1.6;"
             ]
             [ HH.text "次世代分散システムプラットフォーム" ]
         , HH.p
-            [ HP.style "font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-bottom: 4rem; line-height: 1.6;"
+            [ HP.style $ "font-size: 1.2rem; color: " <> theme.color <> "; opacity: 0.8; margin-bottom: 4rem; line-height: 1.6;"
             ]
             [ HH.text "革新的な研究開発とエンタープライズソリューションの融合" ]
         , HH.div
@@ -33,9 +36,10 @@ homeContent =
             [ HH.div
                 [ HP.class_ (HH.ClassName "page-button developers")
                 , HP.style $ "padding: 1.5rem 3rem; font-size: 1.2rem; font-weight: 600; " <>
-                             "background: linear-gradient(135deg, #667eea, #764ba2); " <>
+                             "background: linear-gradient(135deg, #E60012, #32373C); " <>
                              "color: white; border: none; border-radius: 12px; cursor: pointer; " <>
-                             "transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);"
+                             "transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(230, 0, 18, 0.4);"
+                , HE.onClick \_ -> onNavigate Page.ForDevelopers
                 ]
                 [ HH.div
                     [ HP.style "display: flex; flex-direction: column; align-items: center; gap: 0.5rem;"
@@ -48,9 +52,10 @@ homeContent =
             , HH.div
                 [ HP.class_ (HH.ClassName "page-button general")
                 , HP.style $ "padding: 1.5rem 3rem; font-size: 1.2rem; font-weight: 600; " <>
-                             "background: rgba(255,255,255,0.1); color: white; " <>
-                             "border: 2px solid rgba(255,255,255,0.3); border-radius: 12px; cursor: pointer; " <>
-                             "transition: all 0.3s ease; backdrop-filter: blur(10px);"
+                             "background: linear-gradient(135deg, #0095d9, #32373C); color: white; " <>
+                             "border: none; border-radius: 12px; cursor: pointer; " <>
+                             "transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 149, 217, 0.4);"
+                , HE.onClick \_ -> onNavigate Page.ForGeneral
                 ]
                 [ HH.div
                     [ HP.style "display: flex; flex-direction: column; align-items: center; gap: 0.5rem;"

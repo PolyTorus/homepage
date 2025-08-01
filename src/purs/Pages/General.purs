@@ -3,16 +3,17 @@ module Pages.General where
 import Prelude
 import Halogen.HTML as HH
 import Halogen.HTML.Properties as HP
+import Store.Theme as Theme
 
 -- 一般人向けページ
-generalContent :: forall w i. HH.HTML w i
-generalContent =
+generalContent :: forall w i. Theme.ThemeState -> HH.HTML w i
+generalContent theme =
   HH.div
     [ HP.class_ (HH.ClassName "general-page")
     , HP.style "padding: 2rem; max-width: 1200px; margin: 0 auto;"
     ]
     [ HH.h1
-        [ HP.style "font-size: 3rem; font-weight: 700; margin-bottom: 2rem; color: white; text-align: center;"
+        [ HP.style $ "font-size: 3rem; font-weight: 700; margin-bottom: 2rem; color: " <> theme.color <> "; text-align: center;"
         ]
         [ HH.text "PolyTorusとは" ]
     
@@ -42,12 +43,12 @@ overviewSection =
     , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem; text-align: center;"
     ]
     [ HH.h2
-        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #333;"
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #32373C;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-star"), HP.style "margin-right: 0.5rem;" ] []
         , HH.text "PolyTorusプロジェクト" ]
     , HH.p
-        [ HP.style "font-size: 1.3rem; color: #555; line-height: 1.8; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;"
+        [ HP.style "font-size: 1.3rem; color: #32373C; line-height: 1.8; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;"
         ]
         [ HH.text "PolyTorusは、P2P技術とモジュラーアーキテクチャを探求する実験的な分散システムプロジェクトです。新しい通信プロトコルとデータ同期手法の研究開発を行っています。"
         ]
@@ -67,7 +68,7 @@ differencesSection =
     , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
     ]
     [ HH.h2
-        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: #333; text-align: center;"
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: #32373C; text-align: center;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-exchange-alt"), HP.style "margin-right: 0.5rem;" ] []
         , HH.text "従来のブロックチェーンとの違い" ]
@@ -114,7 +115,7 @@ featuresSection =
     , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
     ]
     [ HH.h2
-        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: #333; text-align: center;"
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: #32373C; text-align: center;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-sparkles"), HP.style "margin-right: 0.5rem;" ] []
         , HH.text "プロジェクトの特徴" ]
@@ -134,7 +135,7 @@ benefitsSection :: forall w i. HH.HTML w i
 benefitsSection =
   HH.section
     [ HP.class_ (HH.ClassName "benefits")
-    , HP.style "margin-bottom: 4rem; color: white;"
+    , HP.style "margin-bottom: 4rem;"
     ]
     [ HH.h2
         [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; text-align: center;"
@@ -172,7 +173,7 @@ businessModelSection =
     , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
     ]
     [ HH.h2
-        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: #333; text-align: center;"
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: #32373C; text-align: center;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-briefcase"), HP.style "margin-right: 0.5rem;" ] []
         , HH.text "ビジネスモデルの違い" ]
@@ -201,11 +202,11 @@ businessModelSection =
             [ HP.style "background: #f8f9fa; padding: 2rem; border-radius: 12px; margin-top: 2rem;"
             ]
             [ HH.h3
-                [ HP.style "font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #333;"
+                [ HP.style "font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #32373C;"
                 ]
                 [ HH.text "PolyTorusの独自戦略" ]
             , HH.p
-                [ HP.style "color: #666; line-height: 1.8; margin-bottom: 1rem;"
+                [ HP.style "color: #32373C; line-height: 1.8; margin-bottom: 1rem;"
                 ]
                 [ HH.text "研究開発とビジネスを両立させることで、持続可能なイノベーションと価値提供を実現します。" ]
             , HH.div
@@ -213,7 +214,7 @@ businessModelSection =
                 ]
                 [ HH.div_
                     [ HH.h4
-                        [ HP.style "font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem; color: #667eea;"
+                        [ HP.style "font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem; color: #E60012;"
                         ]
                         [ HH.text "研究開発" ]
                     , HH.ul
@@ -227,7 +228,7 @@ businessModelSection =
                     ]
                 , HH.div_
                     [ HH.h4
-                        [ HP.style "font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem; color: #667eea;"
+                        [ HP.style "font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem; color: #E60012;"
                         ]
                         [ HH.text "ビジネス展開" ]
                     , HH.ul
@@ -251,7 +252,7 @@ faqSection =
     , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
     ]
     [ HH.h2
-        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: #333; text-align: center;"
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: #32373C; text-align: center;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-question-circle"), HP.style "margin-right: 0.5rem;" ] []
         , HH.text "よくある質問" ]
@@ -272,11 +273,11 @@ statCard value label =
     [ HP.style "text-align: center;"
     ]
     [ HH.div
-        [ HP.style "font-size: 3rem; font-weight: 800; color: #667eea; margin-bottom: 0.5rem;"
+        [ HP.style "font-size: 3rem; font-weight: 800; color: #E60012; margin-bottom: 0.5rem;"
         ]
         [ HH.text value ]
     , HH.div
-        [ HP.style "font-size: 1.1rem; font-weight: 600; color: #555;"
+        [ HP.style "font-size: 1.1rem; font-weight: 600; color: #32373C;"
         ]
         [ HH.text label ]
     ]
@@ -291,15 +292,15 @@ featureCard icon title subtitle description =
         ]
         [ HH.text icon ]
     , HH.h3
-        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;"
+        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: #32373C;"
         ]
         [ HH.text title ]
     , HH.p
-        [ HP.style "color: #667eea; font-weight: 500; margin-bottom: 1rem;"
+        [ HP.style "color: #E60012; font-weight: 500; margin-bottom: 1rem;"
         ]
         [ HH.text subtitle ]
     , HH.p
-        [ HP.style "color: #666; line-height: 1.6; font-size: 0.95rem;"
+        [ HP.style "color: #32373C; line-height: 1.6; font-size: 0.95rem;"
         ]
         [ HH.text description ]
     ]
@@ -310,19 +311,19 @@ featureCardFA iconClass title subtitle description =
     [ HP.style "background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
     ]
     [ HH.div
-        [ HP.style "font-size: 3rem; margin-bottom: 1rem; color: #667eea;"
+        [ HP.style "font-size: 3rem; margin-bottom: 1rem; color: #E60012;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName iconClass) ] [] ]
     , HH.h3
-        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;"
+        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: #32373C;"
         ]
         [ HH.text title ]
     , HH.p
-        [ HP.style "color: #667eea; font-weight: 500; margin-bottom: 1rem;"
+        [ HP.style "color: #E60012; font-weight: 500; margin-bottom: 1rem;"
         ]
         [ HH.text subtitle ]
     , HH.p
-        [ HP.style "color: #666; line-height: 1.6; font-size: 0.95rem;"
+        [ HP.style "color: #32373C; line-height: 1.6; font-size: 0.95rem;"
         ]
         [ HH.text description ]
     ]
@@ -333,7 +334,7 @@ comparisonCard title points =
     [ HP.style "background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
     ]
     [ HH.h3
-        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #333;"
+        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #32373C;"
         ]
         [ HH.text title ]
     , HH.ul
@@ -344,9 +345,9 @@ comparisonCard title points =
   where
     pointItem point =
       HH.li
-        [ HP.style "display: flex; align-items: flex-start; gap: 0.5rem; color: #666; line-height: 1.5;"
+        [ HP.style "display: flex; align-items: flex-start; gap: 0.5rem; color: #32373C; line-height: 1.5;"
         ]
-        [ HH.i [ HP.class_ (HH.ClassName "fas fa-angle-right"), HP.style "color: #667eea; margin-top: 0.2rem; flex-shrink: 0;" ] []
+        [ HH.i [ HP.class_ (HH.ClassName "fas fa-angle-right"), HP.style "color: #E60012; margin-top: 0.2rem; flex-shrink: 0;" ] []
         , HH.span_ [ HH.text point ]
         ]
 
@@ -379,7 +380,7 @@ businessComparisonCard title points =
     [ HP.style "background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
     ]
     [ HH.h3
-        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #333; text-align: center;"
+        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #32373C; text-align: center;"
         ]
         [ HH.text title ]
     , HH.ul
@@ -390,18 +391,18 @@ businessComparisonCard title points =
   where
     businessPoint point =
       HH.li
-        [ HP.style "display: flex; align-items: flex-start; gap: 0.5rem; color: #666; line-height: 1.5;"
+        [ HP.style "display: flex; align-items: flex-start; gap: 0.5rem; color: #32373C; line-height: 1.5;"
         ]
-        [ HH.i [ HP.class_ (HH.ClassName "fas fa-circle"), HP.style "color: #667eea; font-size: 0.5rem; margin-top: 0.5rem;" ] []
+        [ HH.i [ HP.class_ (HH.ClassName "fas fa-circle"), HP.style "color: #E60012; font-size: 0.5rem; margin-top: 0.5rem;" ] []
         , HH.span_ [ HH.text point ]
         ]
 
 businessPointItem :: forall w i. String -> HH.HTML w i
 businessPointItem text =
   HH.li
-    [ HP.style "display: flex; align-items: center; gap: 0.5rem; color: #555;"
+    [ HP.style "display: flex; align-items: center; gap: 0.5rem; color: #32373C;"
     ]
-    [ HH.i [ HP.class_ (HH.ClassName "fas fa-arrow-right"), HP.style "color: #667eea; font-size: 0.9rem;" ] []
+    [ HH.i [ HP.class_ (HH.ClassName "fas fa-arrow-right"), HP.style "color: #E60012; font-size: 0.9rem;" ] []
     , HH.span_ [ HH.text text ]
     ]
 
@@ -411,11 +412,11 @@ faqItem question answer =
     [ HP.style "border-bottom: 1px solid #eee; padding-bottom: 1.5rem;"
     ]
     [ HH.h3
-        [ HP.style "font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem; color: #333;"
+        [ HP.style "font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem; color: #32373C;"
         ]
         [ HH.text question ]
     , HH.p
-        [ HP.style "color: #666; line-height: 1.6;"
+        [ HP.style "color: #32373C; line-height: 1.6;"
         ]
         [ HH.text answer ]
     ]

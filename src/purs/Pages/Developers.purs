@@ -3,16 +3,17 @@ module Pages.Developers where
 import Prelude
 import Halogen.HTML as HH
 import Halogen.HTML.Properties as HP
+import Store.Theme as Theme
 
 -- 開発者向けページ
-developersContent :: forall w i. HH.HTML w i
-developersContent =
+developersContent :: forall w i. Theme.ThemeState -> HH.HTML w i
+developersContent theme =
   HH.div
     [ HP.class_ (HH.ClassName "developers-page")
     , HP.style "padding: 2rem; max-width: 1200px; margin: 0 auto;"
     ]
     [ HH.h1
-        [ HP.style "font-size: 3rem; font-weight: 700; margin-bottom: 2rem; color: white; text-align: center;"
+        [ HP.style $ "font-size: 3rem; font-weight: 700; margin-bottom: 2rem; color: " <> theme.color <> "; text-align: center;"
         ]
         [ HH.text "技術仕様とアーキテクチャ" ]
     
@@ -42,7 +43,7 @@ architectureSection =
     , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
     ]
     [ HH.h2
-        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #333; text-align: center;"
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #32373C; text-align: center;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-building"), HP.style "margin-right: 0.5rem;" ] []
         , HH.text "モジュラー設計" ]
@@ -52,7 +53,7 @@ architectureSection =
         [ layerCard "P2Pネットワーク層" "WebRTC による直接通信" "network" "#e74c3c"
         , layerCard "データ同期層" "CRDTによる状態管理" "sync" "#f39c12"
         , layerCard "実行層" "Rustベースの処理エンジン" "execution" "#27ae60"
-        , layerCard "ストレージ層" "分散データストレージ" "storage" "#3498db"
+        , layerCard "ストレージ層" "分散データストレージ" "storage" "#0095d9"
         ]
     ]
 
@@ -63,7 +64,7 @@ uniquenessSection =
     , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
     ]
     [ HH.h2
-        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #333; text-align: center;"
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #32373C; text-align: center;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-lightbulb"), HP.style "margin-right: 0.5rem;" ] []
         , HH.text "技術的イノベーション" ]
@@ -77,14 +78,14 @@ uniquenessSection =
             , "ネットワーク分断時も動作継続"
             , "マージ時の自動調整"
             ]
-        , innovationCard "WebRTCネイティブ通信"
+        , innovationCardBlue "WebRTCネイティブ通信"
             "ブラウザ標準技術を活用した革新的なP2P通信"
             [ "NAT/ファイアウォール透過"
             , "STUN/TURNによる接続確立"
             , "低レイテンシデータチャネル"
             , "メディアストリーム対応"
             ]
-        , innovationCard "完全モジュラー設計"
+        , innovationCardBlue "完全モジュラー設計"
             "各層が独立して動作・交換可能な真のモジュラー構造"
             [ "層間の疎結合"
             , "プロトコル独立性"
@@ -108,7 +109,7 @@ implementationSection =
     , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
     ]
     [ HH.h2
-        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #333; text-align: center;"
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #32373C; text-align: center;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-cogs"), HP.style "margin-right: 0.5rem;" ] []
         , HH.text "実装詳細" ]
@@ -129,7 +130,7 @@ quickStartSection =
     , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
     ]
     [ HH.h2
-        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #333; text-align: center;"
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #32373C; text-align: center;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-rocket"), HP.style "margin-right: 0.5rem;" ] []
         , HH.text "クイックスタート" ]
@@ -137,22 +138,22 @@ quickStartSection =
         [ HP.style "max-width: 800px; margin: 0 auto;"
         ]
         [ HH.h3
-            [ HP.style "font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #333;"
+            [ HP.style "font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #32373C;"
             ]
             [ HH.text "環境構築" ]
         , HH.pre
-            [ HP.style "background: #1a1a1a; color: #f0f0f0; padding: 1.5rem; border-radius: 8px; overflow-x: auto; margin-bottom: 2rem;"
+            [ HP.style "background: #32373C; color: #f0f0f0; padding: 1.5rem; border-radius: 8px; overflow-x: auto; margin-bottom: 2rem;"
             ]
             [ HH.code_
                 [ HH.text "# リポジトリのクローン\ngit clone https://github.com/PolyTorus/polytorus.git\ncd polytorus\n\n# 依存関係のインストール\ncargo build --release\n\n# ローカルノードの起動\ncargo run -- node --dev"
                 ]
             ]
         , HH.h3
-            [ HP.style "font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #333;"
+            [ HP.style "font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #32373C;"
             ]
             [ HH.text "基本的な使用例" ]
         , HH.pre
-            [ HP.style "background: #1a1a1a; color: #f0f0f0; padding: 1.5rem; border-radius: 8px; overflow-x: auto; margin-bottom: 2rem;"
+            [ HP.style "background: #32373C; color: #f0f0f0; padding: 1.5rem; border-radius: 8px; overflow-x: auto; margin-bottom: 2rem;"
             ]
             [ HH.code_
                 [ HH.text "use polytorus::{Node, PeerConnection};\n\n// ノードの初期化\nlet mut node = Node::new().await?;\n\n// ピアへの接続\nnode.connect_peer(\"peer_address\").await?;\n\n// データの同期\nlet data = node.sync_data().await?;\n\n// P2Pメッセージの送信\nnode.broadcast_message(\"Hello, peers!\").await?;"
@@ -168,7 +169,7 @@ testingSection =
     , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
     ]
     [ HH.h2
-        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #333; text-align: center;"
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #32373C; text-align: center;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-flask"), HP.style "margin-right: 0.5rem;" ] []
         , HH.text "テスト環境" ]
@@ -176,12 +177,12 @@ testingSection =
         [ HP.style "max-width: 800px; margin: 0 auto;"
         ]
         [ HH.p
-            [ HP.style "font-size: 1.2rem; color: #666; margin-bottom: 2rem; line-height: 1.6;"
+            [ HP.style "font-size: 1.2rem; color: #32373C; margin-bottom: 2rem; line-height: 1.6;"
             ]
             [ HH.text "Dockerベースのテスト環境で複数ノードのP2Pネットワークをローカルで再現。WebRTC接続、データ同期、障害シナリオを簡単にテスト可能。"
             ]
         , HH.pre
-            [ HP.style "background: #1a1a1a; color: #f0f0f0; padding: 1.5rem; border-radius: 8px; overflow-x: auto;"
+            [ HP.style "background: #32373C; color: #f0f0f0; padding: 1.5rem; border-radius: 8px; overflow-x: auto;"
             ]
             [ HH.code_
                 [ HH.text "# テストネット用Dockerイメージのビルド\ndocker build -f Dockerfile.testnet -t polytorus:testnet .\n\n# 3ノードテストネットのデプロイ\n./scripts/manual-test.sh start\n\n# ログの確認\ndocker logs polytorus-node-1\n\n# テストの実行\ncargo test --release"
@@ -197,7 +198,7 @@ enterpriseSection =
     , HP.style "margin-bottom: 4rem; background: rgba(255,255,255,0.95); border-radius: 16px; padding: 3rem;"
     ]
     [ HH.h2
-        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #333; text-align: center;"
+        [ HP.style "font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #32373C; text-align: center;"
         ]
         [ HH.i [ HP.class_ (HH.ClassName "fas fa-building"), HP.style "margin-right: 0.5rem;" ] []
         , HH.text "エンタープライズサービス" ]
@@ -233,7 +234,7 @@ enterpriseSection =
             [ HP.style "background: #f8f9fa; padding: 2rem; border-radius: 12px;"
             ]
             [ HH.h3
-                [ HP.style "font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #333;"
+                [ HP.style "font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #32373C;"
                 ]
                 [ HH.text "導入事例・ユースケース" ]
             , HH.div
@@ -259,7 +260,7 @@ layerCard title description layer color =
         ]
         [ HH.text title ]
     , HH.p
-        [ HP.style "color: #666; font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem;"
+        [ HP.style "color: #32373C; font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem;"
         ]
         [ HH.text description ]
     , HH.code
@@ -274,11 +275,11 @@ implementationCard title subtitle details =
     [ HP.style "background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
     ]
     [ HH.h3
-        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;"
+        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: #32373C;"
         ]
         [ HH.text title ]
     , HH.p
-        [ HP.style "color: #666; font-weight: 500; margin-bottom: 1rem;"
+        [ HP.style "color: #32373C; font-weight: 500; margin-bottom: 1rem;"
         ]
         [ HH.text subtitle ]
     , HH.p
@@ -288,16 +289,22 @@ implementationCard title subtitle details =
     ]
 
 innovationCard :: forall w i. String -> String -> Array String -> HH.HTML w i
-innovationCard title description features =
+innovationCard = innovationCardWithColor "#E60012"
+
+innovationCardBlue :: forall w i. String -> String -> Array String -> HH.HTML w i
+innovationCardBlue = innovationCardWithColor "#0095d9"
+
+innovationCardWithColor :: forall w i. String -> String -> String -> Array String -> HH.HTML w i
+innovationCardWithColor color title description features =
   HH.div
-    [ HP.style "background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-left: 4px solid #667eea;"
+    [ HP.style $ "background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-left: 4px solid " <> color <> ";"
     ]
     [ HH.h3
-        [ HP.style "font-size: 1.4rem; font-weight: 600; margin-bottom: 0.8rem; color: #333;"
+        [ HP.style "font-size: 1.4rem; font-weight: 600; margin-bottom: 0.8rem; color: #32373C;"
         ]
         [ HH.text title ]
     , HH.p
-        [ HP.style "color: #666; margin-bottom: 1.5rem; line-height: 1.6;"
+        [ HP.style "color: #32373C; margin-bottom: 1.5rem; line-height: 1.6;"
         ]
         [ HH.text description ]
     , HH.ul
@@ -308,23 +315,23 @@ innovationCard title description features =
   where
     featureItem feature =
       HH.li
-        [ HP.style "display: flex; align-items: center; gap: 0.5rem; color: #555; font-size: 0.95rem;"
+        [ HP.style "display: flex; align-items: center; gap: 0.5rem; color: #32373C; font-size: 0.95rem;"
         ]
-        [ HH.i [ HP.class_ (HH.ClassName "fas fa-check-circle"), HP.style "color: #667eea; font-size: 0.9rem;" ] []
+        [ HH.i [ HP.class_ (HH.ClassName "fas fa-check-circle"), HP.style "color: #E60012; font-size: 0.9rem;" ] []
         , HH.span_ [ HH.text feature ]
         ]
 
 serviceCard :: forall w i. String -> String -> Array String -> HH.HTML w i
 serviceCard title description features =
   HH.div
-    [ HP.style "background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-top: 3px solid #667eea;"
+    [ HP.style "background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-top: 3px solid #E60012;"
     ]
     [ HH.h3
-        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 0.8rem; color: #333;"
+        [ HP.style "font-size: 1.3rem; font-weight: 600; margin-bottom: 0.8rem; color: #32373C;"
         ]
         [ HH.text title ]
     , HH.p
-        [ HP.style "color: #666; margin-bottom: 1.5rem; line-height: 1.6;"
+        [ HP.style "color: #32373C; margin-bottom: 1.5rem; line-height: 1.6;"
         ]
         [ HH.text description ]
     , HH.ul
@@ -335,9 +342,9 @@ serviceCard title description features =
   where
     serviceFeatureItem feature =
       HH.li
-        [ HP.style "display: flex; align-items: center; gap: 0.5rem; color: #555; font-size: 0.9rem;"
+        [ HP.style "display: flex; align-items: center; gap: 0.5rem; color: #32373C; font-size: 0.9rem;"
         ]
-        [ HH.i [ HP.class_ (HH.ClassName "fas fa-arrow-right"), HP.style "color: #667eea; font-size: 0.8rem;" ] []
+        [ HH.i [ HP.class_ (HH.ClassName "fas fa-arrow-right"), HP.style "color: #E60012; font-size: 0.8rem;" ] []
         , HH.span_ [ HH.text feature ]
         ]
 
@@ -347,15 +354,15 @@ useCaseCard industry application benefit =
     [ HP.style "background: white; padding: 1.5rem; border-radius: 8px; text-align: center;"
     ]
     [ HH.h4
-        [ HP.style "font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;"
+        [ HP.style "font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #32373C;"
         ]
         [ HH.text industry ]
     , HH.p
-        [ HP.style "color: #666; font-size: 0.9rem; margin-bottom: 0.5rem;"
+        [ HP.style "color: #32373C; font-size: 0.9rem; margin-bottom: 0.5rem;"
         ]
         [ HH.text application ]
     , HH.span
-        [ HP.style "color: #667eea; font-size: 0.8rem; font-weight: 500;"
+        [ HP.style "color: #E60012; font-size: 0.8rem; font-weight: 500;"
         ]
         [ HH.text benefit ]
     ]
