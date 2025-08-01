@@ -33,7 +33,9 @@
       "Bash(python3:*)",
       "Bash(npm run purs:build:*)",
       "Bash(git pull:*)",
-      "Bash(git rebase:*)"
+      "Bash(git rebase:*)",
+      "Bash(npm run serve:*)",
+      "WebFetch(domain:127.0.0.1)"
     ],
     "deny": []
   }
